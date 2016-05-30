@@ -34,6 +34,20 @@ QmlControler::QmlControler(QWidget *parent) :
     ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+
+    m_commentData << "1";
+    m_commentData << "2";
+    m_commentData << "3";
+    m_commentData << "4";
+    m_commentData << "5";
+    m_commentData << "6";
+    m_commentData << "7";
+    m_commentData << "8";
+    m_commentData << "9";
+    m_commentData << "10";
+    m_commentData << "11";
+
+
 }
 
 QmlControler::~QmlControler()
@@ -64,10 +78,20 @@ void QmlControler::initConnection()
 void QmlControler::currentPageHasChanged(int i)
 {
     QImage img = m_window->grabWindow();
+
+    if(img.isNull())
+        return;
+
+
     m_ratioImage = (double)img.size().width()/img.size().height();
     m_ratioImageBis = (double)img.size().height()/img.size().width();
 
     m_label->setPixmap(QPixmap::fromImage(img));
+
+    if((i+1>=0)&&(i+1<m_commentData.size()))
+    {
+        ui->textEdit->setHtml(m_commentData.at(i+1));
+    }
     resizeLabel();
 }
 void QmlControler::resizeLabel()
