@@ -44,18 +44,13 @@ Rectangle {
 
     ListView {
         id: listView1
-        x: 454
-        y: 342
-        width: 958
-        height: 690
-        spacing: 30
+        x: Screen.width/4
+        y: Screen.height/4
+        width: Screen.width/2
+        height: Screen.height/2
         delegate: Item {
-            x: 5
-            width: 80
-            height: 40
-            Row {
-                id: row1
-
+            width: Screen.width/2
+            height: listView1.height/listView1.count
                 Text {
                     color: "black"
                     text: name
@@ -63,8 +58,6 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
-                spacing: 40
-            }
         }
         model: ListModel {
             ListElement {
