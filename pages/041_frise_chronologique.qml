@@ -520,11 +520,12 @@ SUM:                           331           7430          13513          41088
            width: Screen.width/4
            anchors.top: frise.bottom
            anchors.bottom: parent.bottom
+           anchors.bottomMargin: 200
            anchors.horizontalCenter: parent.horizontalCenter
            anchors.horizontalCenterOffset: -Screen.width/8
            focus: true
            spacing: Screen.height*0.01
-           highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+           highlight: Rectangle { color: "lightsteelblue"; radius: 5;  }//height:Screen.height/50+200
 
           Timer {
                id: trigger
@@ -534,32 +535,34 @@ SUM:                           331           7430          13513          41088
            }
            delegate: Item {
                width: Screen.width/1.5
-               height: 30
+               height: Screen.height/50
                Row {
                    id: row1
-
                    Text {
                        color: "black"
                        width: Screen.width/120
                        text: index
-                       font.pointSize: Screen.height/50
+                       font.pixelSize: Screen.height/50
                        anchors.verticalCenter: parent.verticalCenter
+                       verticalAlignment: Qt.AlignTop
                    }
                    Text {
                        color: "black"
                        width: Screen.width/8
                        text: date
-                       font.pointSize:Screen.height/50
+                       font.pixelSize:Screen.height/50
                        anchors.verticalCenter: parent.verticalCenter
+                       verticalAlignment: Qt.AlignTop
                    }
                    Text {
                        color: "black"
                        width: Screen.width/10
                        text: desc
-                       font.pointSize: Screen.height/50
+                       font.pixelSize: Screen.height/50
                        anchors.verticalCenter: parent.verticalCenter
+                       verticalAlignment: Qt.AlignTop
                    }
-                   spacing: 40
+                   spacing: 50
                }
            }
            Keys.onUpPressed: {
