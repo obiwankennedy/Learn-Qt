@@ -15,13 +15,10 @@ Rectangle {
 
     Image {
         id: image1
-        width: 400
-        height: 215
-        anchors.horizontalCenterOffset: -760
-        anchors.topMargin: 0
-        fillMode: Image.PreserveAspectFit
+        anchors.left: parent.left
         anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.leftMargin: Screen.width*0.05
+        fillMode: Image.PreserveAspectFit
         source: "qrc:/rsrc/Rolisteam.svg"
     }
 
@@ -45,17 +42,13 @@ Rectangle {
 
     ListView {
         id: listView1
-        x: 454
-        y: 342
-        width: 958
-        height: 690
-        spacing: 40
+        x: Screen.width/4
+        y: Screen.height/4
+        width: Screen.width/2
+        height: Screen.height/2
         delegate: Item {
-            x: 5
-            width: 80
-            height: 40
-            Row {
-                id: row1
+            width: Screen.width/2
+            height: listView1.height/listView1.count
                 Text {
                     color: "black"
                     text: name
@@ -63,8 +56,6 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
-                spacing: 40
-            }
         }
         model: ListModel {
             ListElement {

@@ -16,13 +16,10 @@ Rectangle {
 
     Image {
         id: image1
-        width: 400
-        height: 215
-        anchors.horizontalCenterOffset: -760
-        anchors.topMargin: 0
-        fillMode: Image.PreserveAspectFit
+        anchors.left: parent.left
         anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.leftMargin: Screen.width*0.05
+        fillMode: Image.PreserveAspectFit
         source: "qrc:/rsrc/Rolisteam.svg"
     }
 
@@ -526,7 +523,7 @@ SUM:                           331           7430          13513          41088
            anchors.horizontalCenter: parent.horizontalCenter
            anchors.horizontalCenterOffset: -Screen.width/8
            focus: true
-           spacing: 30
+           spacing: Screen.height*0.01
            highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
 
           Timer {
