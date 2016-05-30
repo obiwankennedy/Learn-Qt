@@ -84,7 +84,7 @@ ApplicationWindow {
             id: trigger
             interval: 10
             repeat: false
-            onTriggered: app.currentItemChanged(view.currentItem)
+            onTriggered: app.currentItemChanged(view.currentIndex)
         }
 
         onOffsetChanged: {
@@ -101,6 +101,17 @@ ApplicationWindow {
         Keys.onRightPressed:{
             incrementCurrentIndex()
         }
+        Keys.onEscapePressed: {
+            if(app.visibility === Window.FullScreen)
+            {
+                app.visibility = Window.Windowed;
+            }
+            else
+            {
+                app.visibility = Window.FullScreen;
+            }
+        }
+
         path: Path {
             startX: view.width/2
             startY: view.height/2
