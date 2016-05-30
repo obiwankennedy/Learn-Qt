@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>pages/01_intro.qml</file>
+        <file>pages/02_presentation.qml</file>
+        <file>pages/03_jdr_et_rolisteam.qml</file>
+        <file>rsrc/RPG-2009-Berlin-2.jpg</file>
+        <file>rsrc/ubuntu.png</file>
+        <file>pages/021_raisons.qml</file>
+        <file>rsrc/Rolisteam.svg</file>
+        <file>pages/031_les_trucs_cool_du_jdr.qml</file>
+        <file>pages/032_jdrEnLigne.qml</file>
+        <file>rsrc/cc.png</file>
+        <file>pages/04_Rolistik_a_Rolisteam.qml</file>
+        <file>pages/041_frise_chronologique.qml</file>
+        <file>pages/042_Exemple_code_1.qml</file>
+        <file>pages/042_comment_ça_marche.qml</file>
+    </qresource>
+</RCC>
