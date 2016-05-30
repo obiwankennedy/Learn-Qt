@@ -13,7 +13,7 @@
         <file>rsrc/cc.png</file>
         <file>pages/04_Rolistik_a_Rolisteam.qml</file>
         <file>pages/041_frise_chronologique.qml</file>
-        <file>pages/042_Exemple_code_1.qml</file>
         <file>pages/042_comment_ça_marche.qml</file>
+        <file>pages/043_Exemple_code_1.qml</file>
     </qresource>
 </RCC>
