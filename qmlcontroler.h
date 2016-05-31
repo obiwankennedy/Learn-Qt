@@ -47,6 +47,8 @@ protected:
     void resizeEvent(QResizeEvent *event);
     void resizeLabel();
     void closeEvent(QCloseEvent *);
+    void showEvent(QShowEvent *);
+    bool eventFilter(QObject *, QEvent *);
 private:
     Ui::QmlControler *ui;
     QQmlApplicationEngine* m_engine;
@@ -55,6 +57,7 @@ private:
     QLabel* m_label;
     qreal m_ratioImage;
     qreal m_ratioImageBis;
+    int m_currentScreen;
 
 };
 

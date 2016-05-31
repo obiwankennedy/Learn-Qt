@@ -35,6 +35,7 @@ QmlControler::QmlControler(QWidget *parent) :
     ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
 
+    //connect(m_label)
     m_commentData << "1";
     m_commentData << "2";
     m_commentData << "3";
@@ -47,12 +48,25 @@ QmlControler::QmlControler(QWidget *parent) :
     m_commentData << "10";
     m_commentData << "11";
 
+    m_currentScreen = 0;
 
+    ui->scrollArea->installEventFilter(this);
 }
 
 QmlControler::~QmlControler()
 {
     delete ui;
+}
+bool QmlControler::eventFilter(QObject* label, QEvent* vt)
+{
+    if(label==ui->scrollArea)
+    {
+        if(vt->type() == QEvent::Resize)
+        {
+            resizeLabel();
+        }
+    }
+    return false;
 }
 
 QQmlApplicationEngine *QmlControler::getEngine() const
@@ -77,6 +91,7 @@ void QmlControler::initConnection()
 }
 void QmlControler::currentPageHasChanged(int i)
 {
+    m_currentScreen = i;
     QImage img = m_window->grabWindow();
 
     if(img.isNull())
@@ -119,4 +134,8 @@ void QmlControler::closeEvent(QCloseEvent* closeEvnt)
 {
      m_window->close();
      QMainWindow::closeEvent(closeEvnt);
+}
+void QmlControler::showEvent(QShowEvent * nt)
+{
+    QMainWindow::showEvent(nt);
 }

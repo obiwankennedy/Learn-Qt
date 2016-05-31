@@ -14,14 +14,12 @@ Rectangle {
     focus: true
     Image {
         id: image1
-        width: 400
-        height: 215
-        anchors.horizontalCenterOffset: -760
-        anchors.topMargin: 0
-        fillMode: Image.PreserveAspectFit
+        anchors.left: parent.left
         anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.leftMargin: Screen.width*0.04
+        fillMode: Image.PreserveAspectFit
         source: "qrc:/rsrc/Rolisteam.svg"
+        width: Screen.width*0.2
     }
 
     Text {

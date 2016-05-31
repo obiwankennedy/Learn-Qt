@@ -15,9 +15,10 @@ Rectangle {
         id: image1
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.leftMargin: Screen.width*0.05
+        anchors.leftMargin: Screen.width*0.04
         fillMode: Image.PreserveAspectFit
         source: "qrc:/rsrc/Rolisteam.svg"
+        width: Screen.width*0.2
     }
 
     Text {

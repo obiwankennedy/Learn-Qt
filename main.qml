@@ -64,7 +64,7 @@ ApplicationWindow {
             }
         }
     //Component.onCompleted: app.currentItemChanged(0)
-    onVisibleChanged: app.currentItemChanged(0)
+    onVisibleChanged: trigger.start()
     Rectangle {
         id: rect
         anchors.fill: parent
