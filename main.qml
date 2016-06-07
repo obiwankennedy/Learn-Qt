@@ -6,7 +6,9 @@ import QtQuick.Dialogs 1.2
 
 ApplicationWindow {
     id: app
-    visibility: Window.FullScreen;
+    //visibility: Window.FullScreen;
+    width: ScreenW
+    height: ScreenH
     visible: true
     title: qsTr("Rolisteam: Libérez vos parties!")
     signal currentItemChanged(int current)
@@ -62,6 +64,37 @@ ApplicationWindow {
                 path: "043_Exemple_code_1.qml"
                 time: 1
             }
+            ListElement {
+                name: "Le réseau"
+                path: "044_avancees_techniques.qml"
+                time: 1
+            }
+            ListElement {
+                name: "Le réseau"
+                path: "045_dice_parser.qml"
+                time: 1
+            }
+            ListElement {
+                name: "Vectoriel"
+                path: "046_vectoriel.qml"
+                time: 1
+            }
+            ListElement {
+                name: "Le réseau"
+                path: "047_autres.qml"
+                time: 1
+            }
+            ListElement {
+                name: "Le réseau"
+                path: "048_reussites.qml"
+                time: 1
+            }
+            ListElement {
+                name: "Le réseau"
+                path: "049_echecs.qml"
+                time: 1
+            }
+
         }
     //Component.onCompleted: app.currentItemChanged(0)
     onVisibleChanged: trigger.start()

@@ -3,17 +3,17 @@ import QtQuick.Window 2.2
 
 Rectangle {
     id: rectangle1
-    width: Screen.width
-    height: Screen.height
-    //    height: 600
+    width: ScreenW //ScreenW
+    height: ScreenH //ScreenH
+    //  height: 600
     //  anchors.centerIn: parent
     border.width: 0
     color: "#E3E3E3"
 
     Image {
         id: image1
-        width: Screen.width*0.75
-        height: Screen.height*0.75
+        width: ScreenW*0.75
+        height: ScreenH*0.75
         fillMode: Image.PreserveAspectFit
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
@@ -24,16 +24,15 @@ Rectangle {
         id: text1
         anchors.top:image1.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-
-        width: 833
-        height: 191
+        width: ScreenW*0.5
+        height: ScreenH*0.1
         color: "black"
         text: qsTr("Libérez vos parties!")
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: Screen.height/20
+        font.pixelSize: ScreenH/20
     }
 
     Text {
@@ -41,16 +40,16 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         text: qsTr("Renaud Guezennec")
-        font.pixelSize: Screen.height/25
+        font.pixelSize: ScreenH/25
     }
 
     Image {
         id: image2
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        anchors.leftMargin: 100
-        width: 100
-        height: 100
+        anchors.leftMargin: ScreenW*0.01
+        width: ScreenW*0.1
+        height: ScreenH*0.1
         fillMode: Image.PreserveAspectFit
         source: "qrc:/rsrc/cc.png"
     }

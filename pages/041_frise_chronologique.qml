@@ -6,40 +6,40 @@ import QtWebView 1.1
 
 Rectangle {
     id: rectangle1
-    width: Screen.width
-    height: Screen.height
+    width: ScreenW
+    height: ScreenH
     //    height: 600
     //  anchors.centerIn: parent
     border.color: "#E3E3E3"
-    border.width: 5
+    border.width: 3
     color: "#E3E3E3"
 
     Image {
         id: image1
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.leftMargin: Screen.width*0.04
+        anchors.leftMargin: ScreenW*0.04
         fillMode: Image.PreserveAspectFit
         source: "qrc:/rsrc/Rolisteam.svg"
-        width: Screen.width*0.2
+        width: ScreenW*0.2
     }
 
     Text {
         id: text1
-        anchors.top:image1.bottom
+        anchors.top:image1.top
         anchors.horizontalCenter: parent.horizontalCenter
-
-        width: Screen.width/6
-        height: 191
+        anchors.bottom: image1.bottom
+        width: ScreenW*0.5
+        height: ScreenH*0.01
         color: "black"
         text: qsTr("La chronologie")
         anchors.horizontalCenterOffset: 1
-        anchors.topMargin: -203
+        //anchors.topMargin: -203
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: Screen.height/20
+        font.pixelSize: ScreenH/20
     }
 
     Canvas {
@@ -48,9 +48,9 @@ Rectangle {
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: -200
-        height: Screen.height/4
+        height: ScreenH/4
         onPaint : {
-            var heightOfArrow = Screen.height/20
+            var heightOfArrow = ScreenH/20
             var lineW = 4
             var ctx = getContext("2d")
             //ctx.fillStyle = Qt.rgba(0, 0, 0, 1);
@@ -87,12 +87,12 @@ Rectangle {
     }
     Rectangle {//24 janvier 2009
         id: date1
-        x: 0.08*Screen.width/8
+        x: 0.08*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: 0
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 0
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -103,19 +103,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+            font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
         color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {
-        x: 0.9*Screen.width/8
+        x: 0.9*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: -frise.height/4
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 1
         scale: listView1.currentIndex === 1 ? 1.2 : 1.0
         visible: listView1.currentIndex >= 1 ? true : false
@@ -126,19 +126,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+            font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
         color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//10 janvier 2010
-        x: 1*Screen.width/8+0.02*Screen.width/8
+        x: 1*ScreenW/8+0.02*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4 + Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4 +   ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 2
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -149,19 +149,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
         color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {
-        x: 1*Screen.width/8+0.08*Screen.width/8
+        x: 1*ScreenW/8+0.08*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4 + 2*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4 + 2*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 3
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -172,19 +172,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
         color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {
-        x: 1*Screen.width/8+0.11*Screen.width/8
+        x: 1*ScreenW/8+0.11*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4 + 3*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4 + 3*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 4
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -195,19 +195,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
         color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {
-        x: 1*Screen.width/8+0.8*Screen.width/8
+        x: 1*ScreenW/8+0.8*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: 0
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 5
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -218,19 +218,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//22 octobre 2011
-        x: 2*Screen.width/8+0.7*Screen.width/8
+        x: 2*ScreenW/8+0.7*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: -frise.height/4
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 6
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -241,19 +241,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//26 octobre 2011
-        x: 2*Screen.width/8+0.75*Screen.width/8
+        x: 2*ScreenW/8+0.75*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 7
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -264,19 +264,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//30 octobre 2011
-        x: 2*Screen.width/8+0.78*Screen.width/8
+        x: 2*ScreenW/8+0.78*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+2*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+2*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 8
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -287,19 +287,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//29 novembre 2011
-        x: 2*Screen.width/8+0.85*Screen.width/8
+        x: 2*ScreenW/8+0.85*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+3*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+3*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 9
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -310,19 +310,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//16 novembre 2013
-        x: 4*Screen.width/8+0.81*Screen.width/8
+        x: 4*ScreenW/8+0.81*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: 0
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 10
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -333,19 +333,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//29 décembre 2013
-        x: 4*Screen.width/8+0.99*Screen.width/8
+        x: 4*ScreenW/8+0.99*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset:   ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 11
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -356,19 +356,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//12 février 2015
-        x: 6*Screen.width/8+0.02*Screen.width/8
+        x: 6*ScreenW/8+0.02*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: -frise.height/4
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 12
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -379,19 +379,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//18 février 2015
-        x: 6*Screen.width/8+0.03*Screen.width/8
+        x: 6*ScreenW/8+0.03*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 13
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -402,19 +402,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//27 mai 2015
-        x: 6*Screen.width/8+0.40*Screen.width/8
+        x: 6*ScreenW/8+0.40*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+2*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+2*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 14
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -425,19 +425,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//22 août 2015
-        x: 6*Screen.width/8+0.55*Screen.width/8
+        x: 6*ScreenW/8+0.55*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+3*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+3*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 15
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -448,19 +448,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//22 août 2015
-        x: 6*Screen.width/8+0.6*Screen.width/8
+        x: 6*ScreenW/8+0.6*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+4*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+4*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 16
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -471,19 +471,19 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: Screen.height/50
+                        font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
     Rectangle {//Pas Sage en seine
-        x: 7*Screen.width/8+0.55*Screen.width/8
+        x: 7*ScreenW/8+0.55*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
-        anchors.verticalCenterOffset: -frise.height/4+4*Screen.width/50
-        width: Screen.width/50
-        height: Screen.width/50
-        radius: Screen.width/25
+        anchors.verticalCenterOffset: -frise.height/4+4*  ScreenW/48
+        width:   ScreenW/48
+        height:   ScreenW/48
+        radius: ScreenW/25
         property int index: 17
         scale: listView1.currentIndex === index ? 1.2 : 1.0
         visible: listView1.currentIndex >= index ? true : false
@@ -494,9 +494,9 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-            font.pixelSize: Screen.height/50
+            font.pixelSize: ScreenH/60
         }
-        border.width: 5
+        border.width: 3
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
@@ -518,15 +518,15 @@ SUM:                           331           7430          13513          41088
 */
        ListView {
            id: listView1
-           width: Screen.width/4
+           width: ScreenW/2
            anchors.top: frise.bottom
            anchors.bottom: parent.bottom
-           anchors.bottomMargin: 200
+           anchors.bottomMargin: 100
            anchors.horizontalCenter: parent.horizontalCenter
-           anchors.horizontalCenterOffset: -Screen.width/8
+           //anchors.horizontalCenterOffset: -ScreenW/8
            focus: true
-           spacing: Screen.height*0.01
-           highlight: Rectangle { color: "lightsteelblue"; radius: 5;  }//height:Screen.height/50+200
+           spacing: ScreenH*0.01
+           highlight: Rectangle { color: "lightsteelblue"; radius: 5;  }//height:ScreenH/50+200
 
           Timer {
                id: trigger
@@ -535,31 +535,31 @@ SUM:                           331           7430          13513          41088
                onTriggered: app.currentItemChanged(view.currentItem)
            }
            delegate: Item {
-               width: Screen.width/1.5
-               height: Screen.height/50
+               width: ScreenW/1.5
+               height: ScreenH/50
                Row {
                    id: row1
                    Text {
                        color: "black"
-                       width: Screen.width/120
+                       width: ScreenW/120
                        text: index
-                       font.pixelSize: Screen.height/50
+                       font.pixelSize: ScreenH/50
                        anchors.verticalCenter: parent.verticalCenter
                        verticalAlignment: Qt.AlignTop
                    }
                    Text {
                        color: "black"
-                       width: Screen.width/8
+                       width: ScreenW/8
                        text: date
-                       font.pixelSize:Screen.height/50
+                       font.pixelSize:ScreenH/50
                        anchors.verticalCenter: parent.verticalCenter
                        verticalAlignment: Qt.AlignTop
                    }
                    Text {
                        color: "black"
-                       width: Screen.width/10
+                       width: ScreenW/10
                        text: desc
-                       font.pixelSize: Screen.height/50
+                       font.pixelSize: ScreenH/50
                        anchors.verticalCenter: parent.verticalCenter
                        verticalAlignment: Qt.AlignTop
                    }
@@ -672,19 +672,19 @@ SUM:                           331           7430          13513          41088
             id: text2
             anchors.verticalCenter: frise.verticalCenter
             anchors.right: frise.right
-            anchors.rightMargin: Screen.width/28
+            anchors.rightMargin: ScreenW/28
             text: qsTr("2016")
-            font.pixelSize: Screen.height/20
+            font.pixelSize: ScreenH/20
         }
 
         Text {
             id: text3
             anchors.verticalCenter: frise.verticalCenter
             anchors.left: frise.left
-            anchors.leftMargin: Screen.width/28
+            anchors.leftMargin: ScreenW/28
             text: qsTr("2009")
             horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: Screen.height/20
+            font.pixelSize: ScreenH/20
         }
 
 }

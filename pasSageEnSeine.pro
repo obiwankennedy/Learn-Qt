@@ -5,7 +5,8 @@ QT += qml quick widgets
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    qmlcontroler.cpp
+    qmlcontroler.cpp \
+    cpphighlighter.cpp
 
 RESOURCES += qml.qrc
 
@@ -18,7 +19,8 @@ include(deployment.pri)
 OTHER_FILES += pages/*.qml
 
 HEADERS += \
-    qmlcontroler.h
+    qmlcontroler.h \
+    cpphighlighter.h
 
 FORMS += \
     qmlcontroler.ui

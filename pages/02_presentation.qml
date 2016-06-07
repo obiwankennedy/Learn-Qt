@@ -3,8 +3,8 @@ import QtQuick.Window 2.2
 
 Rectangle {
     id: rectangle1
-    width: Screen.width
-    height: Screen.height
+    width: ScreenW
+    height: ScreenH
     //    height: 600
     //  anchors.centerIn: parent
     border.color: "#E3E3E3"
@@ -17,43 +17,44 @@ Rectangle {
         id: image1
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.leftMargin: Screen.width*0.04
+        anchors.leftMargin: ScreenW*0.04
         fillMode: Image.PreserveAspectFit
         source: "qrc:/rsrc/Rolisteam.svg"
-        width: Screen.width*0.2
+        width: ScreenW*0.2
     }
 
     Text {
         id: text1
-        anchors.top:image1.bottom
+        anchors.top:image1.top
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: image1.bottom
 
-        width: 833
-        height: 191
+        width: ScreenW*0.5
+        height: ScreenH*0.05
         color: "black"
         text: qsTr("Le début de Rolisteam")
         anchors.horizontalCenterOffset: 1
-        anchors.topMargin: -203
+        //anchors.topMargin: -203
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: Screen.height/20
+        font.pixelSize: ScreenH/20
     }
 
     ListView {
         id: listView1
-        x: Screen.width/4
-        y: Screen.height/4
-        width: Screen.width/2
-        height: Screen.height/2
+        x: ScreenW/4
+        y: ScreenH/4
+        width: ScreenW/2
+        height: ScreenH/2
         delegate: Item {
-            width: Screen.width/2
+            width: ScreenW/2
             height: listView1.height/listView1.count
                 Text {
                     color: "black"
                     text: name
-                    font.pointSize: Screen.height/28
+                    font.pointSize: ScreenH/28
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }

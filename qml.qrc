@@ -15,5 +15,14 @@
         <file>pages/041_frise_chronologique.qml</file>
         <file>pages/042_comment_ça_marche.qml</file>
         <file>pages/043_Exemple_code_1.qml</file>
+        <file>rsrc/Rolisteam1.8.png</file>
+        <file>rsrc/Rolisteam1.png</file>
+        <file>rsrc/rolistik.png</file>
+        <file>pages/044_avancees_techniques.qml</file>
+        <file>pages/045_dice_parser.qml</file>
+        <file>pages/046_vectoriel.qml</file>
+        <file>pages/047_autres.qml</file>
+        <file>pages/048_reussites.qml</file>
+        <file>pages/049_echec.qml</file>
     </qresource>
 </RCC>

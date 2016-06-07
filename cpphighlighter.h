@@ -20,11 +20,32 @@
 #ifndef CPPHIGHLIGHTER_H
 #define CPPHIGHLIGHTER_H
 
+#include <QSyntaxHighlighter>
 
-class CppHighLighter : public QSyntaxHightlighter
-{
+class CppHighLighter : public QSyntaxHighlighter
+{    
+    Q_OBJECT
+
 public:
-    CppHighLighter();
+   CppHighLighter(QTextDocument *parent = 0);
+
+protected:
+   void highlightBlock(const QString &text);
+
+private:
+   struct HighlightingRule
+   {
+       QRegExp pattern;
+       QTextCharFormat format;
+   };
+   QVector<HighlightingRule> highlightingRules;
+
+   QTextCharFormat keywordFormat;
+   QTextCharFormat propertyFormat;
+   QTextCharFormat lookupFormat;
+   QTextCharFormat quotationFormat;
+   QTextCharFormat itemFormat;
+   QTextCharFormat cppObjectFormat;
 };
 
 #endif // CPPHIGHLIGHTER_H

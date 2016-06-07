@@ -19,7 +19,76 @@
     ***************************************************************************/
 #include "cpphighlighter.h"
 
-CppHighLighter::CppHighLighter()
+CppHighLighter::CppHighLighter(QTextDocument *parent)
+    : QSyntaxHighlighter(parent)
 {
+    HighlightingRule rule;
 
+    keywordFormat.setForeground(Qt::darkMagenta);
+
+    QStringList keywordPatterns;
+    keywordPatterns << "\\bif\\b" << "\\belse\\b" << "\\breturn\\b"<< "\\bwhile\\b" << "\\bforeach\\b" << "\\bfor\\b" << "\\bvoid\\b"<< "\\bint\\b"<< "\\bfloat\\b"<< "\\bdouble\\b"
+                    << "\\bqint8\\b"
+                    << "\\bquint8\\b"
+                    << "\\bqint16\\b"
+                    << "\\bquint16\\b"
+                    << "\\bqint32\\b"
+                    << "\\bquint32\\b"
+                    << "\\bqint64\\b"
+                    << "\\bquint64\\b"
+                    << "\\bqreal\\b"
+                    << "\\bbool\\b"
+                    << "\\bconst\\b";
+
+    foreach (const QString &pattern, keywordPatterns)
+    {
+        rule.pattern = QRegExp(pattern);
+        rule.format = keywordFormat;
+        highlightingRules.append(rule);
+    }
+
+
+    propertyFormat.setForeground(Qt::darkMagenta);
+    rule.pattern = QRegExp("Q[A-Z][A-z]+");
+    rule.format = propertyFormat;
+    highlightingRules.append(rule);
+
+    lookupFormat.setForeground(Qt::blue);
+    rule.pattern = QRegExp("\\b[0-9]+\\b");
+    rule.format = lookupFormat;
+    highlightingRules.append(rule);
+
+    quotationFormat.setForeground(Qt::green);
+    rule.pattern = QRegExp("\".*\"");
+    rule.format = quotationFormat;
+    highlightingRules.append(rule);
+    rule.pattern = QRegExp("'.*'");
+    rule.format = quotationFormat;
+    highlightingRules.append(rule);
+
+    itemFormat.setForeground(QColor(Qt::darkBlue));
+    rule.pattern =  QRegExp("^#[A-z]+\\b");
+    rule.format = itemFormat;
+    highlightingRules.append(rule);
+
+    cppObjectFormat.setForeground(Qt::darkMagenta);
+    rule.pattern =  QRegExp("\\b[A-z]+::");
+    rule.format = cppObjectFormat;
+    highlightingRules.append(rule);
+
+}
+
+void CppHighLighter::highlightBlock(const QString &text)
+{
+    foreach(const HighlightingRule &rule, highlightingRules)
+    {
+        QRegExp expression(rule.pattern);
+        int index = expression.indexIn(text);
+        while (index >= 0) {
+            int length = expression.matchedLength();
+            setFormat(index, length, rule.format);
+            index = expression.indexIn(text, index + length);
+        }
+    }
+    setCurrentBlockState(0);
 }

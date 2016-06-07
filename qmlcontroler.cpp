@@ -20,6 +20,32 @@
 #include "qmlcontroler.h"
 #include "ui_qmlcontroler.h"
 #include <QDebug>
+#include "cpphighlighter.h"
+#include <QQuickTextDocument>
+
+template <class T> T childObject(QQmlApplicationEngine& engine,
+                                 const QString& objectName,
+                                 const QString& propertyName)
+{
+    QList<QObject*> rootObjects = engine.rootObjects();
+    foreach (QObject* object, rootObjects)
+    {
+        QList<QObject*> children = object->findChildren<QObject*>(objectName);
+        for(auto child : children)
+        {
+            if (child != 0)
+            {
+                std::string s = propertyName.toStdString();
+                QObject* object = child->property(s.c_str()).value<QObject*>();
+                Q_ASSERT(object != 0);
+                T prop = dynamic_cast<T>(object);
+                Q_ASSERT(prop != 0);
+                return prop;
+            }
+        }
+    }
+    return (T) 0;
+}
 
 QmlControler::QmlControler(QWidget *parent) :
     QMainWindow(parent),
@@ -88,6 +114,8 @@ void QmlControler::initConnection()
 
     connect(root,SIGNAL(currentItemChanged(int)),this,SLOT(currentPageHasChanged(int)));
 
+
+
 }
 void QmlControler::currentPageHasChanged(int i)
 {
@@ -108,6 +136,11 @@ void QmlControler::currentPageHasChanged(int i)
         ui->textEdit->setHtml(m_commentData.at(i+1));
     }
     resizeLabel();
+    QQuickTextDocument* doc = childObject<QQuickTextDocument*>(*m_engine, "cppTextEditor", "textDocument");
+    if(NULL!=doc)
+    {
+        new CppHighLighter(doc->textDocument());
+    }
 }
 void QmlControler::resizeLabel()
 {

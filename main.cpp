@@ -20,13 +20,26 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include "qmlcontroler.h"
+#include <QQmlContext>
+#include <QQuickTextDocument>
 
+#include "cpphighlighter.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+
+    engine.rootContext()->setContextProperty("ScreenW",1080);
+    engine.rootContext()->setContextProperty("ScreenH",720);
+
+   /* QTextDocument text(NULL);
+    CppHighLighter cppHighLighter(&text);
+    engine.rootContext()->setContextProperty("_hightedDoc",&text);*/
+    engine.rootContext()->setContextProperty("CppHighLightedDocument",720);
+
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     QmlControler ctr;
