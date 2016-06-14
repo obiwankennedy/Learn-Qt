@@ -153,7 +153,29 @@ ApplicationWindow {
     }
 
 
+   /* 1280 => 1
+    50 => X
 
-
+    x => 50/1280*/
+ /*   Rectangle {
+        color: "yellow"
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 50//ScreenH*0.0390625
+    }
+    Rectangle {
+        color: "yellow"
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        height: 200//ScreenH*0.15625
+        width: 200//ScreenH*0.15625
+    }*/
+    Image {
+        anchors.fill: parent
+        source: "qrc:/rsrc/Masque-Video.png"
+        opacity: 0.5
+        fillMode: Image.Pad
+    }
 
 }

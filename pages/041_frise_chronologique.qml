@@ -505,7 +505,8 @@ Rectangle {
            anchors.top: frise.bottom
            anchors.bottom: parent.bottom
            anchors.bottomMargin: 0
-           anchors.horizontalCenter: parent.horizontalCenter
+           anchors.left: parent.left
+           anchors.leftMargin: ScreenW*0.05
            //anchors.horizontalCenterOffset: -ScreenW/8
            focus: true
            //spacing: ScreenH*0.01

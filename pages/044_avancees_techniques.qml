@@ -43,7 +43,7 @@ Rectangle {
         x: ScreenW/4
         y: ScreenH/4
         width: ScreenW/2
-        height: ScreenH/2
+        height: ScreenH/2.2
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count

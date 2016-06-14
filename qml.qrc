@@ -28,5 +28,6 @@
         <file>rsrc/ircDice.png</file>
         <file>rsrc/diceColor.png</file>
         <file>pages/05_rolisteam_jdr.qml</file>
+        <file>rsrc/Masque-Video.png</file>
     </qresource>
 </RCC>

@@ -23,13 +23,14 @@ Rectangle {
     Text {
         id: text1
         anchors.top:image1.top
-        anchors.horizontalCenter: parent.horizontalCenter
+        //anchors.horizontalCenter: parent.horizontalCenter
+        anchors.left: image1.right
         anchors.bottom: image1.bottom
-        width: ScreenW*0.5
+        //width: ScreenW*0.5
+        anchors.right: parent.right
         height: ScreenH*0.01
         color: "black"
         text: qsTr("DiceParser: Le système de dés")
-        anchors.horizontalCenterOffset: 1
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter

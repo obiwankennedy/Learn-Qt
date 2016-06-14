@@ -45,7 +45,8 @@ Rectangle {
 
     Image {
         id: image2
-        anchors.bottom: parent.bottom
+        anchors.top: parent.top
+       // anchors.topMargin: ScreenH*0.1
         anchors.left: parent.left
         anchors.leftMargin: ScreenW*0.01
         width: ScreenW*0.1
