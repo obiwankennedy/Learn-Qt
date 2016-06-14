@@ -24,5 +24,9 @@
         <file>pages/047_autres.qml</file>
         <file>pages/048_reussites.qml</file>
         <file>pages/049_echec.qml</file>
+        <file>rsrc/cliDice.png</file>
+        <file>rsrc/ircDice.png</file>
+        <file>rsrc/diceColor.png</file>
+        <file>pages/05_rolisteam_jdr.qml</file>
     </qresource>
 </RCC>

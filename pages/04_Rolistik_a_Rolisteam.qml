@@ -59,7 +59,7 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "8 ans de développement (+ ou - réguliers)"
+                name: "8 ans de développement"
             }
             ListElement {
                 name: "La compatibilité avec GNU/Linux"//système de build, code spécifique par OS.

@@ -500,33 +500,16 @@ Rectangle {
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
-/*
--------------------------------------------------------------------------------
-Language                     files          blank        comment           code
--------------------------------------------------------------------------------
-C++                            153           5199           4634          33169
-C/C++ Header                   149           1976           8586           6664
-Bourne Shell                    11            108            244            431
-IDL                              4             59              0            339
-QML                              9             23              2            297
-CMake                            3             32             12            112
-Python                           1             25             11             61
-make                             1              8             24             15
--------------------------------------------------------------------------------
-SUM:                           331           7430          13513          41088
--------------------------------------------------------------------------------
-*/
        ListView {
            id: listView1
            width: ScreenW/2
            anchors.top: frise.bottom
            anchors.bottom: parent.bottom
-           anchors.bottomMargin: 100
+           anchors.bottomMargin: 0
            anchors.horizontalCenter: parent.horizontalCenter
            //anchors.horizontalCenterOffset: -ScreenW/8
            focus: true
-           spacing: ScreenH*0.01
-           highlight: Rectangle { color: "lightsteelblue"; radius: 5;  }//height:ScreenH/50+200
+           //spacing: ScreenH*0.01
 
           Timer {
                id: trigger
@@ -536,7 +519,13 @@ SUM:                           331           7430          13513          41088
            }
            delegate: Item {
                width: ScreenW/1.5
-               height: ScreenH/50
+               height: ScreenH/50+ScreenH*0.01
+               Rectangle {
+                   color: colorItem
+                   anchors.fill: parent
+                   opacity: 0.5
+               }
+
                Row {
                    id: row1
                    Text {
@@ -565,7 +554,10 @@ SUM:                           331           7430          13513          41088
                    }
                    spacing: 50
                }
+
            }
+           highlight: Rectangle { color: "steelblue"; radius: 5;  }//height:ScreenH/50+200
+
            Keys.onUpPressed: {
                decrementCurrentIndex()
                trigger.start()
@@ -579,92 +571,110 @@ SUM:                           331           7430          13513          41088
                    index: 1
                    date: "24 janvier 2009"
                    desc: "Mon premier message sur le forum et création de l’espace google code."
+                   colorItem: "transparent"
                }
 
                ListElement {
                    index: 2
                    date: "21 déc 2009"
                    desc: "Sortie de la version 1.0"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 3
                    date: "10 janvier 2010"
                    desc: "Début de la réécriture (2.0)"
+                   colorItem: "red"
                }
                ListElement {
                    index: 4
                    date: "15 février 2010"
                    desc: "Sortie de la version 1.0.1"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 5
                    date: "6 mars 2010"
                    desc: "Ouverture du nom de domaine rolisteam.org (auto-hébergé)"
+                   colorItem: "transparent"
                }
                ListElement {
                    index: 6
                    date: "30 octobre 2010"
                    desc: "Sortie de la version 1.0.2"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 7
                    date: "22 octobre 2011"
                    desc: "Sortie de la version 1.5.0"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 8
                    date: "26 octobre 2011"
                    desc: "Sortie de la version 1.5.1"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 9
                    date: "30 octobre 2011"
                    desc: "Sortie de la version 1.5.2"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 10
                    date: "29 novembre 2011"
                    desc: "Création de l’association Rolisteam"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 11
                    date: "16 novembre 2013"
                    desc: "Sortie de la version 1.6.0"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 12
                    date: "29 décembre 2013"
                    desc: "Création du dépôt pour DiceParser (premier essai avec git)"
+                   colorItem: "transparent"
                }
                ListElement {
                    index: 13
                    date: "12 février 2015"
                    desc: "Sortie de la version 1.6.1"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 14
                    date: "18 février 2015"
                    desc: "Passage à Git pour la gestion de rolisteam"
+                   colorItem: "transparent"
                }
                ListElement {
                    index: 16
                    date: "27 mai 2015"
                    desc: "Ouverture comptes réseau sociaux"
+                   colorItem: "transparent"
                }
                ListElement {
                    index: 15
                    date: "22 août 2015"
                    desc: "Sortie de la version 1.7.0"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 17
                    date: "5 septembre 2015"
                    desc: "Sortie de la version 1.7.1"
+                   colorItem: "lightsteelblue"
                }
                ListElement {
                    index: 18
                    date: "1 Juillet 2016"
                    desc: "Pas sage en Seine"
+                   colorItem: "transparent"
                }
            }
        }

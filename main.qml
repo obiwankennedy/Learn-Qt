@@ -91,7 +91,7 @@ ApplicationWindow {
             }
             ListElement {
                 name: "Le réseau"
-                path: "049_echecs.qml"
+                path: "049_echec.qml"
                 time: 1
             }
 
