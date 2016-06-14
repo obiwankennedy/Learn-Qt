@@ -1,8 +1,14 @@
 import QtQuick 2.0
 import QtQuick.Window 2.2
+import QtQuick.Controls 1.4
+import QtQuick.Extras 1.4
+import QtQuick.Layouts 1.2
+
 
 Rectangle {
     id: rectangle1
+  //  property int  ScreenW: 1024
+    //property int  ScreenH: 800
     width: ScreenW
     height: ScreenH
     //    height: 600
@@ -45,17 +51,17 @@ Rectangle {
         x: ScreenW/4
         y: ScreenH/4
         width: ScreenW/2
-        height: ScreenH/2
+        height: ScreenH/2.2
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count
-                Text {
-                    color: "black"
-                    text: name
-                    font.pointSize: ScreenH/28
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: true
-                }
+            Text {
+                color: "black"
+                text: name
+                font.pointSize: ScreenH/28
+                anchors.verticalCenter: parent.verticalCenter
+                font.bold: true
+            }
         }
         model: ListModel {
             ListElement {
@@ -65,39 +71,96 @@ Rectangle {
                 name: "Un utilisateur avec des droits particuliers: le MJ"//système de build, code spécifique par OS.
             }
             ListElement {
-                name: "4 cas de figure:<br/>  Serveur/Mj, <br/>  Serveur/Joueur,<br/>  Client/MJ,<br/>  Client/Joueur"
+                name: "4 cas de figure: MJ, Joueur, Client ou Serveur"
             }
         }
     }
-
-    Keys.onDownPressed: {
-            if(state == "")
-            {
-                state="simple"
-            }
-            else if(state=="simple")
-            {
-                state ="";
-            }
+    ListModel {
+        id: codeData
+        ListElement {
+            Language: "C++"
+            files: 153
+            comment: 4634
+            code: 33169
         }
-        Text {
-            id: panelInfo
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 20
-            width: parent.width*0.8
-            height: parent.height*0.3
-            font.pointSize: ScreenH/50
-            text: "«<i>Le jeu de rôle est un jeu de société dans lequel les participants <br/>conçoivent ensemble une fiction par l’interprétation de rôles et par la narration,<br/> dans le cadre de contraintes de jeu qu’ils s’imposent.</i>»<br/>   -Wikipedia"
-            visible: false
+        ListElement {
+            Language: "C/C++ Header"
+            files: 149
+            comment: 8586
+            code: 6664
         }
-        states: [
-            State {
-                name: "simple"
-                PropertyChanges {
-                    target: panelInfo
-                    visible: true
-                }
-            }
-        ]
+        ListElement {
+            Language: "Bourne Shell"
+            files: 11
+            comment: 244
+            code: 431
+        }
+        ListElement {
+            Language: "IDL"
+            files: 4
+            comment: 0
+            code: 339
+        }
+        ListElement {
+            Language: "QML"
+            files: 9
+            comment: 2
+            code: 297
+        }
+        ListElement {
+            Language: "CMake"
+            files: 3
+            comment: 12
+            code: 112
+        }
+        ListElement {
+            Language: "Python"
+            files: 1
+            comment: 12
+            code: 61
+        }
+        ListElement {
+            Language: "make"
+            files: 1
+            comment: 24
+            code: 15
+        }
+        ListElement {
+            Language: "Somme"
+            files: 331
+            comment: 13513
+            code: 41088
+        }
+    }
+    TableView {
+        width: ScreenW/2
+        //height: ScreenH/2
+        anchors.left: listView1.left
+        anchors.top: listView1.bottom
+        anchors.bottom: parent.bottom
+        model:codeData
+        TableViewColumn {
+            role: "Language"
+            title: "Language"
+            width: ScreenW/8.01
+        }
+        TableViewColumn {
+            role: "files"
+            title: "Fichiers"
+            horizontalAlignment: Text.AlignRight
+            width: ScreenW/8.01
+        }
+        TableViewColumn {
+            role: "comment"
+            title: "Commentaire"
+            horizontalAlignment: Text.AlignRight
+            width: ScreenW/8.01
+        }
+        TableViewColumn {
+            role: "code"
+            title: "Code"
+            horizontalAlignment: Text.AlignRight
+            width: ScreenW/8.01
+        }
+    }
 }
