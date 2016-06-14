@@ -49,9 +49,9 @@ Rectangle {
     ListView {
         id: listView1
         x: ScreenW/4
-        y: ScreenH/4
+        y: ScreenH/8
         width: ScreenW/2
-        height: ScreenH/2.2
+        height: ScreenH/3
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count
