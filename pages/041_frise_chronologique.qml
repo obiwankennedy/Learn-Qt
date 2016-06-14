@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.3
 import QtQuick.Extras 1.4
-import QtWebView 1.1
 
 Rectangle {
     id: rectangle1
