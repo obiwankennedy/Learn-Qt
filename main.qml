@@ -56,7 +56,7 @@ ApplicationWindow {
             }
             ListElement {
                 name: "Comment ça marche"
-                path: "042_comment_ça_marche.qml"
+                path: "042_comment_ca_marche.qml"
                 time: 1
             }
             ListElement {
