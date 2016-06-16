@@ -29,5 +29,7 @@
         <file>rsrc/diceColor.png</file>
         <file>pages/05_rolisteam_jdr.qml</file>
         <file>rsrc/Masque-Video.png</file>
+        <file>rsrc/mindmap.svg</file>
+        <file>06_concurrence.qml</file>
     </qresource>
 </RCC>

@@ -94,7 +94,11 @@ ApplicationWindow {
                 path: "049_echec.qml"
                 time: 1
             }
-
+            ListElement {
+                name: "Le réseau"
+                path: "050_rolisteam_jdr.qml"
+                time: 1
+            }
         }
     //Component.onCompleted: app.currentItemChanged(0)
     onVisibleChanged: trigger.start()

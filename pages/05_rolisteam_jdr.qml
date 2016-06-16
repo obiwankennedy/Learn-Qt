@@ -30,7 +30,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("De Rolistik à Rolisteam")
+        text: qsTr("Le libre et le Jdr")
         anchors.horizontalCenterOffset: 1
         //anchors.topMargin: -203
         font.family: "Verdana"
@@ -59,7 +59,7 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "8 ans de développement"
+                name: ""
             }
             ListElement {
                 name: "La compatibilité avec GNU/Linux"//système de build, code spécifique par OS.

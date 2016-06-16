@@ -37,6 +37,16 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
+    Image {
+        id: mindmap
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter:  parent.verticalCenter
+
+        width: ScreenW*0.9
+        height: ScreenH*0.9
+        source: "qrc:/rsrc/mindmap.svg"
+        visible: false
+    }
 
     ListView {
         id: listView1
@@ -76,4 +86,43 @@ Rectangle {
             }
         }
     }
+    Keys.onDownPressed: {
+        if(state === "")
+        {
+            state = "mindmap"
+        }
+        else
+        {
+            state = ""
+        }
+    }
+    states: [
+        State {
+            name: ""
+            PropertyChanges {
+                target: listView1
+                visible: true
+
+            }
+            PropertyChanges {
+                target: mindmap
+                visible:false
+
+            }
+       },
+        State {
+            name: "mindmap"
+            PropertyChanges {
+                target: mindmap
+                visible: true
+
+            }
+            PropertyChanges {
+                target: listView1
+                visible: false
+
+            }
+        }
+
+    ]
 }
