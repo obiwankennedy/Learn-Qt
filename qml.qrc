@@ -29,5 +29,8 @@
         <file>rsrc/diceColor.png</file>
         <file>pages/05_rolisteam_jdr.qml</file>
         <file>rsrc/Masque-Video.png</file>
+        <file>rsrc/getIdmediaRolistik.png</file>
+        <file>rsrc/getIdRolisteam1.8.png</file>
+        <file>rsrc/getIdRolisteam1.png</file>
     </qresource>
 </RCC>
