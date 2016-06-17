@@ -37,7 +37,40 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
-    Image {
+    ListView {
+        id: listView1
+        x: ScreenW/4
+        y: ScreenH/4
+        width: ScreenW/2
+        height: ScreenH/2.2
+        delegate: Item {
+            width: ScreenW/2
+            height: listView1.height/listView1.count
+                Text {
+                    color: "black"
+                    text: name
+                    font.pointSize: ScreenH/28
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
+                }
+        }
+        model: ListModel {
+            ListElement {
+                name: "Étude de la fonction: closeMapOrImage"
+            }
+            ListElement {
+                name: "L'algo"
+            }
+            ListElement {
+                name: "Remise à plat de composants (Réseau, Audio, La gestion des fichiers…)"
+            }
+            ListElement {
+                name: "Meilleure Gestion des préférences"
+            }
+        }
+    }
+
+    /*Image {
         id: image2
         anchors.left: parent.left
         anchors.leftMargin: ScreenW*0.02
@@ -64,6 +97,51 @@ Rectangle {
         anchors.leftMargin: ScreenW*0.02
         source: "qrc:/rsrc/Rolisteam1.8.png"
         width: ScreenW*0.3
+    }*/
+
+    Row {
+        id: idMedia
+        Image {
+                id: image2
+                anchors.left: parent.left
+                anchors.leftMargin: ScreenW*0.02
+                anchors.verticalCenter: parent.verticalCenter
+                fillMode: Image.PreserveAspectFit
+                source: "qrc:/rsrc/getIdmediaRolistik.png"
+                width: ScreenW*0.3
+                height: ScreenH*0.8
+            }
+            Image {
+                id: image3
+                anchors.left: image2.right
+                anchors.verticalCenter: parent.verticalCenter
+                fillMode: Image.PreserveAspectFit
+                anchors.leftMargin: ScreenW*0.02
+                source: "qrc:/rsrc/getIdRolisteam1.png"
+                width: ScreenW*0.3
+            }
+            Image {
+                id: image4
+                anchors.left: image3.right
+                fillMode: Image.PreserveAspectFit
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: ScreenW*0.02
+                source: "qrc:/rsrc/getIdRolisteam1.8.png"
+                width: ScreenW*0.3
+            }
     }
 
+    Row {
+        id: network
+        Text {
+
+        }
+        Text {
+            anchors.left: image2.right
+            anchors.verticalCenter: parent.verticalCenter
+        }
+        Text {
+
+        }
+    }
 }

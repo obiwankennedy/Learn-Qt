@@ -11,6 +11,8 @@ Rectangle {
     border.width: 5
     color: "#E3E3E3"
     property alias listView1: listView1
+    property int idState: 0
+    state: ""
     focus: true
     Image {
         id: image1
@@ -72,4 +74,69 @@ Rectangle {
             }
         }
     }
+    Image {
+        id: screenShot
+        source : "qrc:/rsrc/rolisteamScreen1.8.png"
+        anchors.verticalCenter: parent.verticalCenter
+       // anchors.horizontalCenter: parent.horizontalCenter
+        anchors.left: parent.left
+
+        fillMode: Image.PreserveAspectFit
+        width: ScreenW*0.8
+        height: ScreenH*0.8
+        visible: false
+    }
+    Keys.onDownPressed: {
+        console.log("down")
+
+        if(idState === 3)
+        {
+            idState =0;
+        }
+        else
+        {
+            idState+=1;
+        }
+
+        console.log("idstate:"+idState)
+    }
+    Keys.onUpPressed: {
+        console.log("Up")
+        if(idState===0)
+        {
+            idState=3
+        }
+        else
+        {
+            idState-=1
+        }
+
+        console.log("idstate:"+idState)
+    }
+    states: [
+        State {
+            name: ""
+            when: idState== 0
+            PropertyChanges {
+                target: listView1
+                visible: true
+            }
+            PropertyChanges {
+                target: screenShot
+                visible: false
+            }
+        },
+        State {
+            name: "ScreenShot"
+            when: idState== 1
+            PropertyChanges {
+                target: listView1
+                visible: false
+            }
+            PropertyChanges {
+                target: screenShot
+                visible: true
+            }
+        }
+    ]
 }
