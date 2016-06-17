@@ -68,6 +68,9 @@ Rectangle {
                 name: "Application Client/Serveur"
             }
             ListElement {
+                name: "Application MDI"
+            }
+            ListElement {
                 name: "Un utilisateur avec des droits particuliers: le MJ"//système de build, code spécifique par OS.
             }
             ListElement {
@@ -133,11 +136,13 @@ Rectangle {
         }
     }
     TableView {
-        width: ScreenW/2
+        //width: ScreenW/2
         //height: ScreenH/2
         anchors.left: listView1.left
+        anchors.right:listView1.right
         anchors.top: listView1.bottom
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: 100
         model:codeData
         TableViewColumn {
             role: "Language"

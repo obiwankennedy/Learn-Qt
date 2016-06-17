@@ -61,7 +61,7 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "8 ans de développement"
+                name: "Code mal architecturé"
             }
             ListElement {
                 name: "La compatibilité avec GNU/Linux"//système de build, code spécifique par OS.
@@ -78,17 +78,15 @@ Rectangle {
         id: screenShot
         source : "qrc:/rsrc/rolisteamScreen1.8.png"
         anchors.verticalCenter: parent.verticalCenter
-       // anchors.horizontalCenter: parent.horizontalCenter
         anchors.left: parent.left
+        anchors.leftMargin: ScreenW*0.1
 
         fillMode: Image.PreserveAspectFit
-        width: ScreenW*0.8
-        height: ScreenH*0.8
+        width: ScreenW*0.7
+        height: ScreenH*0.7
         visible: false
     }
     Keys.onDownPressed: {
-        console.log("down")
-
         if(idState === 3)
         {
             idState =0;
@@ -98,10 +96,8 @@ Rectangle {
             idState+=1;
         }
 
-        console.log("idstate:"+idState)
     }
     Keys.onUpPressed: {
-        console.log("Up")
         if(idState===0)
         {
             idState=3
@@ -110,8 +106,6 @@ Rectangle {
         {
             idState-=1
         }
-
-        console.log("idstate:"+idState)
     }
     states: [
         State {

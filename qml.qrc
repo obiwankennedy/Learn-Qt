@@ -35,5 +35,7 @@
         <file>rsrc/getIdRolisteam1.8.png</file>
         <file>rsrc/getIdRolisteam1.png</file>
         <file>rsrc/rolisteamScreen1.8.png</file>
+        <file>rsrc/Rolisteam1Network.png</file>
+        <file>rsrc/rolistikNetwork.png</file>
     </qresource>
 </RCC>

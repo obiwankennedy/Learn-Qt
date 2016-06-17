@@ -46,102 +46,139 @@ Rectangle {
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count
-                Text {
-                    color: "black"
-                    text: name
-                    font.pointSize: ScreenH/28
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: true
-                }
+            Text {
+                color: "black"
+                text: name
+                font.pointSize: ScreenH/28
+                anchors.verticalCenter: parent.verticalCenter
+                font.bold: true
+            }
         }
         model: ListModel {
             ListElement {
                 name: "Étude de la fonction: closeMapOrImage"
             }
             ListElement {
-                name: "L'algo"
+                name: "Récupération de l'id courant"
             }
             ListElement {
-                name: "Remise à plat de composants (Réseau, Audio, La gestion des fichiers…)"
+                name: "C'est une image ou une carte"
             }
             ListElement {
-                name: "Meilleure Gestion des préférences"
+                name: "Suppression de la fenêtre"
+            }
+            ListElement {
+                name: "Fermeture chez les autres joueurs."
             }
         }
     }
-
-    /*Image {
-        id: image2
-        anchors.left: parent.left
-        anchors.leftMargin: ScreenW*0.02
-        anchors.verticalCenter: parent.verticalCenter
-        fillMode: Image.PreserveAspectFit
-        source: "qrc:/rsrc/rolistik.png"
-        width: ScreenW*0.3
-        height: ScreenH*0.8
+    Keys.onDownPressed: {
+        if(state == "")
+        {
+            state="media"
+        }
+        else if(state=="media")
+        {
+            state ="network";
+        }
+        else if(state=="network")
+        {
+            state ="";
+        }
     }
-    Image {
-        id: image3
-        anchors.left: image2.right
-        anchors.verticalCenter: parent.verticalCenter
-        fillMode: Image.PreserveAspectFit
-        anchors.leftMargin: ScreenW*0.02
-        source: "qrc:/rsrc/Rolisteam1.png"
-        width: ScreenW*0.3
-    }
-    Image {
-        id: image4
-        anchors.left: image3.right
-        fillMode: Image.PreserveAspectFit
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: ScreenW*0.02
-        source: "qrc:/rsrc/Rolisteam1.8.png"
-        width: ScreenW*0.3
-    }*/
-
-    Row {
+    Column {
         id: idMedia
-        Image {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: 50
+        height: ScreenH*0.6
+        visible: false
+        spacing: ScreenH*0.05
+        Column {
+            Text {
+                id: text2
+                text: "Rolistik"
+            }
+            Image {
                 id: image2
-                anchors.left: parent.left
-                anchors.leftMargin: ScreenW*0.02
-                anchors.verticalCenter: parent.verticalCenter
                 fillMode: Image.PreserveAspectFit
                 source: "qrc:/rsrc/getIdmediaRolistik.png"
-                width: ScreenW*0.3
-                height: ScreenH*0.8
+            }
+        }
+        Column {
+            Text {
+                id: text3
+                text: "Rolisteam 1.6"
             }
             Image {
                 id: image3
-                anchors.left: image2.right
-                anchors.verticalCenter: parent.verticalCenter
                 fillMode: Image.PreserveAspectFit
-                anchors.leftMargin: ScreenW*0.02
                 source: "qrc:/rsrc/getIdRolisteam1.png"
+                horizontalAlignment: Image.AlignLeft
+                width: ScreenW*0.3
+            }
+        }
+        Column {
+            Text {
+                id: text4
+                text: "Rolisteam 1.8"
                 width: ScreenW*0.3
             }
             Image {
                 id: image4
-                anchors.left: image3.right
                 fillMode: Image.PreserveAspectFit
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.leftMargin: ScreenW*0.02
                 source: "qrc:/rsrc/getIdRolisteam1.8.png"
+                horizontalAlignment: Image.AlignLeft
                 width: ScreenW*0.3
             }
+        }
+
     }
-
-    Row {
-        id: network
-        Text {
-
+    states: [
+        State {
+            name: ""
+            PropertyChanges {
+                target: listView1
+                visible: true
+            }
+            PropertyChanges {
+                target: idMedia
+                visible: false
+            }
+        },
+        State {
+            name: "media"
+            PropertyChanges {
+                target: listView1
+                visible: false
+            }
+            PropertyChanges {
+                target: idMedia
+                visible: true
+            }
+        },
+        State {
+            name: "network"
+            PropertyChanges {
+                target: listView1
+                visible: false
+            }
+            PropertyChanges {
+                target: idMedia
+                visible: true
+            }
+            PropertyChanges {
+                target: image2
+                source: "qrc:/rsrc/rolistikNetwork.png"
+            }
+            PropertyChanges {
+                target: image3
+                source: "qrc:/rsrc/Rolisteam1Network.png"
+            }
+            PropertyChanges {
+                target: image4
+                source: ""
+            }
         }
-        Text {
-            anchors.left: image2.right
-            anchors.verticalCenter: parent.verticalCenter
-        }
-        Text {
-
-        }
-    }
+    ]
 }

@@ -96,7 +96,7 @@ ApplicationWindow {
             }
             ListElement {
                 name: "Le réseau"
-                path: "050_rolisteam_jdr.qml"
+                path: "05_rolisteam_jdr.qml"
                 time: 1
             }
         }
