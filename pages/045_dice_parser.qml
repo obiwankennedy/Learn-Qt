@@ -10,6 +10,7 @@ Rectangle {
     border.width: 5
     color: "#E3E3E3"
     focus: true
+    state: ""
     Image {
         id: image1
         anchors.left: parent.left
