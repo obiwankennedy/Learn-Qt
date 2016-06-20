@@ -60,13 +60,16 @@ Rectangle {
                 name: "Support de GNU/Linux"
             }
             ListElement {
+                name: "i18n"
+            }
+            ListElement {
                 name: "Apport d'une approche POO"
             }
             ListElement {
-                name: "Remise à plat de composants (Réseau, Audio, La gestion des fichiers…)"
+                name: "Remise à plat de composants (Réseau, Tchat, Audio…)"
             }
             ListElement {
-                name: "Meilleure Gestion des préférences"
+                name: "Meilleure gestion des préférences"
             }
         }
     }
