@@ -30,7 +30,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("Le libre et le Jdr")
+        text: qsTr("La philosophie du libre")
         anchors.horizontalCenterOffset: 1
         //anchors.topMargin: -203
         font.family: "Verdana"
@@ -59,16 +59,16 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: ""
+                name: "GPL"
             }
             ListElement {
-                name: "La compatibilité avec GNU/Linux"//système de build, code spécifique par OS.
+                name: "Ambassadeur du libre"
             }
             ListElement {
-                name: "Les problèmes de Fmod: Licence et 64bits"
+                name: "Décentralisation d'internet"//système de build, code spécifique par OS.
             }
             ListElement {
-                name: "Traduction du code source"
+                name: "Réflection sur le droit"
             }
         }
     }
