@@ -82,11 +82,16 @@ Rectangle {
         }
         Text {
             id: panelInfo
-            anchors.horizontalCenter: parent.horizontalCenter
+            //anchors.horizontalCenter: parent.horizontalCenter
+            /*anchors.bottom: parent.bottom
+            anchors.bottomMargin: 20*/
+            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 20
+            anchors.bottomMargin: ScreenH*0.1
+            horizontalAlignment: Text.AlignHCenter
             width: parent.width*0.8
-            height: parent.height*0.3
+            //height: parent.height*0.3
             font.pointSize: ScreenH/50
             text: "«<i>Le jeu de rôle est un jeu de société dans lequel les participants <br/>conçoivent ensemble une fiction par l’interprétation de rôles et par la narration,<br/> dans le cadre de contraintes de jeu qu’ils s’imposent.</i>»<br/>   -Wikipedia"
             visible: false
