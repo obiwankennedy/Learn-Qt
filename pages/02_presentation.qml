@@ -67,10 +67,10 @@ Rectangle {
                 name: "Un projet libre"
             }
             ListElement {
-                name: "Pourquoi avoir démarrer Rolisteam ?"//(le fork)
+                name: "Commencer le jdr"//j'ai commencé le jdr.
             }
             ListElement {
-                name: "Le jeu de rôle (et en ligne)"//j'ai commencé le jdr.
+                name: "Pourquoi avoir démarrer Rolisteam (fork) ?"//(le fork)
             }
         }
     }
