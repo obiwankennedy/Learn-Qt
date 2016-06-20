@@ -84,6 +84,12 @@ Rectangle {
             ListElement {
                 name: "Gestion de jeu de cartes"
             }
+            ListElement {
+                name: "Sécurisé & chiffrage"
+            }
+            ListElement {
+                name: "Accessibilité"
+            }
         }
     }
     Keys.onDownPressed: {
