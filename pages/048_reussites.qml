@@ -57,16 +57,16 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "Maintenir Rolisteam"
+                name: "Multi-plateforme"
             }
             ListElement {
-                name: "Améliorer Rolisteam"
+                name: "Un acteur du domaine"
             }
             ListElement {
-                name: "Rester simple d'usage"
+                name: "Simple d'usage"
             }
             ListElement {
-                name: "rester hackable"
+                name: "Hackable"
             }
             ListElement {
                 name: "Un logiciel libre"
