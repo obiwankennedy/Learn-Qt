@@ -63,10 +63,13 @@ Rectangle {
                 name: "Internationnalisation"
             }
             ListElement {
-                name: "Pull Requests"
+                name: "Contribution"
             }
             ListElement {
-                name: "Streaming audio/chat vocal ou vidéo"
+                name: "Streaming audio/chat vocal ou vidéo/Xmpp"
+            }
+            ListElement {
+                name: "Différence Rolistik/Rolisteam"
             }
         }
     }
