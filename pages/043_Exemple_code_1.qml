@@ -134,6 +134,40 @@ Rectangle {
         }
 
     }
+    Row {
+        id: idNetwork
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: 50
+        height: ScreenH*0.6
+        visible: false
+        spacing: ScreenH*0.05
+        Column {
+            Text {
+                id: text5
+                text: "Rolistik"
+            }
+            Image {
+                id: image5
+                fillMode: Image.PreserveAspectFit
+                source: "qrc:/rsrc/getIdmediaRolistik.png"
+            }
+        }
+        Column {
+            Text {
+                id: text6
+                text: "Rolisteam 1.7"
+            }
+            Image {
+                id: image6
+                fillMode: Image.PreserveAspectFit
+                source: "qrc:/rsrc/getIdRolisteam1.png"
+                horizontalAlignment: Image.AlignLeft
+                width: ScreenW*0.3
+            }
+        }
+    }
+
     states: [
         State {
             name: ""
