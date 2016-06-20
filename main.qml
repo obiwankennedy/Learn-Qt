@@ -95,8 +95,13 @@ ApplicationWindow {
                 time: 1
             }
             ListElement {
-                name: "Le réseau"
+                name: "Jdr "
                 path: "05_rolisteam_jdr.qml"
+                time: 1
+            }
+            ListElement {
+                name: "Concurernt "
+                path: "06_concurrence.qml"
                 time: 1
             }
         }
