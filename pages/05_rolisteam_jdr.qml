@@ -70,6 +70,9 @@ Rectangle {
             ListElement {
                 name: "Réflection sur le droit"
             }
+            ListElement {
+                name: "Lutte"
+            }
         }
     }
 }
