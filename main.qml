@@ -104,6 +104,11 @@ ApplicationWindow {
                 path: "06_concurrence.qml"
                 time: 1
             }
+            ListElement {
+                name: "Concurernt "
+                path: "07_FAQ.qml"
+                time: 1
+            }
         }
     //Component.onCompleted: app.currentItemChanged(0)
     onVisibleChanged: trigger.start()
@@ -160,26 +165,6 @@ ApplicationWindow {
             PathLine { x: view.width/2+view.width*panelModel.count; y: view.height/2 }
         }
     }
-
-
-   /* 1280 => 1
-    50 => X
-
-    x => 50/1280*/
- /*   Rectangle {
-        color: "yellow"
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: 50//ScreenH*0.0390625
-    }
-    Rectangle {
-        color: "yellow"
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        height: 200//ScreenH*0.15625
-        width: 200//ScreenH*0.15625
-    }*/
     Image {
         anchors.fill: parent
         source: "qrc:/rsrc/Masque-Video.png"
