@@ -38,5 +38,6 @@
         <file>rsrc/rolistikNetwork.png</file>
         <file>pages/06_concurrence.qml</file>
         <file>pages/07_FAQ.qml</file>
+        <file>pages/051_license_libre_et_jdr.qml</file>
     </qresource>
 </RCC>

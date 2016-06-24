@@ -60,7 +60,7 @@ Rectangle {
                 name: "Gestion de projet (v2.0)"
             }
             ListElement {
-                name: "Internationnalisation"
+                name: "Internationalisation"
             }
             ListElement {
                 name: "Contribution"

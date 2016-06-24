@@ -34,7 +34,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.05
         color: "black"
-        text: qsTr("Le début de Rolisteam")
+        text: qsTr("Présentation Rolisteam")
         anchors.horizontalCenterOffset: 1
         //anchors.topMargin: -203
         font.family: "Verdana"
@@ -44,38 +44,6 @@ Rectangle {
         font.pixelSize: ScreenH/20
     }
 
-    ListView {
-        id: listView1
-        x: ScreenW/4
-        y: ScreenH/4
-        width: ScreenW/2
-        height: ScreenH/2
-        delegate: Item {
-            width: ScreenW/2
-            height: listView1.height/listView1.count
-            Text {
-                color: "black"
-                text: name
-                font.pointSize: ScreenH/28
-                anchors.verticalCenter: parent.verticalCenter
-                font.bold: true
-            }
-        }
-        model: ListModel {
-            ListElement {
-                name: "Un simple dépannage"
-            }
-            ListElement {
-                name: "Un projet libre"
-            }
-            ListElement {
-                name: "Pourquoi avoir forker ?"//(le fork)
-            }
-            ListElement {
-                name: "Commencer le jdr"//j'ai commencé le jdr.
-            }
-        }
-    }
     Image {
         id: screenShot
         source : "qrc:/rsrc/rolisteamScreen1.8.png"
@@ -86,9 +54,10 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
         width: ScreenW*0.7
         height: ScreenH*0.7
-        visible: false
+        visible: true
+        opacity: 0.4
     }
-    Keys.onDownPressed: {
+   /* Keys.onDownPressed: {
         if(idState === 3)
         {
             idState =0;
@@ -134,5 +103,5 @@ Rectangle {
                 visible: true
             }
         }
-    ]
+    ]*/
 }

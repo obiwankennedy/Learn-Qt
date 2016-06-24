@@ -61,7 +61,7 @@ Rectangle {
                 name: "Open Game License (OGL)"
             }
             ListElement {
-                name: "L'algo libre"
+                name: "L'algo (SRD) libre"
             }
             ListElement {
                 name: "Libre vs Gratuit"

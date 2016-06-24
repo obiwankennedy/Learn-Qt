@@ -20,20 +20,21 @@ ApplicationWindow {
                 time: 1
             }
             ListElement {
-                name: "Presentation"
+                name: "Présentation de Rolisteam"
                 path: "02_presentation.qml"
                 time: 1
             }
             ListElement {
-                name: "Test"
-                path: "021_raisons.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Jdr et Rolisteam"
+                name: "Introduction au jdr"
                 path: "03_jdr_et_rolisteam.qml"
                 time: 1
             }
+            ListElement {
+                name: "Advantages du Jdr et Inconvénients"
+                path: "021_raisons.qml"
+                time: 1
+            }
+
             ListElement {
                 name: "Pourquoi faire de JDR ?"
                 path: "031_les_trucs_cool_du_jdr.qml"

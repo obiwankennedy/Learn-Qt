@@ -11,7 +11,6 @@ Rectangle {
     border.width: 5
     color: "#E3E3E3"
     property alias listView1: listView1
-    focus: true
     Image {
         id: image1
         anchors.left: parent.left
@@ -56,21 +55,53 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
+                visible: (listView1.currentIndex >= index ) ? true: false
+        }
+        focus: true
+        Keys.onUpPressed: {
+            decrementCurrentIndex()
+        }
+        Keys.onDownPressed: {
+            if(!panelInfo.visible)
+            {
+                panelInfo.visible = true
+            }
+            else
+            {
+                incrementCurrentIndex()
+            }
         }
         model: ListModel {
             ListElement {
                 name: "Le JDR, c'est quoi ?"
+                index:0
             }
             ListElement {
                 name: "Comment se passe une partie ?"
+                index:1
             }
-            ListElement {
-                name: "Jouer en ligne ?"
-            }
+           /* ListElement {
+                name: "Jouer à distance ?"
+                index:2
+            }*/
         }
     }
+    Text {
+        id: panelInfo
 
-    Keys.onDownPressed: {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: ScreenH*0.1
+        horizontalAlignment: Text.AlignHCenter
+        width: parent.width*0.8
+        //height: parent.height*0.3
+        font.pointSize: ScreenH/50
+        text: "«<i>Le jeu de rôle est un jeu de société dans lequel les participants <br/>conçoivent ensemble une fiction par l’interprétation de rôles et par la narration,<br/> dans le cadre de contraintes de jeu qu’ils s’imposent.</i>»<br/>   -Wikipedia"
+        visible: false
+    }
+
+    /*Keys.onDownPressed: {
             if(state == "")
             {
                 state="simple"
@@ -80,22 +111,6 @@ Rectangle {
                 state ="";
             }
         }
-        Text {
-            id: panelInfo
-            //anchors.horizontalCenter: parent.horizontalCenter
-            /*anchors.bottom: parent.bottom
-            anchors.bottomMargin: 20*/
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: ScreenH*0.1
-            horizontalAlignment: Text.AlignHCenter
-            width: parent.width*0.8
-            //height: parent.height*0.3
-            font.pointSize: ScreenH/50
-            text: "«<i>Le jeu de rôle est un jeu de société dans lequel les participants <br/>conçoivent ensemble une fiction par l’interprétation de rôles et par la narration,<br/> dans le cadre de contraintes de jeu qu’ils s’imposent.</i>»<br/>   -Wikipedia"
-            visible: false
-        }
         states: [
             State {
                 name: "simple"
@@ -104,5 +119,5 @@ Rectangle {
                     visible: true
                 }
             }
-        ]
+        ]*/
 }
