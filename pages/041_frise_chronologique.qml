@@ -501,12 +501,12 @@ Rectangle {
     }
        ListView {
            id: listView1
-           width: ScreenW/2
+           width: ScreenW*0.38
            anchors.top: frise.bottom
            anchors.bottom: parent.bottom
            anchors.bottomMargin: 0
            anchors.left: parent.left
-           anchors.leftMargin: ScreenW*0.05
+           anchors.leftMargin: ScreenW*0.1
            //anchors.horizontalCenterOffset: -ScreenW/8
            focus: true
            //spacing: ScreenH*0.01
@@ -556,7 +556,7 @@ Rectangle {
                }
 
            }
-           highlight: Rectangle { color: "steelblue"; radius: 5;  }//height:ScreenH/50+200
+           highlight: Rectangle { color: "red"; radius: 5;  }//height:ScreenH/50+200
 
            Keys.onUpPressed: {
                decrementCurrentIndex()
@@ -584,7 +584,7 @@ Rectangle {
                    index: 3
                    date: "10 janvier 2010"
                    desc: "Début de la réécriture (2.0)"
-                   colorItem: "red"
+                   colorItem: "steelblue"
                }
                ListElement {
                    index: 4

@@ -168,25 +168,28 @@ ApplicationWindow {
 
     ListView {
         id: listView1
-        x: ScreenW*0.1
-        y: ScreenH/4
+        x: ScreenW*0.01
+        y: ScreenH*0.3
         width: ScreenW/2
-        height: ScreenH/2
+        height: ScreenH*0.2
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count
                 Text {
-                    color: "black"
+                    color: view.currentIndex>=index ? "black" : "gray"
                     text: name
                     font.pointSize: ScreenH/48
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
+
                 }
         }
+        visible: view.currentIndex>0 ? true : false
+
         model: ListModel {
             ListElement {
                 name: "Concepts"
-                index:3
+                index:1
             }
             ListElement {
                 name: "Chroniques"
@@ -202,7 +205,7 @@ ApplicationWindow {
             }
             ListElement {
                 name: "FAQ"
-                index:7
+                index:18
             }
         }
     }
@@ -210,9 +213,10 @@ ApplicationWindow {
     Text {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        anchors.leftMargin: 100
-        anchors.bottomMargin: 100
-        text: view.currentItem+"/"+view.count
+        anchors.leftMargin: 50
+        anchors.bottomMargin: 50
+        text: (view.currentIndex+1)+"/"+view.count
+        visible: view.currentIndex>0 ? true : false
     }
 
     Image {
