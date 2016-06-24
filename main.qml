@@ -161,25 +161,55 @@ ApplicationWindow {
         }
     }
 
+    ListView {
+        id: listView1
+        x: ScreenW*0.1
+        y: ScreenH/4
+        width: ScreenW/2
+        height: ScreenH/2
+        delegate: Item {
+            width: ScreenW/2
+            height: listView1.height/listView1.count
+                Text {
+                    color: "black"
+                    text: name
+                    font.pointSize: ScreenH/48
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
+                }
+        }
+        model: ListModel {
+            ListElement {
+                name: "Concepts"
+                index:3
+            }
+            ListElement {
+                name: "Chroniques"
+                index:4
+            }
+            ListElement {
+                name: "Le logiciel"//système de build, code spécifique par OS.
+                index:5
+            }
+            ListElement {
+                name: "Le libre"
+                index:6
+            }
+            ListElement {
+                name: "FAQ"
+                index:7
+            }
+        }
+    }
 
-   /* 1280 => 1
-    50 => X
-
-    x => 50/1280*/
- /*   Rectangle {
-        color: "yellow"
+    Text {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        anchors.right: parent.right
-        height: 50//ScreenH*0.0390625
+        anchors.leftMargin: 100
+        anchors.bottomMargin: 100
+        text: view.currentItem+"/"+view.count
     }
-    Rectangle {
-        color: "yellow"
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        height: 200//ScreenH*0.15625
-        width: 200//ScreenH*0.15625
-    }*/
+
     Image {
         anchors.fill: parent
         source: "qrc:/rsrc/Masque-Video.png"
