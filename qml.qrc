@@ -30,12 +30,13 @@
         <file>pages/05_rolisteam_jdr.qml</file>
         <file>rsrc/Masque-Video.png</file>
         <file>rsrc/mindmap.svg</file>
-        <file>06_concurrence.qml</file>
         <file>rsrc/getIdmediaRolistik.png</file>
         <file>rsrc/getIdRolisteam1.8.png</file>
         <file>rsrc/getIdRolisteam1.png</file>
         <file>rsrc/rolisteamScreen1.8.png</file>
         <file>rsrc/Rolisteam1Network.png</file>
         <file>rsrc/rolistikNetwork.png</file>
+        <file>pages/06_concurrence.qml</file>
+        <file>pages/07_FAQ.qml</file>
     </qresource>
 </RCC>

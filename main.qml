@@ -104,6 +104,11 @@ ApplicationWindow {
                 path: "06_concurrence.qml"
                 time: 1
             }
+            ListElement {
+                name: "Concurernt "
+                path: "07_FAQ.qml"
+                time: 1
+            }
         }
     //Component.onCompleted: app.currentItemChanged(0)
     onVisibleChanged: trigger.start()

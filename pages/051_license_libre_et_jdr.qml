@@ -11,8 +11,6 @@ Rectangle {
     border.width: 5
     color: "#E3E3E3"
     property alias listView1: listView1
-    property int idState: 0
-    state: ""
     focus: true
     Image {
         id: image1
@@ -32,9 +30,8 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("De Rolistik à Rolisteam")
+        text: qsTr("Le libre dans le JDR")
         anchors.horizontalCenterOffset: 1
-        //anchors.topMargin: -203
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter
@@ -61,16 +58,13 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "Code mal architecturé"
+                name: "Open Game License (OGL)"
             }
             ListElement {
-                name: "Incompatibilité avec GNU/Linux"//système de build, code spécifique par OS.
+                name: "L'algo libre"
             }
             ListElement {
-                name: "Les problèmes de Fmod: Licence et 64bits"
-            }
-            ListElement {
-                name: "Code Source en français"
+                name: "Libre vs Gratuit"
             }
         }
     }

@@ -72,52 +72,60 @@ Rectangle {
         }
     }
     Keys.onDownPressed: {
-        console.log("down")
-
-        if(idState === 3)
+        console.log("down"+rectangle1.state)
+        if(rectangle1.state=="")
         {
-            idState =0;
+            rectangle1.state="rolisteam"
         }
-        else
+        else if( rectangle1.state === "rolisteam")
         {
-            idState+=1;
+            rectangle1.state="irc"
         }
-
-        console.log("idstate:"+idState)
+        else if( rectangle1.state ==="irc")
+        {
+            rectangle1.state="cli"
+        }
+        else if(state === "cli")
+        {
+            rectangle1.state=""
+        }
+        console.log("fin down")
     }
     Keys.onUpPressed: {
-        console.log("Up")
-        if(idState===0)
+        console.log("up")
+        if(rectangle1.state==="")
         {
-            idState=3
+            rectangle1.state="cli"
         }
-        else
+        else if( rectangle1.state === "cli")
         {
-            idState-=1
+            rectangle1.state="irc"
         }
-
-        console.log("idstate:"+idState)
+        else if( rectangle1.state ==="irc")
+        {
+            rectangle1.state="rolisteam"
+        }
+        else if(rectangle1.state === "rolisteam")
+        {
+            rectangle1.state=""
+        }
+        console.log("fin up")
     }
     states: [
          State {
              name: ""
-             when: idState ==0
-
              PropertyChanges { target: img; visible: false }
          },
          State {
              name: "rolisteam"
-             when: idState ==1
             PropertyChanges { target: img; visible: true }
          },
         State {
             name: "irc"
-            when: idState ==2
            PropertyChanges { target: img; visible: true }
         },
         State {
             name: "cli"
-            when: idState ==3
            PropertyChanges { target: img; visible: true }
         }
      ]
@@ -158,18 +166,17 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
         anchors.right: listView1.right
         visible: false
-        property int idImage: 0
+        property string idImage: rectangle1.state
         onIdImageChanged: {
-            console.log(idState)
-           if(idState === 1)
+           if(rectangle1.state === "rolisteam")
            {
                 source ="qrc:/rsrc/diceColor.png"
            }
-           else if(idState ===2)
+           else if(rectangle1.state  ==="irc")
            {
                source="qrc:/rsrc/ircDice.png"
            }
-           else if(idState === 3)
+           else if(rectangle1.state === "cli")
            {
                source ="qrc:/rsrc/cliDice.png"
            }

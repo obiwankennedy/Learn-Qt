@@ -63,10 +63,10 @@ Rectangle {
                 name: "Me Former"
             }
             ListElement {
-                name: "Être créatif"
+                name: "Prouver que j'en suis capable."
             }
             ListElement {
-                name: "Prouver que j'en suis capable."
+                name: "Être créatif"
             }
         }
     }

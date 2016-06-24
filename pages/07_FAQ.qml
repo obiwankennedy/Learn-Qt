@@ -12,8 +12,9 @@ Rectangle {
     color: "#E3E3E3"
     property alias listView1: listView1
     property int idState: 0
-    state: ""
+
     focus: true
+
     Image {
         id: image1
         anchors.left: parent.left
@@ -29,10 +30,11 @@ Rectangle {
         anchors.top:image1.top
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: image1.bottom
+
         width: ScreenW*0.5
-        height: ScreenH*0.01
+        height: ScreenH*0.05
         color: "black"
-        text: qsTr("De Rolistik à Rolisteam")
+        text: qsTr("Fin")
         anchors.horizontalCenterOffset: 1
         //anchors.topMargin: -203
         font.family: "Verdana"
@@ -51,26 +53,17 @@ Rectangle {
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count
-                Text {
-                    color: "black"
-                    text: name
-                    font.pointSize: ScreenH/28
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: true
-                }
+            Text {
+                color: "black"
+                text: name
+                font.pointSize: ScreenH/28
+                anchors.verticalCenter: parent.verticalCenter
+                font.bold: true
+            }
         }
         model: ListModel {
             ListElement {
-                name: "Code mal architecturé"
-            }
-            ListElement {
-                name: "Incompatibilité avec GNU/Linux"//système de build, code spécifique par OS.
-            }
-            ListElement {
-                name: "Les problèmes de Fmod: Licence et 64bits"
-            }
-            ListElement {
-                name: "Code Source en français"
+                name: "FAQ ?"
             }
         }
     }
