@@ -29,7 +29,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("Les avancées")
+        text: qsTr("Dans l'avenir")
         anchors.horizontalCenterOffset: 1
         font.family: "Verdana"
         font.bold: true
@@ -37,13 +37,23 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
+    Image {
+        id: mindmap
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter:  parent.verticalCenter
+
+        width: ScreenW*0.9
+        height: ScreenH*0.9
+        source: "qrc:/rsrc/mindmap.svg"
+        visible: false
+    }
 
     ListView {
         id: listView1
         x: ScreenW/4
         y: ScreenH/4
         width: ScreenW/2
-        height: ScreenH/2.2
+        height: ScreenH/2
         delegate: Item {
             width: ScreenW/2
             height: listView1.height/listView1.count
@@ -57,20 +67,68 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "Support de GNU/Linux"
+                name: "Serveur Dédié"
             }
             ListElement {
-                name: "i18n"
+                name: "Partage de notes"
             }
             ListElement {
-                name: "Apport d'une approche POO"
+                name: "Mindmap"
             }
             ListElement {
-                name: "Remise à plat de composants (Réseau, Tchat, Audio…)"
+                name: "Refonte GUI pour écran tactile"
             }
             ListElement {
-                name: "Meilleure gestion des préférences"
+                name: "Portage Android/iOS"
+            }
+            ListElement {
+                name: "Gestion de jeu de cartes"
+            }
+            ListElement {
+                name: "Sécurisé & chiffrage"
+            }
+            ListElement {
+                name: "Accessibilité"
             }
         }
     }
+    Keys.onDownPressed: {
+        if(state === "")
+        {
+            state = "mindmap"
+        }
+        else
+        {
+            state = ""
+        }
+    }
+    states: [
+        State {
+            name: ""
+            PropertyChanges {
+                target: listView1
+                visible: true
+
+            }
+            PropertyChanges {
+                target: mindmap
+                visible:false
+
+            }
+       },
+        State {
+            name: "mindmap"
+            PropertyChanges {
+                target: mindmap
+                visible: true
+
+            }
+            PropertyChanges {
+                target: listView1
+                visible: false
+
+            }
+        }
+
+    ]
 }

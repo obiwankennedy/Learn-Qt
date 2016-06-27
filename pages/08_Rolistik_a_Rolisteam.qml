@@ -11,8 +11,9 @@ Rectangle {
     border.width: 5
     color: "#E3E3E3"
     property alias listView1: listView1
+    property int idState: 0
+    state: ""
     focus: true
-
     Image {
         id: image1
         anchors.left: parent.left
@@ -31,9 +32,9 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("Les raisons l'engagement")
+        text: qsTr("De Rolistik à Rolisteam")
         anchors.horizontalCenterOffset: 1
-        //anchors.topMargin: 203
+        //anchors.topMargin: -203
         font.family: "Verdana"
         font.bold: true
         verticalAlignment: Text.AlignVCenter
@@ -60,13 +61,16 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "Me Former"
+                name: "Code mal architecturé"
             }
             ListElement {
-                name: "Prouver que j'en suis capable."
+                name: "Incompatibilité avec GNU/Linux"//système de build, code spécifique par OS.
             }
             ListElement {
-                name: "Être créatif"
+                name: "Les problèmes de Fmod: Licence et 64bits"
+            }
+            ListElement {
+                name: "Code Source en français"
             }
         }
     }
