@@ -11,7 +11,6 @@ Rectangle {
     border.width: 5
     color: "#E3E3E3"
     property alias listView1: listView1
-    focus: true
     Image {
         id: image1
         anchors.left: parent.left
@@ -55,16 +54,33 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
+                opacity: (listView1.currentIndex >= index ) ? 1.0: 0.0
+                Behavior on opacity {
+                    NumberAnimation {
+                        id: bouncebehavior
+                        duration: 1000
+                    }
+                }
+        }
+        focus: true
+        Keys.onUpPressed: {
+            decrementCurrentIndex()
+        }
+        Keys.onDownPressed: {
+             incrementCurrentIndex()
         }
         model: ListModel {
             ListElement {
-                name: "Open Game License (OGL)"
+                name: "Ambassadeur"
+                index: 0
             }
             ListElement {
-                name: "L'algo (SRD) libre"
+                name: "Réflexion sur le droit"
+                index: 1
             }
             ListElement {
-                name: "Libre vs Gratuit"
+                name: "Décentralisation d'internet"
+                index: 2
             }
         }
     }

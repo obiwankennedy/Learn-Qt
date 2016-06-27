@@ -108,7 +108,7 @@ Rectangle {
         border.color: "black"
         color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
-    Rectangle {
+    Rectangle {//21 dec 2009
         x: 0.9*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: -frise.height/4
@@ -131,7 +131,32 @@ Rectangle {
         border.color: "black"
         color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
+    Canvas{
+        id: mark1
+        anchors.top: frise.top
+        anchors.topMargin:  ScreenH/20
+        anchors.bottom: frise.bottom
+        anchors.bottomMargin:  ScreenH/20
+        anchors.horizontalCenter: v2.horizontalCenter
+        width: 4
+        onPaint : {
+           var ctx = getContext("2d")
+           ctx.beginPath()
+           ctx.moveTo(0,0)
+           ctx.lineTo(4,0)
+           ctx.lineTo(4,height)
+           ctx.lineTo(0,height)
+           ctx.lineTo(0,0)
+           ctx.closePath()
+            ctx.fillStyle = 'rgb(255, 0, 0)'
+            ctx.fill();
+
+        }
+        visible: listView1.currentIndex >= 2 ? true : false
+    }
+
     Rectangle {//10 janvier 2010
+        id: v2
         x: 1*ScreenW/8+0.02*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: -frise.height/4 +   ScreenW/48
@@ -148,7 +173,7 @@ Rectangle {
             color: "black"
             anchors.fill:parent
             font.bold: true
-                        font.pixelSize: ScreenH/60
+            font.pixelSize: ScreenH/60
         }
         border.width: 3
         border.color: "black"
@@ -269,7 +294,31 @@ Rectangle {
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
+    Canvas{
+        id: mark2
+        anchors.top: frise.top
+        anchors.topMargin:  ScreenH/20
+        anchors.bottom: frise.bottom
+        anchors.bottomMargin:  ScreenH/20
+        anchors.horizontalCenter: v152.horizontalCenter
+        width: 4
+        onPaint : {
+           var ctx = getContext("2d")
+           ctx.beginPath()
+           ctx.moveTo(0,0)
+           ctx.lineTo(4,0)
+           ctx.lineTo(4,height)
+           ctx.lineTo(0,height)
+           ctx.lineTo(0,0)
+           ctx.closePath()
+            ctx.fillStyle = 'rgb(255, 0, 0)'
+            ctx.fill();
+
+        }
+        visible: listView1.currentIndex >= 8 ? true : false
+    }
     Rectangle {//30 octobre 2011
+        id: v152
         x: 2*ScreenW/8+0.78*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: -frise.height/4+2*  ScreenW/48
@@ -315,7 +364,31 @@ Rectangle {
         border.color: "black"
        color: listView1.currentIndex === index ? "lightsteelblue" : "gray"
     }
+    Canvas{
+        id: mark3
+        anchors.top: frise.top
+        anchors.topMargin:  ScreenH/20
+        anchors.bottom: frise.bottom
+        anchors.bottomMargin:  ScreenH/20
+        anchors.horizontalCenter: v160.horizontalCenter
+        width: 4
+        onPaint : {
+           var ctx = getContext("2d")
+           ctx.beginPath()
+           ctx.moveTo(0,0)
+           ctx.lineTo(4,0)
+           ctx.lineTo(4,height)
+           ctx.lineTo(0,height)
+           ctx.lineTo(0,0)
+           ctx.closePath()
+            ctx.fillStyle = 'rgb(255, 0, 0)'
+            ctx.fill();
+
+        }
+        visible: listView1.currentIndex >= 10 ? true : false
+    }
     Rectangle {//16 novembre 2013
+        id: v160
         x: 4*ScreenW/8+0.81*ScreenW/8
         anchors.verticalCenter: frise.verticalCenter
         anchors.verticalCenterOffset: 0
@@ -501,12 +574,12 @@ Rectangle {
     }
        ListView {
            id: listView1
-           width: ScreenW*0.38
+           width: ScreenW*0.7
            anchors.top: frise.bottom
            anchors.bottom: parent.bottom
            anchors.bottomMargin: 0
            anchors.left: parent.left
-           anchors.leftMargin: ScreenW*0.1
+           anchors.leftMargin: ScreenW*0.15
            //anchors.horizontalCenterOffset: -ScreenW/8
            focus: true
            //spacing: ScreenH*0.01
@@ -518,12 +591,13 @@ Rectangle {
                onTriggered: app.currentItemChanged(view.currentItem)
            }
            delegate: Item {
-               width: ScreenW/1.5
+               width: ScreenW*0.6
                height: ScreenH/50+ScreenH*0.01
                Rectangle {
                    color: colorItem
                    anchors.fill: parent
-                   opacity: 0.5
+                   opacity: index-1 == listView1.currentIndex ? 0.0 : 0.5
+                   //visible: index == listView1.currentIndex ? false : true
                }
 
                Row {
@@ -546,7 +620,7 @@ Rectangle {
                    }
                    Text {
                        color: "black"
-                       width: ScreenW/10
+                       width: ScreenW/12
                        text: desc
                        font.pixelSize: ScreenH/50
                        anchors.verticalCenter: parent.verticalCenter
@@ -556,7 +630,7 @@ Rectangle {
                }
 
            }
-           highlight: Rectangle { color: "red"; radius: 5;  }//height:ScreenH/50+200
+           highlight: Rectangle { color: "red"; radius: 5; }//height:ScreenH/50+200
 
            Keys.onUpPressed: {
                decrementCurrentIndex()
@@ -653,13 +727,13 @@ Rectangle {
                    colorItem: "transparent"
                }
                ListElement {
-                   index: 16
+                   index: 15
                    date: "27 mai 2015"
                    desc: "Ouverture comptes réseau sociaux"
                    colorItem: "transparent"
                }
                ListElement {
-                   index: 15
+                   index: 16
                    date: "22 août 2015"
                    desc: "Sortie de la version 1.7.0"
                    colorItem: "lightsteelblue"
@@ -685,6 +759,7 @@ Rectangle {
             anchors.rightMargin: ScreenW/28
             text: qsTr("2016")
             font.pixelSize: ScreenH/20
+            color:"white"
         }
 
         Text {
@@ -695,6 +770,7 @@ Rectangle {
             text: qsTr("2009")
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: ScreenH/20
+            color:"white"
         }
 
 }

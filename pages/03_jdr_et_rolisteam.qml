@@ -2,15 +2,13 @@ import QtQuick 2.0
 import QtQuick.Window 2.2
 
 Rectangle {
-    id: rectangle1
+    id: jdr
     width: ScreenW
     height: ScreenH
-    //    height: 600
-    //  anchors.centerIn: parent
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
-    property alias listView1: listView1
+    property int idState: 0
     Image {
         id: image1
         anchors.left: parent.left
@@ -38,7 +36,32 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
+    focus: true
+    Keys.onUpPressed: {
+        --idState;
+        //decrementCurrentIndex()
+    }
+    Keys.onDownPressed: {
+        ++idState
+       /* if(!panelInfo.visible)
+        {
+            panelInfo.visible = true
+        }
+        else
+        {
+            incrementCurrentIndex()
+        }*/
+    }
+    onIdStateChanged: {
+        trigger.start()
+    }
 
+    Timer {
+         id: trigger
+         interval: 1001
+         repeat: false
+         onTriggered: app.currentItemChanged(view.currentItem)
+     }
     ListView {
         id: listView1
         x: ScreenW/4
@@ -55,35 +78,27 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
-                visible: (listView1.currentIndex >= index ) ? true: false
+                opacity: (jdr.idState >= index ) ? 1.0: 0.0
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: 1000
+                    }
+                }
         }
-        focus: true
-        Keys.onUpPressed: {
-            decrementCurrentIndex()
-        }
-        Keys.onDownPressed: {
-            if(!panelInfo.visible)
-            {
-                panelInfo.visible = true
-            }
-            else
-            {
-                incrementCurrentIndex()
-            }
-        }
+
         model: ListModel {
             ListElement {
                 name: "Le JDR, c'est quoi ?"
                 index:0
             }
             ListElement {
-                name: "Comment se passe une partie ?"
-                index:1
-            }
-           /* ListElement {
-                name: "Jouer à distance ?"
+                name: "Imaginez!"
                 index:2
-            }*/
+            }
+            ListElement {
+                name: "Comment se passe une partie ?"
+                index:3
+            }
         }
     }
     Text {
@@ -98,26 +113,11 @@ Rectangle {
         //height: parent.height*0.3
         font.pointSize: ScreenH/50
         text: "«<i>Le jeu de rôle est un jeu de société dans lequel les participants <br/>conçoivent ensemble une fiction par l’interprétation de rôles et par la narration,<br/> dans le cadre de contraintes de jeu qu’ils s’imposent.</i>»<br/>   -Wikipedia"
-        visible: false
-    }
-
-    /*Keys.onDownPressed: {
-            if(state == "")
-            {
-                state="simple"
-            }
-            else if(state=="simple")
-            {
-                state ="";
+        opacity: (jdr.idState == 1 ) ? 1.0: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
             }
         }
-        states: [
-            State {
-                name: "simple"
-                PropertyChanges {
-                    target: panelInfo
-                    visible: true
-                }
-            }
-        ]*/
+    }
 }

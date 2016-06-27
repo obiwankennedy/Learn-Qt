@@ -9,7 +9,6 @@ Rectangle {
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
-    focus: true
     state: ""
     Image {
         id: image1
@@ -38,7 +37,31 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
+    focus: true
+    Keys.onUpPressed: {
+        --idState;
+        if(idState==-1)
+        {
+            idState=0;
+        }
+    }
+    Keys.onDownPressed: {
+        ++idState;
+        if(idState==5)
+        {
+            idState=1;
+        }
+    }
+    onIdStateChanged: {
+        trigger.start()
+    }
 
+    Timer {
+         id: trigger
+         interval: 1001
+         repeat: false
+         onTriggered: app.currentItemChanged(view.currentItem)
+     }
     ListView {
         id: listView1
         x: ScreenW/4
@@ -55,138 +78,76 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
+                opacity: (rectangle1.idState >= index ) ? 1.0: 0.0
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: 1000
+                    }
+                }
         }
         model: ListModel {
             ListElement {
-                name: "Interpreteur de commande"
-            }
-            ListElement {
-                name: "Indépendant"
+                name: "Interpreteur de commandes"
+                index: 0
             }
             ListElement {
                 name: "Client: Rolisteam, IRC Bot, CLI"
+                index: 1
             }
             ListElement {
-                name: "Exemples:"
-            }
-        }
-    }
-    Keys.onDownPressed: {
-        console.log("down"+rectangle1.state)
-        if(rectangle1.state=="")
-        {
-            rectangle1.state="rolisteam"
-        }
-        else if( rectangle1.state === "rolisteam")
-        {
-            rectangle1.state="irc"
-        }
-        else if( rectangle1.state ==="irc")
-        {
-            rectangle1.state="cli"
-        }
-        else if(state === "cli")
-        {
-            rectangle1.state=""
-        }
-        console.log("fin down")
-    }
-    Keys.onUpPressed: {
-        console.log("up")
-        if(rectangle1.state==="")
-        {
-            rectangle1.state="cli"
-        }
-        else if( rectangle1.state === "cli")
-        {
-            rectangle1.state="irc"
-        }
-        else if( rectangle1.state ==="irc")
-        {
-            rectangle1.state="rolisteam"
-        }
-        else if(rectangle1.state === "rolisteam")
-        {
-            rectangle1.state=""
-        }
-        console.log("fin up")
-    }
-    states: [
-         State {
-             name: ""
-             PropertyChanges { target: img; visible: false }
-         },
-         State {
-             name: "rolisteam"
-            PropertyChanges { target: img; visible: true }
-         },
-        State {
-            name: "irc"
-           PropertyChanges { target: img; visible: true }
-        },
-        State {
-            name: "cli"
-           PropertyChanges { target: img; visible: true }
-        }
-     ]
-    transitions: [
-        Transition {
-            from: "*"
-            to: "*"
-            SequentialAnimation
-            {
-                NumberAnimation {
-                    target: img
-                    property: "opacity"
-                    duration: 400
-                    to: 0.0
-                    easing.type: Easing.InOutQuad
-                }
-                PropertyAction {
-                    target: img
-                    property: "idImage"
-                    value: idState
-                }
-                NumberAnimation {
-                    target: img
-                    property: "opacity"
-                    duration: 400
-                    to: 1.0
-                    easing.type: Easing.InOutQuad
-                }
-
+                name: "Simple et puissant"
+                index: 2
             }
 
         }
-    ]
+        opacity: (rectangle1.idState < 3 ) ? 1.0: 0.0
+    }
+
+    Text {
+        id: panelInfo
+        x: ScreenW/4
+        y: ScreenH/4
+        //height: parent.height*0.3
+        font.pointSize: ScreenH/50
+        text: "Lancer N dés à 10 faces allant de 0 à 9<br/> Garder les M plus bas <br/>compter parmis les M ceux qui sont inférieurs ou égaux à P"
+        opacity: (rectangle1.idState >= 3 ) ? 1.0: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+            }
+        }
+    }
+    /*
+    ListElement{
+        name: "!6d[0-9]kl3c[<=4]"
+    }y
+Text {
+        id: panelInfo2
+        x: ScreenW/4
+        y: ScreenH/4
+        //height: parent.height*0.3
+        font.pointSize: ScreenH/50
+        text: "Lancer N dés à 10 faces allant de 0 à 9 garder les M plus bas et compter parmis les M ceux qui sont inférieurs ou égaux à P"
+        opacity: (rectangle1.idState >= 4 ) ? 1.0: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+            }
+        }
+    }*/
     Image {
         id: img
-        anchors.top: listView1.bottom
+        anchors.top: panelInfo.bottom
         anchors.left: listView1.left
         fillMode: Image.PreserveAspectFit
         anchors.right: listView1.right
-        visible: false
-        property string idImage: rectangle1.state
-        onIdImageChanged: {
-           if(rectangle1.state === "rolisteam")
-           {
-                source ="qrc:/rsrc/diceColor.png"
-           }
-           else if(rectangle1.state  ==="irc")
-           {
-               source="qrc:/rsrc/ircDice.png"
-           }
-           else if(rectangle1.state === "cli")
-           {
-               source ="qrc:/rsrc/cliDice.png"
-           }
-           else
-           {
-               source = ""
-           }
+        source: "qrc:/rsrc/ddaydice.png"
+        opacity: (rectangle1.idState >= 4 ) ? 1.0: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+            }
         }
-
-       // PropertyAnimation on source { duration: 200 }
     }
 
 }

@@ -10,7 +10,6 @@ Rectangle {
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
-    focus: true
     Image {
         id: image1
         anchors.left: parent.left
@@ -29,7 +28,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("Jouer en ligne")
+        text: qsTr("Avantages à distance")
         anchors.horizontalCenterOffset: 1
         font.family: "Verdana"
         font.bold: true
@@ -54,22 +53,36 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
+                opacity: (listView1.currentIndex >= index ) ? 1.0: 0.0
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: 1000
+                    }
+                }
+        }
+        focus: true
+        Keys.onUpPressed: {
+            decrementCurrentIndex()
+        }
+        Keys.onDownPressed: {
+            incrementCurrentIndex()
         }
         model: ListModel {
             ListElement {
-                name: "~Amusant"
+                name: "Coût et temps de transport"
+                index: 0
             }
             ListElement {
-                name: "↘Activités sociales"
+                name: "Zone de recrutement plus grande"
+                index: 1
             }
             ListElement {
-                name: "+Le gain de temps (pas de transport)"
+                name: "Abstraction des règles"
+                index:2
             }
             ListElement {
-                name: "+Éloignement géographique"//Et la possibilité de jouer à des jeux atypique que personne ne veut.
-            }
-            ListElement {
-                name: "+Accessibilité"
+                name: "Jouer en pyjama"
+                index:3
             }
         }
     }

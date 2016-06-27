@@ -37,8 +37,7 @@ int main(int argc, char *argv[])
    /* QTextDocument text(NULL);
     CppHighLighter cppHighLighter(&text);
     engine.rootContext()->setContextProperty("_hightedDoc",&text);*/
-    engine.rootContext()->setContextProperty("CppHighLightedDocument",720);
-
+    //engine.rootContext()->setContextProperty("CppHighLightedDocument",720);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
@@ -46,7 +45,6 @@ int main(int argc, char *argv[])
     ctr.setEngine(&engine);
 
     //ctr.setVisible(true);
-
 
 
     return app.exec();

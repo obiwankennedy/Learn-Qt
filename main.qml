@@ -18,97 +18,116 @@ ApplicationWindow {
                 name: "Intro"
                 path: "01_intro.qml"
                 time: 1
+                next: "Présentation de Rolisteam"
             }
             ListElement {
                 name: "Présentation de Rolisteam"
                 path: "02_presentation.qml"
                 time: 1
+                next: "définition Jdr"
             }
             ListElement {
                 name: "Introduction au jdr"
                 path: "03_jdr_et_rolisteam.qml"
                 time: 1
+                next: "Les contraintes"
             }
             ListElement {
                 name: "Advantages du Jdr et Inconvénients"
-                path: "021_raisons.qml"
+                path: "04_jdr_avantages_pb.qml"
                 time: 1
+                next: "Avantages à distance"
             }
 
             ListElement {
                 name: "Pourquoi faire de JDR ?"
-                path: "031_les_trucs_cool_du_jdr.qml"
+                path: "05_avantage_jdr_virtuel.qml"
+                time: 1
+                next: "Fonctionnalités"
+            }
+            ListElement {
+                name: "Fonctionnalités Rolisteam"
+                path: "06_fonctionnalites_rolisteam.qml"
+                time: 1
+                next: "le commencement"
+            }
+            ListElement {
+                name: "Début de rolisteam"
+                path: "07_rolisteam_debut.qml"
+                time: 1
+                next: "rolistik à rolisteam"
+            }
+            ListElement {
+                name: "Rolistik à Rolisteam"
+                path: "08_Rolistik_a_Rolisteam.qml"
+                time: 1
+                next: "Frise"
+            }
+            ListElement {
+                name: "La frise"
+                path: "10_frise_chronologique.qml"
+                time: 1
+                next: "Usage"
+            }
+            ListElement {
+                name: "Son usage"
+                path: "11_son_usage.qml"
+                time: 1
+                next: "Fonctionnement"
+            }
+            ListElement {
+                name: "Son fonctionnement"
+                path: "12_son_fonctionnement.qml"
+                time: 1
+                next: "DiceParser"
+            }
+            ListElement {
+                name: "Dice Parser"
+                path: "13_dice_parser.qml"
+                time: 1
+                next: "Themes et audio"
+            }
+            ListElement {
+                name: "Themes et audio 3 pistes"
+                path: "14_themes_audio_3_pistes.qml"
+                next: "Les nouveautées 1.8"
                 time: 1
             }
             ListElement {
-                name: "Les différences avec le jeu en ligne"
-                path: "032_jdrEnLigne.qml"
+                name: "Les Nouveautés 1.8"
+                path: "15_nouveaute_1_8.qml"
                 time: 1
+                next: "À venir"
             }
             ListElement {
-                name: "Le point technique"
-                path: "04_Rolistik_a_Rolisteam.qml"
+                name: "Projets d'avenir"
+                path: "16_projet_avenir.qml"
                 time: 1
+                next: "Réussites"
             }
             ListElement {
-                name: "Chronologie"
-                path: "041_frise_chronologique.qml"
+                name: "Réussites"
+                path: "17_reussites.qml"
                 time: 1
+                next: "Leçons"
             }
             ListElement {
-                name: "Comment ça marche"
-                path: "042_comment_ca_marche.qml"
+                name: "Les leçons"
+                path: "18_les_lecons.qml"
                 time: 1
+                next: "Libre et Rolisteam"
             }
             ListElement {
-                name: "Le réseau"
-                path: "043_Exemple_code_1.qml"
+                name: "Objectif Rolisteam Libre"
+                path: "19_objectif_rolisteam_libre.qml"
                 time: 1
+                next: "FAQ"
             }
             ListElement {
-                name: "Le réseau"
-                path: "044_avancees_techniques.qml"
+                name: "FAQ "
+                path: "20_FAQ.qml"
                 time: 1
-            }
-            ListElement {
-                name: "Le réseau"
-                path: "045_dice_parser.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Vectoriel"
-                path: "046_vectoriel.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Le réseau"
-                path: "047_autres.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Le réseau"
-                path: "048_reussites.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Le réseau"
-                path: "049_echec.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Jdr "
-                path: "05_rolisteam_jdr.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Concurernt "
-                path: "06_concurrence.qml"
-                time: 1
-            }
-            ListElement {
-                name: "Concurernt "
-                path: "07_FAQ.qml"
-                time: 1
+                next: ""
             }
         }
     //Component.onCompleted: app.currentItemChanged(0)
@@ -126,8 +145,11 @@ ApplicationWindow {
         highlightRangeMode:PathView.StrictlyEnforceRange
         snapMode: PathView.SnapOneItem
         delegate:  Loader {
+            property variant model: model
              source: "pages/"+path
-        }//delegate
+
+        }
+
         Timer {
             id: trigger
             interval: 10
@@ -189,23 +211,23 @@ ApplicationWindow {
 
         model: ListModel {
             ListElement {
-                name: "Concepts"
+                name: "Les Concepts"
                 index:1
             }
             ListElement {
-                name: "Chroniques"
-                index:4
-            }
-            ListElement {
-                name: "Le logiciel"//système de build, code spécifique par OS.
-                index:5
-            }
-            ListElement {
-                name: "Le libre"
+                name: "Les Chroniques"
                 index:6
             }
             ListElement {
-                name: "FAQ"
+                name: "Le logiciel"//système de build, code spécifique par OS.
+                index:9
+            }
+            ListElement {
+                name: "Le bilan"
+                index:15
+            }
+            ListElement {
+                name: "Faq"
                 index:18
             }
         }
@@ -225,6 +247,11 @@ ApplicationWindow {
         source: "qrc:/rsrc/Masque-Video.png"
         opacity: 0.5
         fillMode: Image.Pad
+        visible: false
     }
-
+    Text {
+        anchors.top: parent.top
+        anchors.right: parent.right
+        text: panelModel.get(view.currentIndex).next+">"
+    }
 }

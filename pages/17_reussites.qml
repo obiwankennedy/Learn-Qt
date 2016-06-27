@@ -10,7 +10,6 @@ Rectangle {
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
-    focus: true
     Image {
         id: image1
         anchors.left: parent.left
@@ -54,22 +53,51 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
+                opacity: (listView1.currentIndex >= index ) ? 1.0: 0.0
+                Behavior on opacity {
+                    NumberAnimation {
+                        id: bouncebehavior
+                        duration: 1000
+                    }
+                }
         }
+        focus: true
+        Keys.onUpPressed: {
+            decrementCurrentIndex()
+        }
+        Keys.onDownPressed: {
+             incrementCurrentIndex()
+        }
+        onCurrentIndexChanged:  {
+            trigger.start()
+        }
+
+        Timer {
+             id: trigger
+             interval: 1001
+             repeat: false
+             onTriggered: app.currentItemChanged(view.currentItem)
+         }
         model: ListModel {
             ListElement {
                 name: "Multi-plateforme"
+                 index: 0
             }
             ListElement {
                 name: "Un acteur du domaine"
+                 index: 1
             }
             ListElement {
                 name: "Simple d'usage"
+                 index: 2
             }
             ListElement {
                 name: "Hackable"
+                 index: 3
             }
             ListElement {
                 name: "Un logiciel libre"
+                 index: 4
             }
         }
     }

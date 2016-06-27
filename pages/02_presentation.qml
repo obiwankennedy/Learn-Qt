@@ -10,10 +10,7 @@ Rectangle {
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
-    property alias listView1: listView1
     property int idState: 0
-
-    focus: true
 
     Image {
         id: image1
@@ -46,62 +43,51 @@ Rectangle {
 
     Image {
         id: screenShot
-        source : "qrc:/rsrc/rolisteamScreen1.8.png"
+        source : "qrc:/rsrc/screen.png"
         anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -20
         anchors.left: parent.left
-        anchors.leftMargin: ScreenW*0.1
+        anchors.leftMargin: ScreenW*0.15
 
         fillMode: Image.PreserveAspectFit
-        width: ScreenW*0.7
-        height: ScreenH*0.7
+        width: ScreenW*0.6
+        height: ScreenH*0.6
         visible: true
-        opacity: 0.4
     }
-   /* Keys.onDownPressed: {
-        if(idState === 3)
-        {
-            idState =0;
+   /* ListView {
+        id: listView1
+        x: ScreenW/4
+        y: ScreenH/4
+        width: ScreenW/2
+        height: ScreenH/2
+        delegate: Item {
+            width: ScreenW/2
+            height: listView1.height/listView1.count
+                Text {
+                    color: "black"
+                    text: name
+                    font.pointSize: ScreenH/28
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
+                }
+                visible: (listView1.currentIndex >= index ) ? true: false
         }
-        else
-        {
-            idState+=1;
+        focus: true
+        Keys.onUpPressed: {
+            decrementCurrentIndex()
         }
-
-    }
-    Keys.onUpPressed: {
-        if(idState===0)
-        {
-            idState=3
+        Keys.onDownPressed: {
+            incrementCurrentIndex()
         }
-        else
-        {
-            idState-=1
-        }
-    }
-    states: [
-        State {
-            name: ""
-            when: idState== 0
-            PropertyChanges {
-                target: listView1
-                visible: true
+        model: ListModel {
+            ListElement {
+                name: "libre"
+                index:0
             }
-            PropertyChanges {
-                target: screenShot
-                visible: false
-            }
-        },
-        State {
-            name: "ScreenShot"
-            when: idState== 1
-            PropertyChanges {
-                target: listView1
-                visible: false
-            }
-            PropertyChanges {
-                target: screenShot
-                visible: true
+            ListElement {
+                name: "Jouer à distance"
+                index:1
             }
         }
-    ]*/
+    }*/
 }

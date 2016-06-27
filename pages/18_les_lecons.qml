@@ -10,7 +10,6 @@ Rectangle {
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
-    focus: true
     Image {
         id: image1
         anchors.left: parent.left
@@ -29,7 +28,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("Les échecs")
+        text: qsTr("Les leçons")
         anchors.horizontalCenterOffset: 1
         font.family: "Verdana"
         font.bold: true
@@ -54,22 +53,51 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     font.bold: true
                 }
+                opacity: (listView1.currentIndex >= index ) ? 1.0: 0.0
+                Behavior on opacity {
+                    NumberAnimation {
+                        id: bouncebehavior
+                        duration: 1000
+                    }
+                }
         }
+        focus: true
+        Keys.onUpPressed: {
+            decrementCurrentIndex()
+        }
+        Keys.onDownPressed: {
+             incrementCurrentIndex()
+        }
+        onCurrentIndexChanged:  {
+            trigger.start()
+        }
+
+        Timer {
+             id: trigger
+             interval: 1001
+             repeat: false
+             onTriggered: app.currentItemChanged(view.currentItem)
+         }
         model: ListModel {
             ListElement {
-                name: "Gestion de projet (v2.0)"
+                name: "Gestion de projet libre"
+                index : 0
             }
             ListElement {
                 name: "Internationalisation"
+                index: 1
             }
             ListElement {
                 name: "Contribution"
+                index: 2
             }
             ListElement {
                 name: "Streaming audio/chat vocal ou vidéo/Xmpp"
+                index:3
             }
             ListElement {
-                name: "Différence Rolistik/Rolisteam"
+                name: "Confusion Rolistik/Rolisteam"
+                index:4
             }
         }
     }

@@ -125,8 +125,13 @@ void QmlControler::currentPageHasChanged(int i)
     if(img.isNull())
         return;
 
+    static int count = 0;
 
-    m_ratioImage = (double)img.size().width()/img.size().height();
+
+   // img.save(tr("screens/%1_screen.png").arg(++count,2,10,QChar('0')),"png");
+    qDebug() << "screen shot save" << count;
+
+    /*m_ratioImage = (double)img.size().width()/img.size().height();
     m_ratioImageBis = (double)img.size().height()/img.size().width();
 
     m_label->setPixmap(QPixmap::fromImage(img));
@@ -140,7 +145,7 @@ void QmlControler::currentPageHasChanged(int i)
     if(NULL!=doc)
     {
         new CppHighLighter(doc->textDocument());
-    }
+    }*/
 }
 void QmlControler::resizeLabel()
 {

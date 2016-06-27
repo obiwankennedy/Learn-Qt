@@ -6,18 +6,14 @@ import QtQuick.Layouts 1.2
 
 
 Rectangle {
-    id: rectangle1
-  //  property int  ScreenW: 1024
-    //property int  ScreenH: 800
+    id: howitwork
     width: ScreenW
     height: ScreenH
-    //    height: 600
-    //  anchors.centerIn: parent
+    property int idState : 0
     border.color: "#E3E3E3"
     border.width: 5
     color: "#E3E3E3"
     property alias listView1: listView1
-    focus: true
     Image {
         id: image1
         anchors.left: parent.left
@@ -36,7 +32,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("Comment ça marche ?")
+        text: qsTr("Son fonctionnement ?")
         anchors.horizontalCenterOffset: 1
         //anchors.topMargin: -203
         font.family: "Verdana"
@@ -45,7 +41,23 @@ Rectangle {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: ScreenH/20
     }
+    focus: true
+    Keys.onUpPressed: {
+        --idState
+    }
+    Keys.onDownPressed: {
+        ++idState
+    }
+    onIdStateChanged: {
+        trigger.start()
+    }
 
+    Timer {
+         id: trigger
+         interval: 1001
+         repeat: false
+         onTriggered: app.currentItemChanged(view.currentItem)
+     }
     ListView {
         id: listView1
         x: ScreenW/4
@@ -62,19 +74,27 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 font.bold: true
             }
+            opacity: (howitwork.idState >= index ) ? 1.0: 0.0
+            Behavior on opacity {
+                NumberAnimation {
+                    id: bouncebehavior
+                    duration: 1000
+                }
+            }
         }
+
         model: ListModel {
             ListElement {
-                name: "Application Client/Serveur"
+                name: "Application Client/Serveur TCP/IP"
+                index: 0
             }
             ListElement {
                 name: "Application MDI"
+                index: 1
             }
             ListElement {
-                name: "Un utilisateur avec des droits particuliers: le MJ"//système de build, code spécifique par OS.
-            }
-            ListElement {
-                name: "4 cas de figure: MJ, Joueur, Client ou Serveur"
+                name: "C++/Qt"
+                index:2
             }
         }
     }
@@ -144,6 +164,12 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 100
         model:codeData
+        opacity: (idState >= 3 ) ? 1.0: 0.0
+        Behavior on opacity {
+            NumberAnimation {
+                duration: 1000
+            }
+        }
         TableViewColumn {
             role: "Language"
             title: "Language"

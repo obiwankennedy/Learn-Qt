@@ -67,4 +67,14 @@ Rectangle {
             }
         }
     }
+
+    Text {
+        id: text2
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 90
+        anchors.bottomMargin: 50
+        color: "black"
+        text: qsTr("Merci à : Chewba, Hytholée, Henriette")
+    }
 }
