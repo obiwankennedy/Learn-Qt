@@ -36,7 +36,7 @@ ApplicationWindow {
                 name: "Advantages du Jdr et Inconvénients"
                 path: "04_jdr_avantages_pb.qml"
                 time: 1
-                next: "Avantages à distance"
+                next: "Avantages de l'informatique"
             }
 
             ListElement {
