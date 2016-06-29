@@ -28,7 +28,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.01
         color: "black"
-        text: qsTr("Avantages à distance")
+        text: qsTr("Avantages de l'informatique")
         anchors.horizontalCenterOffset: 1
         font.family: "Verdana"
         font.bold: true
@@ -67,6 +67,16 @@ Rectangle {
         Keys.onDownPressed: {
             incrementCurrentIndex()
         }
+        onCurrentIndexChanged: {
+            trigger.start()
+        }
+
+        Timer {
+             id: trigger
+             interval: 1001
+             repeat: false
+             onTriggered: app.currentItemChanged(view.currentItem)
+         }
         model: ListModel {
             ListElement {
                 name: "Coût et temps de transport"

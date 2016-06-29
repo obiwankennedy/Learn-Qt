@@ -83,7 +83,7 @@ Rectangle {
          }
         model: ListModel {
             ListElement {
-                name: "2009"
+                name: "2009 - Rolistik"
                 index: 0
             }
             ListElement {

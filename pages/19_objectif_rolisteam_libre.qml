@@ -69,9 +69,19 @@ Rectangle {
         Keys.onDownPressed: {
              incrementCurrentIndex()
         }
+        onCurrentIndexChanged: {
+            trigger.start()
+        }
+
+        Timer {
+             id: trigger
+             interval: 1001
+             repeat: false
+             onTriggered: app.currentItemChanged(view.currentItem)
+         }
         model: ListModel {
             ListElement {
-                name: "Ambassadeur"
+                name: "Passerelle"
                 index: 0
             }
             ListElement {

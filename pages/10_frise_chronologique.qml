@@ -746,7 +746,7 @@ Rectangle {
                }
                ListElement {
                    index: 18
-                   date: "1 Juillet 2016"
+                   date: "30 juin 2016"
                    desc: "Pas sage en Seine"
                    colorItem: "transparent"
                }

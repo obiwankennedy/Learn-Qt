@@ -34,7 +34,7 @@ Rectangle {
         width: ScreenW*0.5
         height: ScreenH*0.05
         color: "black"
-        text: qsTr("Fin")
+        text: qsTr("Merci de m'avoir écouter")
         anchors.horizontalCenterOffset: 1
         //anchors.topMargin: -203
         font.family: "Verdana"
@@ -63,7 +63,7 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "FAQ ?"
+                name: "A vos questions!"
             }
         }
     }
@@ -71,10 +71,10 @@ Rectangle {
     Text {
         id: text2
         anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.leftMargin: 90
+        anchors.right: parent.right
+        anchors.rightMargin: ScreenW*0.4
         anchors.bottomMargin: 50
         color: "black"
-        text: qsTr("Merci à : Chewba, Hytholée, Henriette")
+        text: qsTr("Merci à : Chewba, Hythlodée, Henriette")
     }
 }

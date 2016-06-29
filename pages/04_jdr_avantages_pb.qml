@@ -48,9 +48,9 @@ Rectangle {
     }
     Keys.onDownPressed: {
         ++idState;
-        if(idState==2)
+        if(idState==3)
         {
-            idState=1;
+            idState=0;
         }
     }
     onIdStateChanged: {
@@ -104,10 +104,10 @@ Rectangle {
         x: ScreenW/4
         anchors.top: listView1.top
         width: ScreenW/2
-        height: ScreenH/2
+        height: ScreenH/4
         delegate: Item {
             width: ScreenW/2
-            height: listView1.height/listView1.count
+            height: listView2.height/listView1.count
                 Text {
                     color: "black"
                     text: name
@@ -124,12 +124,16 @@ Rectangle {
         }
         model: ListModel {
             ListElement {
-                name: "Déplacement"
+                name: "Géographique (ville, trajet…)"
                 index:0
             }
             ListElement {
-                name: "Temps"
+                name: "Temps (boulot, vie de famille…)"
                 index:1
+            }
+            ListElement {
+                name: "Matérielle (Local, livres…)"
+                index:2
             }
         }
     }

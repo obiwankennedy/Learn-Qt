@@ -19,11 +19,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         source: "qrc:/rsrc/Rolisteam.svg"
     }
-//    Text {
-//        anchors.top: parent.top
-//        anchors.right: parent.right
-//        text: next+" > "
-//    }
+
     Text {
         id: text1
         anchors.top:image1.bottom

@@ -84,7 +84,7 @@ Rectangle {
                  index: 0
             }
             ListElement {
-                name: "Un acteur du domaine"
+                name: "Un acteur du Jdr à distance"
                  index: 1
             }
             ListElement {
@@ -96,8 +96,12 @@ Rectangle {
                  index: 3
             }
             ListElement {
-                name: "Un logiciel libre"
+                name: "Défi"
                  index: 4
+            }
+            ListElement {
+                name: "Logiciel Libre"
+                index: 5
             }
         }
     }

@@ -56,9 +56,9 @@ Rectangle {
     }
     Keys.onDownPressed: {
         ++idState;
-        if(idState==3)
+        if(idState==4)
         {
-            idState=1;
+            idState=0;
         }
     }
     onIdStateChanged: {
@@ -98,14 +98,14 @@ Rectangle {
         model: ListModel {
             ListElement {
                 name: "4 cas de figure: MJ, Joueur, Client ou Serveur"
-                index: 1
+                index: 0
             }
             ListElement {
                 name: "Le MJ: permission"//système de build, code spécifique par OS.
-                index: 2
+                index: 1
             }
         }
-        opacity: (usage.idState > 0 ) ? 1.0: 0.0
+        opacity: (usage.idState < 3 ) ? 1.0: 0.0
         Behavior on opacity {
             NumberAnimation {
                 duration: 1000
@@ -113,30 +113,36 @@ Rectangle {
         }
     }
     Image {
-        x: ScreenW/4
-        y: ScreenH/4
-        width: ScreenW/2
-        height: ScreenH*0.7
+        x: ScreenW*0.6
+        anchors.right: parent.right
+        anchors.top: listView1.top
+        anchors.topMargin: ScreenH*0.2
+
+        width: ScreenW*0.4
+        height: ScreenH*0.4
         fillMode: Image.PreserveAspectFit
 
         source: "qrc:/rsrc/entree.png"
-        opacity: (usage.idState == 0 ) ? 1.0: 0.0
+        opacity: (usage.idState < 2 ) ? 1.0: 0.0
         Behavior on opacity {
             NumberAnimation {
                 duration: 1000
             }
         }
     }
-   /* Image {
-        anchors.top: listView1.top
-        anchors.bottom: listView1.bottom
-        anchors.left: listView1.right
-        source: "qrc:/rsrc/entree.png"
-        opacity: (usage.idState >= 0 ) ? 1.0: 0.0
+    Image {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -20
+        anchors.left: parent.left
+        anchors.leftMargin: ScreenW*0.15
+        width: ScreenW*0.7
+        height: ScreenH*0.7
+        source: "qrc:/rsrc/screen.png"
+        opacity: (usage.idState == 2 ) ? 1.0: 0.0
         Behavior on opacity {
             NumberAnimation {
                 duration: 1000
             }
         }
-    }*/
+    }
 }

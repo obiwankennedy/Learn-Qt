@@ -80,7 +80,7 @@ Rectangle {
          }
         model: ListModel {
             ListElement {
-                name: "Gestion de projet libre"
+                name: "Gestion de projet"
                 index : 0
             }
             ListElement {

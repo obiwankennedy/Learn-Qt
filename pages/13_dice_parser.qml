@@ -47,7 +47,7 @@ Rectangle {
     }
     Keys.onDownPressed: {
         ++idState;
-        if(idState==5)
+        if(idState==6)
         {
             idState=1;
         }
@@ -106,7 +106,7 @@ Rectangle {
     Text {
         id: panelInfo
         x: ScreenW/4
-        y: ScreenH/4
+        anchors.top: image1.bottom
         //height: parent.height*0.3
         font.pointSize: ScreenH/50
         text: "Lancer N dés à 10 faces allant de 0 à 9<br/> Garder les M plus bas <br/>compter parmis les M ceux qui sont inférieurs ou égaux à P"
@@ -120,29 +120,30 @@ Rectangle {
     /*
     ListElement{
         name: "!6d[0-9]kl3c[<=4]"
-    }y
+    }y*/
 Text {
         id: panelInfo2
-        x: ScreenW/4
-        y: ScreenH/4
+        anchors.left: panelInfo.left
+        anchors.top: panelInfo.bottom
+        anchors.right: panelInfo.right
         //height: parent.height*0.3
         font.pointSize: ScreenH/50
-        text: "Lancer N dés à 10 faces allant de 0 à 9 garder les M plus bas et compter parmis les M ceux qui sont inférieurs ou égaux à P"
+        text: "(.*)day(.*),(.*) => \\1d[0-9]kl\\2c[<=\\3]"
         opacity: (rectangle1.idState >= 4 ) ? 1.0: 0.0
         Behavior on opacity {
             NumberAnimation {
                 duration: 1000
             }
         }
-    }*/
+    }
     Image {
         id: img
-        anchors.top: panelInfo.bottom
+        anchors.top: panelInfo2.bottom
         anchors.left: listView1.left
         fillMode: Image.PreserveAspectFit
         anchors.right: listView1.right
         source: "qrc:/rsrc/ddaydice.png"
-        opacity: (rectangle1.idState >= 4 ) ? 1.0: 0.0
+        opacity: (rectangle1.idState >= 5 ) ? 1.0: 0.0
         Behavior on opacity {
             NumberAnimation {
                 duration: 1000

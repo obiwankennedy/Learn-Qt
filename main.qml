@@ -121,10 +121,10 @@ ApplicationWindow {
                 name: "Objectif Rolisteam Libre"
                 path: "19_objectif_rolisteam_libre.qml"
                 time: 1
-                next: "FAQ"
+                next: "Merci"
             }
             ListElement {
-                name: "FAQ "
+                name: "Fin "
                 path: "20_FAQ.qml"
                 time: 1
                 next: ""
@@ -145,7 +145,7 @@ ApplicationWindow {
         highlightRangeMode:PathView.StrictlyEnforceRange
         snapMode: PathView.SnapOneItem
         delegate:  Loader {
-            property variant model: model
+            //property variant model: model
              source: "pages/"+path
 
         }
@@ -191,7 +191,7 @@ ApplicationWindow {
 
     ListView {
         id: listView1
-        x: ScreenW*0.01
+        x: ScreenW*0.02
         y: ScreenH*0.3
         width: ScreenW/2
         height: ScreenH*0.2
@@ -211,24 +211,20 @@ ApplicationWindow {
 
         model: ListModel {
             ListElement {
-                name: "Les Concepts"
+                name: "Concepts"
                 index:1
             }
             ListElement {
-                name: "Les Chroniques"
+                name: "Chroniques"
                 index:6
             }
             ListElement {
-                name: "Le logiciel"//système de build, code spécifique par OS.
+                name: "Logiciel"//système de build, code spécifique par OS.
                 index:9
             }
             ListElement {
-                name: "Le bilan"
+                name: "Bilan"
                 index:15
-            }
-            ListElement {
-                name: "Faq"
-                index:18
             }
         }
     }

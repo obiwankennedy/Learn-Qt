@@ -140,7 +140,7 @@ Rectangle {
                     text: name
                     font.pointSize: ScreenH/28
                     anchors.verticalCenter: parent.verticalCenter
-                    font.bold: index=== 0 ? true : false
+                    font.bold: index=== 6 ? true : false
                 }
                 opacity: (futurproject.idState >= index ) ? 1.0: 0.0
                 Behavior on opacity {
@@ -153,23 +153,23 @@ Rectangle {
         model: ListModel {
             ListElement {
                 name: "Fonctionnement"
-                index:0
+                index:6
             }
             ListElement {
                 name: "GUI pour écran tactile"
-                 index:6
-            }
-            ListElement {
-                name: "Portage Android/iOS"
                  index:7
             }
             ListElement {
-                name: "Sécurité & chiffrage"
+                name: "Portage Android/iOS"
                  index:8
             }
             ListElement {
-                name: "Accessibilité"
+                name: "Sécurité & chiffrage"
                  index:9
+            }
+            ListElement {
+                name: "Accessibilité"
+                 index:10
             }
         }
     }
