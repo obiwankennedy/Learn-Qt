@@ -88,7 +88,7 @@ Rectangle {
 
         model: ListModel {
             ListElement {
-                name: "Le JDR, c'est quoi ?"
+                name: "Le JDR ?"
                 index:0
             }
             ListElement {
