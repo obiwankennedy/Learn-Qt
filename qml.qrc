@@ -2,58 +2,24 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>pages/01_intro.qml</file>
-        <file>pages/02_presentation.qml</file>
-        <file>pages/03_jdr_et_rolisteam.qml</file>
-        <file>rsrc/RPG-2009-Berlin-2.jpg</file>
-        <file>rsrc/ubuntu.png</file>
-        <file>rsrc/Rolisteam.svg</file>
-        <file>pages/04_jdr_avantages_pb.qml</file>
-        <file>pages/05_avantage_jdr_virtuel.qml</file>
-        <file>rsrc/cc.png</file>
-        <file>pages/043_Exemple_code_1.qml</file>
-        <file>rsrc/Rolisteam1.8.png</file>
-        <file>rsrc/Rolisteam1.png</file>
-        <file>rsrc/rolistik.png</file>
-        <file>rsrc/cliDice.png</file>
-        <file>rsrc/ircDice.png</file>
-        <file>rsrc/diceColor.png</file>
-        <file>rsrc/Masque-Video.png</file>
-        <file>rsrc/mindmap.svg</file>
-        <file>rsrc/getIdmediaRolistik.png</file>
-        <file>rsrc/getIdRolisteam1.8.png</file>
-        <file>rsrc/getIdRolisteam1.png</file>
-        <file>rsrc/rolisteamScreen1.8.png</file>
-        <file>rsrc/Rolisteam1Network.png</file>
-        <file>rsrc/rolistikNetwork.png</file>
-        <file>pages/06_fonctionnalites_rolisteam.qml</file>
-        <file>pages/20_FAQ.qml</file>
-        <file>pages/19_objectif_rolisteam_libre.qml</file>
-        <file>pages/18_les_lecons.qml</file>
-        <file>pages/17_reussites.qml</file>
-        <file>pages/16_projet_avenir.qml</file>
-        <file>pages/15_nouveaute_1_8.qml</file>
-        <file>pages/14_themes_audio_3_pistes.qml</file>
-        <file>pages/13_dice_parser.qml</file>
-        <file>pages/12_son_fonctionnement.qml</file>
-        <file>pages/11_son_usage.qml</file>
-        <file>pages/10_frise_chronologique.qml</file>
-        <file>pages/08_Rolistik_a_Rolisteam.qml</file>
-        <file>pages/07_rolisteam_debut.qml</file>
-        <file>rsrc/screen.png</file>
-        <file>rsrc/notes.png</file>
-        <file>rsrc/map.jpg</file>
-        <file>rsrc/chat.png</file>
-        <file>rsrc/dice.png</file>
-        <file>rsrc/sound.png</file>
-        <file>rsrc/picture.png</file>
-        <file>rsrc/entree.png</file>
-        <file>rsrc/ddaydice.png</file>
-        <file>rsrc/music_screen.jpg</file>
-        <file>rsrc/darkorangeSkin.jpg</file>
-        <file>rsrc/darkfusiontheme.jpg</file>
-        <file>rsrc/generat.png</file>
-        <file>rsrc/generatorConvertor.png</file>
-        <file>rsrc/v1.8.png</file>
-        <file>rsrc/fiche_perso.png</file>
+        <file>pages/02_codingRules.qml</file>
+        <file>pages/03_codingRules_bis.qml</file>
+        <file>pages/04_badExample.qml</file>
+        <file>pages/05_mvc.qml</file>
+        <file>pages/06_events_and_slots.qml</file>
+        <file>pages/07_qthread.qml</file>
+        <file>pages/08_deployment.qml</file>
+        <file>pages/09_internationalisation.qml</file>
+        <file>pages/10_third_part.qml</file>
+        <file>rsrc/Qt_logo_2015.svg</file>
+        <file alias="pages/SlidePage.qml">SlidePage.qml</file>
+        <file alias="particle.png">rsrc/particle.png</file>
+        <file>rsrc/lionne.jpg</file>
+        <file>rsrc/graywood2.jpg</file>
+        <file>rsrc/graywood.jpg</file>
+        <file>rsrc/chaton.jpg</file>
+        <file>rsrc/qt.jpg</file>
+        <file>pages/12_end.qml</file>
+        <file>pages/11_Tcp_Socket.qml</file>
     </qresource>
 </RCC>

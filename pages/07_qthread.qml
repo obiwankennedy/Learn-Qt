@@ -10,10 +10,22 @@ SlidePage {
 
     ListModel {
         id: listSection
-                ListElement {
-                    name: "QThread"
-                    index:0
-                }
+        ListElement {
+            name: "Endless loop"
+            index:0
+        }
+        ListElement {
+            name: "Worker"
+            index:1
+        }
+        ListElement {
+            name: "Work and notify"
+            index:2
+        }
+        ListElement {
+            name: "Exercice "
+            index:3
+        }
     }
 
     Component.onCompleted:

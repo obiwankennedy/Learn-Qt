@@ -37,9 +37,11 @@ Item {
         height: root.height*0.1
     }
     Keys.onUpPressed: {
+        console.log("up")
         --idState;
     }
     Keys.onDownPressed: {
+        console.log("down")
         ++idState
     }
     onIdStateChanged: {

@@ -10,10 +10,26 @@ SlidePage {
 
     ListModel {
         id: listSection
-                ListElement {
-                    name: "Deployment"
-                    index:0
-                }
+        ListElement {
+            name: "Global information"
+            index:0
+        }
+        ListElement {
+            name: "For Linux"
+            index:1
+        }
+        ListElement {
+            name: "For Windows"
+            index:2
+        }
+        ListElement {
+            name: "For MacOs"
+            index:3
+        }
+        ListElement {
+            name: "For Android"
+            index:4
+        }
     }
 
     Component.onCompleted:

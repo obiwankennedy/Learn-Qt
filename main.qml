@@ -3,14 +3,38 @@ import QtQuick 2.5
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
+import Qt.labs.presentation 1.0
+import QtGraphicalEffects 1.0
 
 ApplicationWindow {
     id: app
-    //visibility: Window.FullScreen;
-    width: ScreenW
-    height: ScreenH
+    visibility: Window.FullScreen
+    width: app.width
+    height: app.height
     visible: true
-    title: qsTr("Rolisteam: Libérez vos parties!")
+    title: qsTr("PIV and Qt5: The love story!")
+    property alias current: view.currentIndex
+
+    onCurrentChanged: {
+        //topcornerimage.visible = false
+        //bottomcornerimage.visible = false
+        if(current==0)
+            bgimg.source = "qrc:/rsrc/graywood2.jpg"
+        else if(current % 3 == 0)
+        {
+            bgimg.source = "qrc:/rsrc/graywood2.jpg"
+        }
+        else if(current % 3 == 1)
+        {
+            bgimg.source = "qrc:/rsrc/chaton.jpg";
+        }
+        else if(current % 3 == 2)
+        {
+            bgimg.source = "qrc:/rsrc/lionne.jpg";
+           // topcornerimage.visible = true
+        }
+    }
+
     signal currentItemChanged(int current)
     ListModel {
             id: panelModel
@@ -18,125 +42,101 @@ ApplicationWindow {
                 name: "Intro"
                 path: "01_intro.qml"
                 time: 1
-                next: "Présentation de Rolisteam"
+                next: "Coding Rules"
+                colortxt: "red"
             }
             ListElement {
-                name: "Présentation de Rolisteam"
-                path: "02_presentation.qml"
+                name: "Coding Rules"
+                path: "02_codingRules.qml"
                 time: 1
-                next: "définition Jdr"
+                next: "bad examples"
+                colortxt: "blue"
             }
             ListElement {
-                name: "Introduction au jdr"
-                path: "03_jdr_et_rolisteam.qml"
+                name: "Coding Rules"
+                path: "03_codingRules_bis.qml"
                 time: 1
-                next: "Les contraintes"
+                next: "bad examples"
+                colortxt: "blue"
             }
             ListElement {
-                name: "Advantages du Jdr et Inconvénients"
-                path: "04_jdr_avantages_pb.qml"
+                name: "Bad Examples"
+                path: "04_badExample.qml"
                 time: 1
-                next: "Avantages de l'informatique"
+                next: "MVC"
+            }
+            ListElement {
+                name: "MVC"
+                path: "05_mvc.qml"
+                time: 1
+                next: "Events and Signals/Slots"
             }
 
             ListElement {
-                name: "Pourquoi faire de JDR ?"
-                path: "05_avantage_jdr_virtuel.qml"
+                name: "Events and Signals Slots"
+                path: "06_events_and_slots.qml"
                 time: 1
-                next: "Fonctionnalités"
+                next: "qthread"
             }
             ListElement {
-                name: "Fonctionnalités Rolisteam"
-                path: "06_fonctionnalites_rolisteam.qml"
+                name: "QThread"
+                path: "07_qthread.qml"
                 time: 1
-                next: "le commencement"
+                next: "deployment"
             }
             ListElement {
-                name: "Début de rolisteam"
-                path: "07_rolisteam_debut.qml"
+                name: "Deployment"
+                path: "08_deployment.qml"
                 time: 1
-                next: "rolistik à rolisteam"
+                next: "Internationalisation"
             }
             ListElement {
-                name: "Rolistik à Rolisteam"
-                path: "08_Rolistik_a_Rolisteam.qml"
+                name: "Internationalisation"
+                path: "09_internationalisation.qml"
                 time: 1
-                next: "Frise"
+                next: "Third Part"
             }
             ListElement {
-                name: "La frise"
-                path: "10_frise_chronologique.qml"
+                name: "Third Part"
+                path: "10_third_part.qml"
                 time: 1
-                next: "Usage"
+                next: ""
+            }
+
+            ListElement {
+                name: "Third Part"
+                path: "11_Tcp_Socket.qml"
+                time: 1
+                next: ""
             }
             ListElement {
-                name: "Son usage"
-                path: "11_son_usage.qml"
+                name: "Misc"// JSON, Settings, c++11/14, drag and drop
+                path: "12_misc.qml"
                 time: 1
-                next: "Fonctionnement"
+                next: ""
             }
             ListElement {
-                name: "Son fonctionnement"
-                path: "12_son_fonctionnement.qml"
-                time: 1
-                next: "DiceParser"
-            }
-            ListElement {
-                name: "Dice Parser"
-                path: "13_dice_parser.qml"
-                time: 1
-                next: "Themes et audio"
-            }
-            ListElement {
-                name: "Themes et audio 3 pistes"
-                path: "14_themes_audio_3_pistes.qml"
-                next: "Les nouveautées 1.8"
-                time: 1
-            }
-            ListElement {
-                name: "Les Nouveautés 1.8"
-                path: "15_nouveaute_1_8.qml"
-                time: 1
-                next: "À venir"
-            }
-            ListElement {
-                name: "Projets d'avenir"
-                path: "16_projet_avenir.qml"
-                time: 1
-                next: "Réussites"
-            }
-            ListElement {
-                name: "Réussites"
-                path: "17_reussites.qml"
-                time: 1
-                next: "Leçons"
-            }
-            ListElement {
-                name: "Les leçons"
-                path: "18_les_lecons.qml"
-                time: 1
-                next: "Libre et Rolisteam"
-            }
-            ListElement {
-                name: "Objectif Rolisteam Libre"
-                path: "19_objectif_rolisteam_libre.qml"
-                time: 1
-                next: "Merci"
-            }
-            ListElement {
-                name: "Fin "
-                path: "20_FAQ.qml"
+                name: "End"
+                path: "12_end.qml"
                 time: 1
                 next: ""
             }
         }
-    //Component.onCompleted: app.currentItemChanged(0)
-    onVisibleChanged: trigger.start()
-    Rectangle {
-        id: rect
+    Image {
+        id: bgimg
         anchors.fill: parent
-        color: "#E3E3E3"
+        fillMode: Image.PreserveAspectCrop
+        source: "qrc:/rsrc/graywood2.jpg"
+        verticalAlignment: Image.AlignBottom
     }
+    FastBlur {
+        anchors.fill: bgimg
+        source: bgimg
+        radius: 32
+        opacity: bgimg.opacity
+    }
+    onVisibleChanged: trigger.start()
+
 
     PathView {
         id: view
@@ -147,8 +147,18 @@ ApplicationWindow {
         delegate:  Loader {
             //property variant model: model
              source: "pages/"+path
+             width: app.width
+             height: app.height
+             //anchors.fill: app.contentItem
 
         }
+        /*delegate: Rectangle {
+            width: app.width
+            height: app.height
+            color: colortxt
+        }*/
+
+
 
         Timer {
             id: trigger
@@ -160,7 +170,6 @@ ApplicationWindow {
         onOffsetChanged: {
             if(Math.floor(offset)===offset)
             {
-                //app.currentItemChanged(offset)
                 trigger.start()
             }
         }
@@ -189,46 +198,6 @@ ApplicationWindow {
         }
     }
 
-    ListView {
-        id: listView1
-        x: ScreenW*0.02
-        y: ScreenH*0.3
-        width: ScreenW/2
-        height: ScreenH*0.2
-        delegate: Item {
-            width: ScreenW/2
-            height: listView1.height/listView1.count
-                Text {
-                    color: view.currentIndex>=index ? "black" : "gray"
-                    text: name
-                    font.pointSize: ScreenH/48
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: true
-
-                }
-        }
-        visible: view.currentIndex>0 ? true : false
-
-        model: ListModel {
-            ListElement {
-                name: "Concepts"
-                index:1
-            }
-            ListElement {
-                name: "Chroniques"
-                index:6
-            }
-            ListElement {
-                name: "Logiciel"//système de build, code spécifique par OS.
-                index:9
-            }
-            ListElement {
-                name: "Bilan"
-                index:15
-            }
-        }
-    }
-
     Text {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -236,14 +205,6 @@ ApplicationWindow {
         anchors.bottomMargin: 50
         text: (view.currentIndex+1)+"/"+view.count
         visible: view.currentIndex>0 ? true : false
-    }
-
-    Image {
-        anchors.fill: parent
-        source: "qrc:/rsrc/Masque-Video.png"
-        opacity: 0.5
-        fillMode: Image.Pad
-        visible: false
     }
     Text {
         anchors.top: parent.top

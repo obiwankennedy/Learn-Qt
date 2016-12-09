@@ -10,10 +10,30 @@ SlidePage {
 
     ListModel {
         id: listSection
-                ListElement {
-                    name: "I18n"
-                    index:0
-                }
+        ListElement {
+            name: "Prepare source code"
+            index:0
+        }
+        ListElement {
+            name: "C++"
+            index:1
+        }
+        ListElement {
+            name: "QML"
+            index:2
+        }
+        ListElement {
+            name: "Translation"
+            index:3
+        }
+        ListElement {
+            name: "Make Translation Binaries"
+            index:4
+        }
+        ListElement {
+            name: "Integration into .pro"
+            index:5
+        }
     }
 
     Component.onCompleted:

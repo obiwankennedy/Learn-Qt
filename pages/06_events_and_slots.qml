@@ -10,10 +10,22 @@ SlidePage {
 
     ListModel {
         id: listSection
-                ListElement {
-                    name: "Events"
-                    index:0
-                }
+        ListElement {
+            name: "Events"
+            index:0
+        }
+        ListElement {
+            name: "Signal/slots"
+            index:1
+        }
+        ListElement {
+            name: "FAQ"
+            index:2
+        }
+        ListElement {
+            name: "Execice"
+            index:3
+        }
     }
 
     Component.onCompleted:

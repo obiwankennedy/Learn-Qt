@@ -129,7 +129,7 @@ void QmlControler::currentPageHasChanged(int i)
 
 
     //img.save(tr("screens/%1_screen.png").arg(++count,2,10,QChar('0')),"png");
-    qDebug() << "screen shot save" << ++count;
+    //qDebug() << "screen shot save" << ++count;
 
     /*m_ratioImage = (double)img.size().width()/img.size().height();
     m_ratioImageBis = (double)img.size().height()/img.size().width();
