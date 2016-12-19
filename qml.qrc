@@ -19,7 +19,9 @@
         <file>rsrc/graywood.jpg</file>
         <file>rsrc/chaton.jpg</file>
         <file>rsrc/qt.jpg</file>
-        <file>pages/12_end.qml</file>
         <file>pages/11_Tcp_Socket.qml</file>
+        <file>pages/13_qobject.qml</file>
+        <file>pages/CodePage.qml</file>
+        <file>pages/12_misc.qml</file>
     </qresource>
 </RCC>

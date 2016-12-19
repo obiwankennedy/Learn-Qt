@@ -43,21 +43,18 @@ ApplicationWindow {
                 path: "01_intro.qml"
                 time: 1
                 next: "Coding Rules"
-                colortxt: "red"
             }
             ListElement {
                 name: "Coding Rules"
                 path: "02_codingRules.qml"
                 time: 1
                 next: "bad examples"
-                colortxt: "blue"
             }
             ListElement {
                 name: "Coding Rules"
                 path: "03_codingRules_bis.qml"
                 time: 1
                 next: "bad examples"
-                colortxt: "blue"
             }
             ListElement {
                 name: "Bad Examples"

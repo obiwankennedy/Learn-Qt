@@ -6,11 +6,11 @@ SlidePage {
     anchors.fill: parent
     logo: "qrc:/rsrc/Qt_logo_2015.svg"
     focus: true
-    title: "Coding Rules (1/2)"
+    title: "Coding Rules (2/2)"
 
     points: ListModel {
             ListElement {
-                name: "Doxy Comments"
+                name: "Doxy Comments <a href=\"https://github.com/Rolisteam/DiceParser/blob/master/diceparser.h\">Example</a>"
                 index:0
             }
             ListElement {
@@ -39,6 +39,7 @@ SlidePage {
         color: "white"
         font.pixelSize: parent.height*0.03
         textFormat: TextEdit.RichText
+
 
     }
 }

@@ -9,6 +9,11 @@ Item {
     property alias  title: text1.text
     property alias view: listView1
 
+    MouseArea {
+        anchors.fill: parent
+        onClicked: root.focus = true
+    }
+
     Text {
         id: text1
         anchors.top:image1.top
@@ -44,6 +49,17 @@ Item {
         console.log("down")
         ++idState
     }
+    Keys.onPressed: {
+        if(event.key === Qt.Key_PageDown)
+        {
+            ++idState
+        }
+        else if(event.key === Qt.Key_PageUp)
+        {
+            --idState;
+        }
+    }
+
     onIdStateChanged: {
         trigger.start()
     }
@@ -70,6 +86,9 @@ Item {
                     font.bold: false
                     wrapMode: Text.WordWrap
                     elide: Text.ElideLeft
+                    onLinkActivated: Qt.openUrlExternally(link)
+                    linkColor: "white"
+                    textFormat: Text.StyledText
 
                 }
                 opacity: (root.idState >= index ) ? 1.0: 0.0

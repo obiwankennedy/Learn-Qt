@@ -177,7 +177,7 @@ signals:
 protected:
     bool moveMediaItem(QList<CleverURI*> items, const QModelIndex &parentToBe, int row, QList<QModelIndex> &formerPosition);
 private:
-    Chapter* m_rootItem;/// root item address
+    ResourcesNode* m_rootItem;/// root item address
     QStringList m_header;
 };
 "
@@ -241,6 +241,43 @@ QModelIndex SessionItemModel::index( int row, int column, const QModelIndex & pa
     else
         return QModelIndex();
 }
+QVariant SessionItemModel::data(const QModelIndex &index, int role ) const
+{
+    if(!index.isValid())
+        return QVariant();
+
+    ResourcesNode* tmp = static_cast<ResourcesNode*>(index.internalPointer());
+    if(tmp)
+    {
+        if((role == Qt::DisplayRole)||(Qt::EditRole==role))
+        {
+            /// @TODO add column management for preventing this cast.
+            return tmp->getData((ResourcesNode::DataValue)index.column());
+        }
+        else if(role == Qt::DecorationRole)
+        {
+            if(index.column()==Name)
+            {
+                return QIcon(tmp->getIcon());
+            }
+        }
+    }
+    return QVariant();
+}
+QModelIndex SessionItemModel::parent( const QModelIndex & index ) const
+{
+
+    if (!index.isValid())
+        return QModelIndex();
+
+    ResourcesNode *childItem = static_cast<ResourcesNode*>(index.internalPointer());
+    ResourcesNode *parentItem = childItem->getParentNode();
+
+    if (parentItem == m_rootItem)
+        return QModelIndex();
+
+    return createIndex(parentItem->rowInParent(), 0, parentItem);
+}
 bool  SessionItemModel::setData ( const QModelIndex & index, const QVariant & value, int role )
 {
     if(!index.isValid())
@@ -282,24 +319,7 @@ int SessionItemModel::columnCount(const QModelIndex&) const
 {
     return m_header.size();
 }
-void SessionItemModel::remove(QModelIndex& index)
-{
-    if(!index.isValid())
-        return;
-    ResourcesNode* indexItem = static_cast<ResourcesNode*>(index.internalPointer());
-    QModelIndex parent = index.parent();
-    ResourcesNode* parentItem=NULL;
 
-    if(!parent.isValid())
-        parentItem=m_rootItem;
-    else
-        parentItem= static_cast<ResourcesNode*>(parent.internalPointer());
-
-
-    beginRemoveRows(index.parent(),index.row(),index.row());
-    parentItem->removeChild(indexItem);
-    endRemoveRows();
-}
 
 QVariant SessionItemModel::headerData ( int section, Qt::Orientation orientation, int role  ) const
 {
@@ -309,49 +329,6 @@ QVariant SessionItemModel::headerData ( int section, Qt::Orientation orientation
     }
     return QVariant();
 }
-QModelIndex SessionItemModel::parent( const QModelIndex & index ) const
-{
-
-    if (!index.isValid())
-        return QModelIndex();
-
-    ResourcesNode *childItem = static_cast<ResourcesNode*>(index.internalPointer());
-    ResourcesNode *parentItem = childItem->getParentNode();
-
-    if (parentItem == m_rootItem)
-        return QModelIndex();
-
-    return createIndex(parentItem->rowInParent(), 0, parentItem);
-}
-
-QVariant SessionItemModel::data(const QModelIndex &index, int role ) const
-{
-    if(!index.isValid())
-        return QVariant();
-
-    ResourcesNode* tmp = static_cast<ResourcesNode*>(index.internalPointer());
-    if(tmp)
-    {
-        if((role == Qt::DisplayRole)||(Qt::EditRole==role))
-        {
-            /// @TODO add column management for preventing this cast.
-            return tmp->getData((ResourcesNode::DataValue)index.column());
-        }
-        else if(role == Qt::DecorationRole)
-        {
-            if(index.column()==Name)
-            {
-                return QIcon(tmp->getIcon());
-            }
-        }
-    }
-    return QVariant();
-}
-void SessionItemModel::cleverURIHasChanged(CleverURI *uri)
-{
-    updateNode(uri);
-}
-
 void SessionItemModel::updateNode(ResourcesNode* node)
 {
     QModelIndex nodeIndex;
@@ -372,104 +349,24 @@ void SessionItemModel::updateNode(ResourcesNode* node)
     }
     emit dataChanged(nodeIndex,nodeIndex);
 }
-bool SessionItemModel::moveMediaItem(QList<CleverURI*> items,const QModelIndex& parentToBe,int row,QList<QModelIndex>& formerPosition)
+void SessionItemModel::remove(QModelIndex& index)
 {
-    ResourcesNode* parentItem = static_cast<ResourcesNode*>(parentToBe.internalPointer());
+    if(!index.isValid())
+        return;
+    ResourcesNode* indexItem = static_cast<ResourcesNode*>(index.internalPointer());
+    QModelIndex parent = index.parent();
+    ResourcesNode* parentItem=NULL;
 
-    if(NULL==parentItem)
-    {
-        parentItem = m_rootItem;
-    }
-    /// @todo enable this
-    int orignRow = row;
-
-
-    QList<int> listRow;
-
-
-    if((!items.isEmpty())&&(!formerPosition.isEmpty()))
-    {
-        CleverURI* item = items.at(0);
-        ResourcesNode* parent =item->getParentNode();
-        QModelIndex formerPositionIndex = formerPosition.at(0);
-        QModelIndex sourceParent = formerPositionIndex.parent();
-        QModelIndex destinationParent = parentToBe;
-
-        int sourceFirst = parent->indexOf(item);
-        int sourceLast = parent->indexOf(item)+items.size()-1;
-
-        int destinationRow = orignRow<0?parentItem->getChildrenCount():orignRow;
-        if((sourceParent == destinationParent)&&((destinationRow == parentItem->getChildrenCount())||(destinationRow>sourceFirst)))
-        {
-            destinationRow-=items.size()-1;
-        }
-        if((sourceParent == destinationParent)&&( sourceFirst == destinationRow))
-        {
-            destinationRow-=items.size();
-            return false;
-        }
-
-        if(!beginMoveRows(sourceParent,sourceFirst,sourceLast,destinationParent,destinationRow))
-            return false;
-    }
+    if(!parent.isValid())
+        parentItem=m_rootItem;
+    else
+        parentItem= static_cast<ResourcesNode*>(parent.internalPointer());
 
 
-    for(int i = items.size()-1;i>=0;--i)
-    {
-        while(listRow.contains(row))
-        {
-            ++row;
-        }
-
-        CleverURI* item = items.at(i);
-        ResourcesNode* parent =item->getParentNode();
-        QModelIndex formerPositionIndex = formerPosition.at(i);
-
-        if(NULL!=parent)
-        {
-
-            parent->removeChild(item);
-            if( (orignRow == -1 && parentItem == m_rootItem ) )
-            {
-                orignRow = parentItem->getChildrenCount();
-                row = orignRow;
-            }
-            else if(formerPositionIndex.row()<orignRow && parentToBe == formerPositionIndex.parent())
-            {
-                orignRow -=1;
-                row = orignRow;
-            }
-
-            int oldModRow = -1;
-            int newModRow = -1;
-            if( parent != m_rootItem )
-            {
-                oldModRow = parent->rowInParent();
-            }
-
-            if( parentItem != m_rootItem )
-            {
-                newModRow = parentItem->rowInParent();
-            }
-
-            parentItem->insertChildAt(orignRow,item);//row
-            //---
-
-            int oldRow = formerPositionIndex.row();
-            if(oldRow > orignRow && parentItem == m_rootItem && parent == m_rootItem)
-            {
-                oldRow += items.size()-1-i;
-            }
-            listRow.append(row);
-
-        }
-    }
-
-    endMoveRows();
-    return true;
+    beginRemoveRows(index.parent(),index.row(),index.row());
+    parentItem->removeChild(indexItem);
+    endRemoveRows();
 }
-
-
 void SessionItemModel::addResource(ResourcesNode* node,QModelIndex& parent)
 {
     if(m_rootItem->contains(node))
@@ -496,19 +393,7 @@ void SessionItemModel::addResource(ResourcesNode* node,QModelIndex& parent)
 }
 
 
-void SessionItemModel::saveModel(QDataStream& out)
-{
-    m_rootItem->write(out);
-}
 
-void SessionItemModel::loadModel(QDataStream& in)
-{
-    beginResetModel();
-    QString str;
-    in >> str;
-    m_rootItem->read(in);
-    endResetModel();
-}
 
 "
             view.opacity = 0
@@ -542,8 +427,6 @@ public:
     void setParentNode(ResourcesNode *parent);
     virtual int indexOf(ResourcesNode*);
     int rowInParent();
-    virtual void write(QDataStream& out) const=0;
-    virtual void read(QDataStream& in)=0;
     virtual bool removeChild(ResourcesNode*);
     virtual void insertChildAt(int row, ResourcesNode*);
     virtual QVariant getData(ResourcesNode::DataValue)=0;
