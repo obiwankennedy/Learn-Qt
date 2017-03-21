@@ -48,32 +48,31 @@ ApplicationWindow {
                 name: "Coding Rules"
                 path: "02_codingRules.qml"
                 time: 1
-                next: "bad examples"
+                next: "Coding Rules"
             }
             ListElement {
                 name: "Coding Rules"
                 path: "03_codingRules_bis.qml"
                 time: 1
-                next: "bad examples"
+                next: "QObject"
             }
             ListElement {
-                name: "Bad Examples"
-                path: "04_badExample.qml"
+                name: "QObject"
+                path: "04_qobject.qml"
+                time: 1
+                next: "Events and Signals Slots"
+            }
+            ListElement {
+                name: "Events and Signals Slots"
+                path: "05_events_and_slots.qml"
                 time: 1
                 next: "MVC"
             }
             ListElement {
                 name: "MVC"
-                path: "05_mvc.qml"
+                path: "06_mvc.qml"
                 time: 1
-                next: "Events and Signals/Slots"
-            }
-
-            ListElement {
-                name: "Events and Signals Slots"
-                path: "06_events_and_slots.qml"
-                time: 1
-                next: "qthread"
+                next: "QThread"
             }
             ListElement {
                 name: "QThread"
@@ -85,36 +84,36 @@ ApplicationWindow {
                 name: "Deployment"
                 path: "08_deployment.qml"
                 time: 1
+                next: "Bad Examples"
+            }
+            ListElement {
+                name: "Bad Examples"
+                path: "09_badExample.qml"
+                time: 1
                 next: "Internationalisation"
             }
             ListElement {
                 name: "Internationalisation"
-                path: "09_internationalisation.qml"
+                path: "10_internationalisation.qml"
                 time: 1
                 next: "Third Part"
             }
             ListElement {
                 name: "Third Part"
-                path: "10_third_part.qml"
+                path: "11_third_part.qml"
                 time: 1
                 next: ""
             }
 
             ListElement {
-                name: "Third Part"
-                path: "11_Tcp_Socket.qml"
+                name: "Tcp Socket"
+                path: "12_Tcp_Socket.qml"
                 time: 1
                 next: ""
             }
             ListElement {
                 name: "Misc"// JSON, Settings, c++11/14, drag and drop
-                path: "12_misc.qml"
-                time: 1
-                next: ""
-            }
-            ListElement {
-                name: "End"
-                path: "12_end.qml"
+                path: "13_misc.qml"
                 time: 1
                 next: ""
             }
