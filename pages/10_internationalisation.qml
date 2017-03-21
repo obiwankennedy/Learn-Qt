@@ -35,7 +35,16 @@ SlidePage {
             index:5
         }
     }
+    CodePage {
+        id: slideCode
+        visible: false
 
+        x:0
+        y:parent.height*0.2
+        width: parent.width
+        height: parent.height*0.8
+
+    }
     Component.onCompleted:
     {
         points = listSection

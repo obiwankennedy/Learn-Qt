@@ -23,12 +23,20 @@ SlidePage {
             index:2
         }
         ListElement {
-            name: "For MacOs"
+            name: "windeployqt --qmldir /path/to/qml --dir /clean/folder application.exe"
             index:3
         }
         ListElement {
-            name: "For Android"
+            name: "For MacOs"
             index:4
+        }
+        ListElement {
+            name: "macdeploy application.app -qmldir=/User/folder/to/qml"
+            index:5
+        }
+        ListElement {
+            name: "For Android"
+            index:6
         }
     }
 

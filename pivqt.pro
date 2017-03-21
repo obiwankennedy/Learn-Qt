@@ -25,7 +25,6 @@ HEADERS += \
 FORMS += \
     qmlcontroler.ui
 
-DISTFILES += \
-    pages/051_license_libre_et_jdr.qml
+TRANSLATIONS =  translations/qtpiv_fr.ts
 
 

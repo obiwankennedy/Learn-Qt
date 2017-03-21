@@ -10,7 +10,7 @@ SlidePage {
 
     points: ListModel {
             ListElement {
-                name: "Doxy Comments <a href=\"https://github.com/Rolisteam/DiceParser/blob/master/diceparser.h\">Example</a>"
+                name: "Doxy Comments <a href=\"https://raw.githubusercontent.com/Rolisteam/DiceParser/master/diceparser.h\">Example</a>"
                 index:0
             }
             ListElement {

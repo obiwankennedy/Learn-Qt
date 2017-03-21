@@ -9,12 +9,32 @@ SlidePage {
     title: "Events and Signals and Slots"
     onIdStateChanged: {
         console.log(idState)
-        if(idState == 4)
+        if(idState == 1)
         {
             slideCode.visible = true;
             view.opacity = 0
 
-            slideCode.code =""
+            slideCode.code ="void event(QEvent event);
+void mouseMoveEvent(QMouseEvent event);"
+        }
+        else if(idState == 3)
+        {
+            slideCode.visible = true;
+            view.opacity = 0
+
+            slideCode.code ="void installEventFilter(QObject);
+bool eventFilter(QObject *obj, QEvent *event);"
+
+        }
+        else if(idState == 5)
+        {
+            slideCode.visible = true;
+            view.opacity = 0
+
+            slideCode.code ="connect(m_tcpClient,&ClientApp::statusY0Changed,[=](QString str)
+    {
+        ui->m_statusY0->setText(str);
+    });"
         }
         else
         {
@@ -35,20 +55,24 @@ SlidePage {
             index:0
         }
         ListElement {
-            name: "Signal/Slots"
-            index:1
-        }
-        ListElement {
-            name: "FAQ"
+            name: "Filter Event"
             index:2
         }
         ListElement {
-            name: "C++14"
-            index:3
+            name: "Signal/Slots"
+            index:4
         }
         ListElement {
-            name: "Execice"
+            name: "FAQ"
             index:5
+        }
+        ListElement {
+            name: "C++14"
+            index:6
+        }
+        ListElement {
+            name: "Execice Event"
+            index:8
         }
     }
     CodePage {

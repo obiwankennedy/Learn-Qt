@@ -4,13 +4,13 @@
         <file>pages/01_intro.qml</file>
         <file>pages/02_codingRules.qml</file>
         <file>pages/03_codingRules_bis.qml</file>
-        <file>pages/04_badExample.qml</file>
-        <file>pages/05_mvc.qml</file>
-        <file>pages/06_events_and_slots.qml</file>
+        <file>pages/09_badExample.qml</file>
+        <file>pages/06_mvc.qml</file>
+        <file>pages/05_events_and_slots.qml</file>
         <file>pages/07_qthread.qml</file>
         <file>pages/08_deployment.qml</file>
-        <file>pages/09_internationalisation.qml</file>
-        <file>pages/10_third_part.qml</file>
+        <file>pages/10_internationalisation.qml</file>
+        <file>pages/11_third_part.qml</file>
         <file>rsrc/Qt_logo_2015.svg</file>
         <file alias="pages/SlidePage.qml">SlidePage.qml</file>
         <file alias="particle.png">rsrc/particle.png</file>
@@ -19,9 +19,9 @@
         <file>rsrc/graywood.jpg</file>
         <file>rsrc/chaton.jpg</file>
         <file>rsrc/qt.jpg</file>
-        <file>pages/11_Tcp_Socket.qml</file>
-        <file>pages/13_qobject.qml</file>
+        <file>pages/12_Tcp_Socket.qml</file>
+        <file>pages/04_qobject.qml</file>
         <file>pages/CodePage.qml</file>
-        <file>pages/12_misc.qml</file>
+        <file>pages/13_misc.qml</file>
     </qresource>
 </RCC>
