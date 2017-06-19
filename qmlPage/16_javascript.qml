@@ -138,6 +138,27 @@ Item {
         }
     }
 
+    TextEdit {
+            id: text
+            readOnly: true
+            text:""
+            visible: false
+            anchors.fill: view
+            color: "white"
+            font.pixelSize: parent.height*0.03
+            textFormat: TextEdit.RichText
+
+    }
+    CodePage {
+        id: slideCode
+        visible: false
+
+        x:0
+        y:parent.height*0.2
+        width: parent.width
+        height: parent.height*0.8
+
+    }
     Component.onCompleted:
     {
         points = listSection

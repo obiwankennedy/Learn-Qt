@@ -29,19 +29,27 @@ SlidePage {
         }
         ListElement {
             name: "TextEdit / TextInput"
-            index:3
+            index:4
         }
         ListElement {
             name: "Timer"
-            index:3
+            index:5
         }
         ListElement {
             name: "MouseArea"
-            index:3
+            index:6
         }
         ListElement {
             name: "Flickable"
-            index:3
+            index:7
+        }
+        ListElement {
+            name: "Exercice: reprendre helloworld.qml pour afficher une <br/> trace toutes les secondes (Timer)"
+            index:8
+        }
+        ListElement {
+            name: "Aide: console.log(\"hello world!\")"
+            index:9
         }
 
     }

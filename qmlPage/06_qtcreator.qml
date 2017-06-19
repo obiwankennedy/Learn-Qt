@@ -20,11 +20,11 @@ SlidePage {
             index:1
         }
         ListElement {
-            name: "Intégration de l’aide"
+            name: "Intégration de l’aide (F1)"
             index:2
         }
         ListElement {
-            name: "Designer"
+            name: "Designer (ctrl+3)"
             index:3
         }
         ListElement {
@@ -33,7 +33,7 @@ SlidePage {
         }
         ListElement {
             name: "Visite du projet"
-            index:4
+            index:5
         }
     }
 

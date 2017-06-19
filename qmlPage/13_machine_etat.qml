@@ -21,15 +21,15 @@ SlidePage {
         }
         ListElement {
             name: "Dans le designer"
-            index:1
+            index:3
         }
         ListElement {
             name: "Avantages ?"
-            index:2
+            index:4
         }
         ListElement {
             name: "Transition"
-            index:3
+            index:5
         }
     }
 
@@ -37,5 +37,43 @@ SlidePage {
     {
         points = listSection
         anchors.fill = parent
+    }
+    onIdStateChanged: {
+        if(idState == 2)
+        {
+            slideCode.visible = true;
+            slideCode.code ="states: [
+        State {
+            name: \"clicked\"
+            PropertyChanges { target: myRect; color: \"red\" }
+        },
+        State {
+            name: \"disabled\"
+            PropertyChanges { target: myRect; color: \"grey\" }
+        }
+    ]"
+            view.opacity = 0
+        }
+        else if(idState == 9)
+        {
+            slideCode.visible = true;
+            slideCode.code ="transitions: [
+        Transition {
+            from: \"*\"; to: \"clicked\"
+
+
+            NumberAnimation { target: my_rectangle1 ;properties: \"x\";easing.type: Easing.OutBounce; duration: 1000; }
+        }
+    ]
+";
+            view.opacity = 0
+        }
+        else
+        {
+
+            view.opacity = 1
+            slideCode.visible = false
+            view.focus = false
+        }
     }
 }

@@ -10,12 +10,10 @@ SlidePage {
     title: "Premier programme"
 
     onIdStateChanged: {
-        if(idState == 2)
+        if(idState == 1)
         {
-            panel.visible = false
             slideCode.visible = true;
-            slideCode.code ="
-import QtQuick 2.0
+            slideCode.code ="import QtQuick 2.0
 
 Item {
     Text{
@@ -26,10 +24,8 @@ Item {
         }
         else
         {
-            text.textFormat = TextEdit.RichText
+
             view.opacity = 1
-            text.visible = false;
-            panel.visible = false;
             slideCode.visible = false
             view.focus = false
         }
@@ -42,7 +38,7 @@ Item {
             index:0
         }
         ListElement {
-            name: "Explication"
+            name: "$ qml helloworld.qml"
             index:2
         }
     }
@@ -51,5 +47,28 @@ Item {
     {
         points = listSection
         anchors.fill = parent
+    }
+
+    TextEdit {
+        id: text
+        readOnly: true
+        text:""
+        visible: false
+        anchors.fill: view
+        color: "white"
+        font.pixelSize: parent.height*0.05
+        textFormat: TextEdit.RichText
+
+    }
+
+    CodePage {
+        id: slideCode
+        visible: false
+
+        x:0
+        y:parent.height*0.2
+        width: parent.width
+        height: parent.height*0.8
+
     }
 }

@@ -21,7 +21,7 @@ SlidePage {
         }
         ListElement {
             name: "Autres méthodes"
-            index:1
+            index:2
         }
     }
 

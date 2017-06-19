@@ -16,7 +16,7 @@ QML_IMPORT_PATH = pages
 # Default rules for deployment.
 include(deployment.pri)
 
-OTHER_FILES += pages/*.qml
+OTHER_FILES += pages/*.qml *.qml qmlPage/*.qml
 
 HEADERS += \
     qmlcontroler.h \

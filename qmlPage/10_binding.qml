@@ -21,7 +21,7 @@ SlidePage {
         }
         ListElement {
             name: "Exercise: afficher un carré"
-            index:1
+            index:2
         }
     }
 

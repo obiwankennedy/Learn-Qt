@@ -33,7 +33,7 @@ SlidePage {
         }
         ListElement {
             name: "Multimedia"
-            index:4
+            index:5
         }
     }
 
