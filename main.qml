@@ -205,6 +205,12 @@ ApplicationWindow {
                 name: "POO: faire son composant"
                 path: "14_poo_son_composant.qml"
                 time: 1
+                next: "Mauvais exemple"
+            }
+            ListElement {
+                name: "Mauvais"
+                path: "09_badExample.qml"
+                time: 1
                 next: "Interactivité"
             }
             ListElement {
@@ -229,13 +235,19 @@ ApplicationWindow {
                 name: "Multimedia"
                 path: "18_multimedia.qml"
                 time: 1
+                next: "MVC les models"
+            }
+            ListElement {
+                name: "MVC les models"
+                path: "20_mvc_model.qml"
+                time: 1
                 next: "MVC Les vues"
             }
             ListElement {
                 name: "MVC Les vues"
                 path: "19_mvc_view.qml"
                 time: 1
-                next: "MVC les models"
+                next: "Le cpp et QML"
             }
             ListElement {
                 name: "MVC les models"

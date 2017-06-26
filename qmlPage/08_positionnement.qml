@@ -5,12 +5,16 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Le positionnement"
 
     ListModel {
         id: listSection
+        ListElement {
+            name: "Positionnement en Z"
+            index:0
+        }
         ListElement {
             name: "4 types de positionnements"
             index:0
@@ -31,6 +35,10 @@ SlidePage {
             name: "Layout: ColumnLayout, GridLayout, RowLayout, StackLayout"
             index:7
         }
+        ListElement {
+            name: "Exemple: 03_positionnement/test.qml"
+            index:9
+        }
     }
 
     Component.onCompleted:
@@ -47,9 +55,6 @@ SlidePage {
     width: 1000
     height: 800
     // relatif au parent
-    Text {
-        text: \"Hello World!\"
-    }
     Rectangle {
         color: \"red\"
         width:  200
@@ -64,25 +69,28 @@ SlidePage {
             onClicked:console.log(\"click on rectangle\")
         }
     }
+    Text {
+        text: \"Hello World!\"
+    }
 }"
             view.opacity = 0
         }
         else if(idState == 4)
         {
             slideCode.visible = true;
-            slideCode.code =" Image {
-        source: \"logo.png\"
-        x: 200
-        y: 0
-   }
-
-    TextInput {
+            slideCode.code ="
+Image {
+   source: \"logo.png\"
+   x: 200
+   y: 0
+   TextInput {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: 250
         height: 20
         text: \"change me\"
-    }"
+   }
+}"
             view.opacity = 0
         }
         else if(idState == 6)

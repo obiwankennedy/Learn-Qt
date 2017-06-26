@@ -5,23 +5,32 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Multimedia"
 
     ListModel {
         id: listSection
         ListElement {
+            name : "import QtMultimedia 5.8"
+            index: 0
+        }
+
+        ListElement {
             name: "Jouer un son"
-            index:0
+            index:1
         }
         ListElement {
             name: "Jouer une vidéo"
-            index:3
+            index:4
         }
         ListElement {
             name: "MediaPlayer"
-            index:5
+            index:6
+        }
+        ListElement {
+            name: "Exercice: Jouer une vidéo sur deux vues"
+            index:8
         }
     }
 
@@ -31,7 +40,7 @@ SlidePage {
         anchors.fill = parent
     }
     onIdStateChanged: {
-        if(idState == 1)
+        if(idState == 2)
         {
             slideCode.visible = true;
             slideCode.code ="Text {
@@ -51,7 +60,7 @@ SlidePage {
 }"
             view.opacity = 0
         }
-        else if(idState == 2)
+        else if(idState == 3)
         {
             slideCode.visible = true;
             slideCode.code ="Item {
@@ -70,7 +79,7 @@ SlidePage {
 }"
             view.opacity = 0
         }
-        else if(idState == 4)
+        else if(idState == 5)
         {
             slideCode.visible = true;
             slideCode.code =" Video {
@@ -93,7 +102,7 @@ SlidePage {
 }"
             view.opacity = 0
         }
-        else if(idState == 4)
+        else if(idState == 6)
         {
             slideCode.visible = true;
             slideCode.code =" Item {

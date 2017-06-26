@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Etats et transitions"
 
@@ -29,6 +29,10 @@ SlidePage {
         }
         ListElement {
             name: "Transition"
+            index:5
+        }
+        ListElement {
+            name: "Exercice: Réaliser un feu de traffic: Rouge puis Rouge et Orange puis vers, puis Orange puis Rouge"
             index:5
         }
     }

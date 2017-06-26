@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets 3dinput
 
 CONFIG += c++11
 
@@ -26,5 +26,9 @@ FORMS += \
     qmlcontroler.ui
 
 TRANSLATIONS =  translations/qtpiv_fr.ts
+
+DISTFILES += \
+    qmlPage/CameraController.qml \
+    qmlPage/09_badExample.qml
 
 

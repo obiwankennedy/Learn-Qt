@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "De nouveaux éléments"
 
@@ -33,6 +33,10 @@ SlidePage {
         }
         ListElement {
             name: "Multimedia"
+            index:5
+        }
+        ListElement {
+            name: "Exercice: Analyse du code, Gérer le stackview"
             index:5
         }
     }

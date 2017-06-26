@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Interaction"
 
@@ -25,6 +25,10 @@ SlidePage {
         }
         ListElement {
             name: "autres: C++"
+            index:4
+        }
+        ListElement {
+            name: "Exercices: Bouger l’image à la souris, agrandir/réduire par un pinch, Rotation par clavier"
             index:4
         }
     }

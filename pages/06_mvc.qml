@@ -4,7 +4,7 @@ import QtQuick.Window 2.2
 SlidePage {
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Model/View/Controler"
 
