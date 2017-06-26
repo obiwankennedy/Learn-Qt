@@ -480,7 +480,7 @@ protected:
         points = listSection
         anchors.fill = parent
     }
-    TextEdit {
+ /*   TextEdit {
         id: text
         readOnly: true
         text:""
@@ -500,5 +500,5 @@ protected:
         width: parent.width
         height: parent.height*0.8
 
-    }
+    }*/
 }

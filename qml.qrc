@@ -13,6 +13,7 @@
         <file>pages/11_third_part.qml</file>
         <file>rsrc/Qt_logo_2015.svg</file>
         <file alias="pages/SlidePage.qml">SlidePage.qml</file>
+        <file alias="qmlPage/SlidePage.qml">SlidePage.qml</file>
         <file alias="particle.png">rsrc/particle.png</file>
         <file>rsrc/lionne.jpg</file>
         <file>rsrc/graywood2.jpg</file>
@@ -22,6 +23,32 @@
         <file>pages/12_Tcp_Socket.qml</file>
         <file>pages/04_qobject.qml</file>
         <file>pages/CodePage.qml</file>
+        <file alias="qmlPage/CodePage.qml">pages/CodePage.qml</file>
         <file>pages/13_misc.qml</file>
+        <file>qmlPage/01_intro.qml</file>
+        <file>qmlPage/02_historique.qml</file>
+        <file>qmlPage/03_requirement.qml</file>
+        <file>qmlPage/04_exemple.qml</file>
+        <file>qmlPage/05_premierProg.qml</file>
+        <file>qmlPage/06_qtcreator.qml</file>
+        <file>qmlPage/07_elementBase.qml</file>
+        <file>qmlPage/08_positionnement.qml</file>
+        <file>qmlPage/09_property.qml</file>
+        <file>qmlPage/10_binding.qml</file>
+        <file>qmlPage/11_methode_de_travail.qml</file>
+        <file>qmlPage/12_animation.qml</file>
+        <file>qmlPage/13_machine_etat.qml</file>
+        <file>qmlPage/14_poo_son_composant.qml</file>
+        <file>qmlPage/15_interactivite.qml</file>
+        <file>qmlPage/16_javascript.qml</file>
+        <file>qmlPage/17_element_complexe.qml</file>
+        <file>qmlPage/18_multimedia.qml</file>
+        <file>qmlPage/19_mvc_view.qml</file>
+        <file>qmlPage/20_mvc_model.qml</file>
+        <file>qmlPage/21_cpp_et_qml.qml</file>
+        <file>qmlPage/22_Image_provider.qml</file>
+        <file>qmlPage/23_Dessiner_qml.qml</file>
+        <file>qmlPage/24_3d_qml.qml</file>
+        <file>qmlPage/25_RCSE.qml</file>
     </qresource>
 </RCC>

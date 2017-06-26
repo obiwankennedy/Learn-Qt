@@ -96,6 +96,7 @@ qrc_*.cpp
 ui_*.h
 Makefile*
 *build-*
+*.mp4
 
 # QtCreator
 

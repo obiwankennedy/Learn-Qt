@@ -8,6 +8,7 @@ Item {
     property int idState: 0
     property alias  title: text1.text
     property alias view: listView1
+    property alias slideCode: slideCode
 
     MouseArea {
         anchors.fill: parent
@@ -29,7 +30,7 @@ Item {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: root.height > 0 ? root.height/20 : 1
-
+        textFormat: Text.RichText
 
     }
 
@@ -100,6 +101,27 @@ Item {
                 }
         }
 
+
+    }
+    TextEdit {
+            id: text
+            readOnly: true
+            text:""
+            visible: false
+            anchors.fill: view
+            color: "white"
+            font.pixelSize: parent.height*0.03
+            textFormat: TextEdit.RichText
+
+    }
+    CodePage {
+        id: slideCode
+        visible: false
+
+        x:0
+        y:parent.height*0.2
+        width: parent.width
+        height: parent.height*0.8
 
     }
 }
