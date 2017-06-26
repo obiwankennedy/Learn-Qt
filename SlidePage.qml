@@ -25,6 +25,7 @@ Item {
         anchors.horizontalCenterOffset: 1
         font.family: "Verdana"
         font.bold: true
+        textFormat: Text.RichText
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: root.height > 0 ? root.height/20 : 1
