@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Premier programme"
 
@@ -17,7 +17,7 @@ SlidePage {
 
 Item {
     Text{
-        text:\"Hello World!!\"
+        text:\qsTr(\"Hello World!!\")\"
     }
 }"
             view.opacity = 0
@@ -38,7 +38,7 @@ Item {
             index:0
         }
         ListElement {
-            name: "$ qml helloworld.qml"
+            name: qsTr("$ qml helloworld.qml")
             index:2
         }
     }

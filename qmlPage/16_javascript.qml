@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Ajouter du code"
 
@@ -134,6 +134,10 @@ Item {
         }
         ListElement {
             name: "plus d’info: http://doc.qt.io/qt-5/qtqml-javascript-expressions.html"
+            index:8
+        }
+        ListElement {
+            name: "Exercice: Générateur de nombres aléatoires"
             index:8
         }
     }

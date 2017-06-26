@@ -50,5 +50,7 @@
         <file>qmlPage/23_Dessiner_qml.qml</file>
         <file>qmlPage/24_3d_qml.qml</file>
         <file>qmlPage/25_RCSE.qml</file>
+        <file>qmlPage/09_badExample.qml</file>
+        <file>rsrc/logo.png</file>
     </qresource>
 </RCC>

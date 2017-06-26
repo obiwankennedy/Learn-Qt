@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Créer son composant?"
 
@@ -30,6 +30,10 @@ SlidePage {
         ListElement {
             name: "Gérer plusieurs composants perso"
             index:7
+        }
+        ListElement {
+            name: "Exercice: faire un composant lightbox-like"
+            index:9
         }
     }
 

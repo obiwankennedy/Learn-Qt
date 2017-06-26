@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Les éléments de base"
 
@@ -44,7 +44,7 @@ SlidePage {
             index:7
         }
         ListElement {
-            name: "Exercice: reprendre helloworld.qml pour afficher une <br/> trace toutes les secondes (Timer)"
+            name: "Exercice: reprendre helloworld.qml pour ajouter un rectangle <br/> et afficher une trace toutes les secondes (Timer)"
             index:8
         }
         ListElement {

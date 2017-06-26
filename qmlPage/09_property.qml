@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Properties et signaux"
 
@@ -40,7 +40,7 @@ SlidePage {
             index:8
         }
         ListElement {
-            name: "Exercice: Créer un item contenant deux rectangles clickables,  <br/>les boutons changent la valeur d’une propriété de l’item et cela déclenche un affichage en console."
+            name: "Exercice: Créer un item contenant deux rectangles clickables,  <br/>les boutons changent la valeur d’une propriété de l’item <br/>et cela déclenche un affichage en console."
             index:10
         }
     }

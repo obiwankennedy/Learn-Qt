@@ -4,7 +4,7 @@ import QtQuick.Window 2.2
 SlidePage {
     id: intro
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "Qt and PIV : the love story"
 

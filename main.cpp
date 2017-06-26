@@ -22,7 +22,7 @@
 #include "qmlcontroler.h"
 #include <QQmlContext>
 #include <QQuickTextDocument>
-
+#include <QOpenGLContext>
 #include "cpphighlighter.h"
 
 int main(int argc, char *argv[])
@@ -31,21 +31,23 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
+    QSurfaceFormat format;
+    if (QOpenGLContext::openGLModuleType() == QOpenGLContext::LibGL) {
+        format.setVersion(3, 2);
+        format.setProfile(QSurfaceFormat::CoreProfile);
+    }
+    format.setDepthBufferSize(24);
+    format.setStencilBufferSize(8);
+    format.setSamples(4);
+    //QSurfaceFormat::setDefaultFormat(format);
+
     engine.rootContext()->setContextProperty("rectangle1.width",1280);
     engine.rootContext()->setContextProperty("rectangle1.height",720);
-
-   /* QTextDocument text(NULL);
-    CppHighLighter cppHighLighter(&text);
-    engine.rootContext()->setContextProperty("_hightedDoc",&text);*/
-    //engine.rootContext()->setContextProperty("CppHighLightedDocument",720);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     QmlControler ctr;
     ctr.setEngine(&engine);
-
-    //ctr.setVisible(true);
-
 
     return app.exec();
 }

@@ -4,9 +4,9 @@ import QtQuick.Window 2.2
 SlidePage {
     id: badexample
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
-    title: "Bad Example"
+    title: "Mauvais exemple"
     onIdStateChanged: {
         if(idState == 2)
         {
@@ -28,17 +28,17 @@ SlidePage {
                 implicitHeight: buttonText.implicitHeight + 10
                 radius: 5
                 color: \"lightblue\"
-                Text {
-                    id:buttonText
-                    anchors.centerIn: parent
-                    text: \"Click me!\"
-                    color: \"white\"
-                }
                 MouseArea {
                     id: mousearea
                     anchors.fill: parent
                     onClicked:  massageBox.text=\"I have been clicked\"
 
+                }
+                Text {
+                    id:buttonText
+                    anchors.centerIn: parent
+                    text: \"Click me!\"
+                    color: \"white\"
                 }
             }
 }"
@@ -109,10 +109,10 @@ SlidePage {
             panel.visible = false
             slideCode.visible = false;
             text.text ="<ul>
-<li>Inter-dependencies between components/files</li>
-<li>Impossible to find all instances with a text editor</li>
-<li>Editing any file means having all components in your head</li>
-<li>Slows down development and introduces subtle bugs</li>
+<li>Inter-dépendences entre les composants/fichiers</li>
+<li>Impossible de trouver toutes les instances avec un IDE</li>
+<li>Modifier tous les composants signifie avoir tous les composants en tête.</li>
+<li>Cela ralentit le dev et introduit des bugs vicieux</li>
 </ul>"
             view.opacity = 0
         }
@@ -164,31 +164,31 @@ SlidePage {
 
     points: ListModel {
             ListElement {
-                name: "Good code"
+                name: "Un bon code ?"
                 index:0
             }
             ListElement {
-                name: "Simple Application"
+                name: "Une application simple"
                 index:1
             }
             ListElement {
-                name: "Split button into separate Component"
+                name: "Séparer le bouton dans un composant"
                 index:4
             }
             ListElement {
-                name: "Fix Typo in ID"
+                name: "Corriger la faute d’orthographe"
                 index:7
             }
             ListElement {
-                name: "It's broken! Which commit caused it?"
+                name: "Cassé! Quel modification à causer le problème ?"
                 index:9
             }
             ListElement {
-                name: "Why is this a problem ?"
+                name: "Pourquoi c’est un problème ?"
                 index:10
             }
             ListElement {
-                name: "Good practices"
+                name: "Bonnes partiques"
                 index:12
             }
     }

@@ -5,7 +5,7 @@ SlidePage {
 
     id: rectangle1
     anchors.fill: parent
-    logo: "qrc:/rsrc/Qt_logo_2015.svg"
+    logo: "qrc:/rsrc/logo.png"
     focus: true
     title: "MVC : les vues"
     ListModel {
@@ -116,6 +116,18 @@ SlidePage {
         ListElement {
             name: "Pathview"
             index:4
+        }
+		ListElement {
+			name: "delegate"
+			index: 6
+		}
+        ListElement {
+			name: "highlight"
+			index: 7
+		}
+        ListElement {
+            name: "Exercice: Faire une liste view et une pathview avec le model Players. Gérer le hightlight"
+            index: 7
         }
     }
 
