@@ -26,6 +26,12 @@ SlidePage {
             name: "Exercice"
             index:3
         }
+        ListElement {
+            name: "Correction:<br/>LIBS += -llog4cpp<br/>
+        INCLUDEPATH += /usr/include/log4cpp"
+            index:4
+        }
+
     }
 
     Component.onCompleted:
