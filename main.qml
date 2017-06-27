@@ -250,12 +250,6 @@ ApplicationWindow {
                 next: "Le cpp et QML"
             }
             ListElement {
-                name: "MVC les models"
-                path: "20_mvc_model.qml"
-                time: 1
-                next: "Le cpp et QML"
-            }
-            ListElement {
                 name: "Le cpp et QML"
                 path: "21_cpp_et_qml.qml"
                 time: 1
