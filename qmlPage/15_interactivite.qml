@@ -28,8 +28,8 @@ SlidePage {
             index:4
         }
         ListElement {
-            name: "Exercices: Bouger l’image à la souris, agrandir/réduire par un pinch, Rotation par clavier"
-            index:4
+            name: "Exercices: Bouger l’image à la souris, <br/>agrandir/réduire par un pinch et molette, Rotation par clavier"
+            index:5
         }
     }
 
