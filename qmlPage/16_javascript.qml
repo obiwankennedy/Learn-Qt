@@ -36,7 +36,8 @@ Rectangle {
 
 Rectangle {
     id: button
-    width: 200; height: 80; color: \"lightsteelblue\"
+    width: 200; height: 80;
+    color: \"lightsteelblue\"
 
     MouseArea {
         id: mousearea
@@ -44,15 +45,14 @@ Rectangle {
 
         onPressed: {
             // arbitrary JavaScript expression
-            label.text = \"I am Pressed!\"
+            button.text = \"I am Pressed!\"
+            button.color = \"steelblue\"
         }
         onReleased: {
             // arbitrary JavaScript expression
             label.text = \"Click Me!\"
         }
-
     }
-
     Text {
         id: label
         anchors.centerIn: parent
@@ -65,7 +65,6 @@ Rectangle {
         {
             slideCode.visible = true;
             slideCode.code ="import QtQuick 2.0
-
 Item {
     function factorial(a) {
         a = parseInt(a);
@@ -107,9 +106,6 @@ Item {
         }
 
     }
-
-
-
     ListModel {
         id: listSection
         ListElement {
