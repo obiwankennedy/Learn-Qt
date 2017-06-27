@@ -32,7 +32,7 @@ SlidePage {
             index:5
         }
         ListElement {
-            name: "Exercice: Réaliser un feu de traffic: Rouge puis Rouge et Orange puis vers, puis Orange puis Rouge"
+            name: "Exercice: Réaliser un feu de traffic: Rouge puis Rouge et Orange puis vers, <br/>puis Orange puis Rouge"
             index:5
         }
     }
