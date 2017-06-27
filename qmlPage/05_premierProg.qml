@@ -14,12 +14,13 @@ SlidePage {
         {
             slideCode.visible = true;
             slideCode.code ="import QtQuick 2.0
-
 Item {
     Text{
-        text:\qsTr(\"Hello World!!\")\"
+       id: text
+       text:\qsTr(\"Hello World!!\")\"
     }
-}"
+}
+"
             view.opacity = 0
         }
         else
