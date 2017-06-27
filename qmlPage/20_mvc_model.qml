@@ -17,11 +17,11 @@ SlidePage {
         }
         ListElement {
             name: "XmlModel"
-            index:1
+            index:2
         }
         ListElement {
             name: "Model du C++<br/>https://github.com/obiwankennedy/rcm/blob/master/gamemodel.h<br/>https://github.com/obiwankennedy/rcm/blob/master/gamemodel.cpp"
-            index:2
+            index:4
         }
     }
 
@@ -31,7 +31,7 @@ SlidePage {
         anchors.fill = parent
     }
     onIdStateChanged: {
-        if(idState == 3)
+        if(idState == 1)
         {
             slideCode.visible = true;
             slideCode.code ="ListModel {
