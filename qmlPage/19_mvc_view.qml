@@ -95,6 +95,101 @@ SlidePage {
 ";
             view.opacity = 0
         }
+        else if(idState == 5)
+        {
+            slideCode.visible = true;
+            slideCode.code ="
+Component {
+        id: scenarioDelegate
+        Item {
+            height: parent.height*0.8//listView.currentIndex == index ? 120 : 60
+            width: parent.width*0.8
+            opacity: PathView.itemOpacity
+            property double rotationValue2: PathView.itemRotation
+            scale: PathView.iconScale
+            z: PathView.isCurrentItem ? 5 : 0
+            transform: Rotation { origin.x: width/2; origin.y: height/2; axis { x: 0; y: 1; z: 0 } angle:  rotationValue2}
+            Rectangle {
+                id:rect
+                state: CurrentPlayer == 0 ? \"\" : CurrentPlayer == MaximumPlayer ? \"ready\" : \"wip\"
+                property int playerCount: CurrentPlayer
+                anchors.fill: parent
+                height: parent.height
+                color: \"red\"
+                radius: 5
+                border.width: 1
+                Text {
+                    id:titleLabel
+                    text:Title
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                Text {
+                    id:gametitleLabel
+                    text:GameTitle
+                    anchors.top: titleLabel.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                Text {
+                    id:levelid
+                    text: \"(\"+Level+\")\"
+                    anchors.top: gametitleLabel.top
+                    anchors.left: gametitleLabel.right
+                    width: 100
+                    height:20
+                }
+                Text {
+                    id:playerCountTxt
+                    text: CurrentPlayer +'/'+ MaximumPlayer
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                }
+                Text {
+                    id:durationId
+                    text: qsTr(\"Duration: \") + Duration
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                }
+                Text {
+                    id:gmId
+                    text: qsTr(\"GM:\") + GMName
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+                }
+                Image {
+                    id: image
+                    source: PixmapRole ? \"image://game/\"+PixmapRole : \"image://game/default\"
+                    cache: false
+                    visible:PixmapRole.length>0
+                    fillMode: Image.PreserveAspectFit
+                    anchors.top: parent.top
+                    anchors.left: gmId.right
+                    anchors.leftMargin: 5
+                    anchors.bottom: parent.bottom
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        listView.currentIndex = index;
+                    }
+                }
+                states: [
+                    State {
+                        name: \"\"
+                    },
+                    State {
+                        name: \"wip\"
+                    },
+                    State {
+                        name: \"ready\"
+                    }
+                ]
+            }
+        }
+}
+";
+            view.opacity = 0
+        }
         else
         {
 
@@ -123,11 +218,11 @@ SlidePage {
 		}
         ListElement {
 			name: "highlight"
-			index: 7
+            index: 8
 		}
         ListElement {
-            name: "Exercice: Faire une liste view et une pathview avec le model Players. Gérer le hightlight"
-            index: 7
+            name: "Exercice: Faire une liste view et une pathview avec le model Players.<br/> Gérer le hightlight"
+            index: 9
         }
     }
 
