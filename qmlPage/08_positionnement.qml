@@ -52,16 +52,19 @@ SlidePage {
         {
             slideCode.visible = true;
             slideCode.code ="Item {
+    id: root
     width: 1000
     height: 800
     // relatif au parent
     Rectangle {
+        id: rect
         color: \"red\"
         width:  200
         height: 200
         x:0
         y:0
         MouseArea {
+            id: mouse
             width: 200
             height: 200
             x: 100
@@ -70,6 +73,7 @@ SlidePage {
         }
     }
     Text {
+        id: hello
         text: \"Hello World!\"
     }
 }"
@@ -80,17 +84,27 @@ SlidePage {
             slideCode.visible = true;
             slideCode.code ="
 Image {
+   id: img
+   source: \"bouton.png\"
+   MouseArea {
+        anchors.fill: parent
+   }
+}
+////
+Image {
+   id: img
    source: \"logo.png\"
    x: 200
    y: 0
-   TextInput {
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        width: 250
-        height: 20
-        text: \"change me\"
-   }
-}"
+}
+Text {
+    anchors.bottom: img.bottom
+    anchors.left: img.left
+    width: 250
+    height: 20
+    text: \"Rolisteam\"
+}
+"
             view.opacity = 0
         }
         else if(idState == 6)
