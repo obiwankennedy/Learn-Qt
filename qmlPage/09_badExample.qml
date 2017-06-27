@@ -254,9 +254,4 @@ SlidePage {
         height: parent.height*0.8
 
     }
-
-
-
-
-
 }
