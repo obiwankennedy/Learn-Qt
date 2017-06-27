@@ -30,7 +30,6 @@ Item {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: root.height > 0 ? root.height/20 : 1
-        textFormat: Text.RichText
 
     }
 
