@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 
 SlidePage {
 
-    id: rectangle1
+    id: page
     anchors.fill: parent
     logo: "qrc:/rsrc/logo.png"
     focus: true
