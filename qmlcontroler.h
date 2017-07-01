@@ -24,7 +24,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickWindow>
 #include <QLabel>
-
+#include <QTimer>
 namespace Ui {
 class QmlControler;
 }
@@ -42,6 +42,7 @@ public:
 
 public slots:
     void currentPageHasChanged(int i);
+    void refreshView();
 protected:
     void initConnection();
     void resizeEvent(QResizeEvent *event);
@@ -58,6 +59,7 @@ private:
     qreal m_ratioImage;
     qreal m_ratioImageBis;
     int m_currentScreen;
+    QTimer* m_timer;
 
 };
 
