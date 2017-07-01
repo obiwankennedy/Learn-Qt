@@ -53,6 +53,10 @@ QmlControler::QmlControler(QWidget *parent) :
 {
     ui->setupUi(this);
     m_label = new QLabel();
+    m_timer = new QTimer();
+    m_timer->setInterval(100);
+    connect(m_timer,SIGNAL(timeout()),this,SLOT(refreshView()));
+
     m_label->setLineWidth(0);
     m_label->setFrameStyle(QFrame::NoFrame);
     ui->scrollArea->setWidget(m_label);
@@ -114,9 +118,25 @@ void QmlControler::initConnection()
 
     connect(root,SIGNAL(currentItemChanged(int)),this,SLOT(currentPageHasChanged(int)));
 
-
+    m_timer->start();
 
 }
+
+void QmlControler::refreshView()
+{
+    if(m_window != nullptr)
+    {
+        QImage img = m_window->grabWindow();
+
+
+        m_ratioImage = (double)img.size().width()/img.size().height();
+            m_ratioImageBis = (double)img.size().height()/img.size().width();
+
+            m_label->setPixmap(QPixmap::fromImage(img));
+            resizeLabel();
+    }
+}
+
 void QmlControler::currentPageHasChanged(int i)
 {
     qDebug() << "current page change"<< i;
@@ -129,7 +149,7 @@ void QmlControler::currentPageHasChanged(int i)
     static int count = 0;
 
 
-    img.save(tr("screens/%1_screen.png").arg(++count,2,10,QChar('0')),"png");
+    //img.save(tr("screens/%1_screen.png").arg(++count,2,10,QChar('0')),"png");
     //qDebug() << "screen shot save" << +s+count;
 
     /*m_ratioImage = (double)img.size().width()/img.size().height();

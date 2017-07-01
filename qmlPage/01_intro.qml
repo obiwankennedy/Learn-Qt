@@ -7,17 +7,17 @@ SlidePage {
     anchors.fill: parent
     logo: "qrc:/rsrc/logo.png"
     focus: true
-    title: "Introduction"
+    title: "Atelier QML"
 
     ListModel {
         id: listSection
         ListElement {
             name: "Présentation"
-            index:0
+            index:1
         }
         ListElement {
             name: "QML, c’est quoi ?"
-            index:1
+            index:2
         }
     }
 

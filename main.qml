@@ -277,6 +277,12 @@ ApplicationWindow {
                 name: "RCSE"
                 path: "25_RCSE.qml"
                 time: 1
+                next: "Contact"
+            }
+            ListElement {
+                name: "Contact"
+                path: "20_FAQ.qml"
+                time: 1
                 next: "FIN"
             }
         }
