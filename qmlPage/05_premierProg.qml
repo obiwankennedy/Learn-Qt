@@ -17,7 +17,7 @@ SlidePage {
 Item {
     Text{
        id: text
-       text:\qsTr(\"Hello World!!\")\"
+       text:\qsTr(\"Hello World!!\")
     }
 }
 "
@@ -25,7 +25,6 @@ Item {
         }
         else
         {
-
             view.opacity = 1
             slideCode.visible = false
             view.focus = false
@@ -39,7 +38,7 @@ Item {
             index:0
         }
         ListElement {
-            name: qsTr("$ qml helloworld.qml")
+            name: qsTr("$ qmlscene helloworld.qml")
             index:2
         }
     }

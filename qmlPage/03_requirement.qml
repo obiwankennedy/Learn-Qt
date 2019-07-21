@@ -12,7 +12,7 @@ SlidePage {
     ListModel {
         id: listSection
         ListElement {
-            name: "QtCreator ~v4.3"
+            name: "QtCreator"
             index:0
         }
         ListElement {
@@ -20,13 +20,10 @@ SlidePage {
             index:1
         }
         ListElement {
-            name: "Les slides: https://github.com/obiwankennedy/Learn-Qt.git"
+            name: "RCSE"
             index:2
         }
-        ListElement {
-            name: "Les exercices: https://github.com/obiwankennedy/TrainingExercices.git"
-            index:3
-        }
+
     }
 
     Component.onCompleted:

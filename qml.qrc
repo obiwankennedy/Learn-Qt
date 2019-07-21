@@ -53,5 +53,7 @@
         <file>qmlPage/09_badExample.qml</file>
         <file>rsrc/logo.png</file>
         <file>qmlPage/20_FAQ.qml</file>
+        <file>rsrc/DSCN2405.JPG</file>
+        <file>rsrc/heritage_animation.jpg</file>
     </qresource>
 </RCC>

@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Window 2.2
 
 Item {
     id: root
@@ -68,7 +67,7 @@ Item {
          id: trigger
          interval: 1001
          repeat: false
-         onTriggered: app.currentItemChanged(view.currentItem)
+         //onTriggered: app.currentItemChanged(view.currentItem)
      }
     ListView {
         id: listView1
@@ -77,27 +76,27 @@ Item {
         width: root.width/2
         height: root.height*0.75
         delegate: Item {
-            width: root.width/2
+            width: root.width*0.8
             height: listView1.height/listView1.count
-                Text {
-                    color: "white"
-                    text: name
-                    font.pointSize: root.height > 0 ? root.height/28 : 1
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.bold: false
-                    wrapMode: Text.WordWrap
-                    elide: Text.ElideLeft
-                    onLinkActivated: Qt.openUrlExternally(link)
-                    linkColor: "white"
-                    textFormat: Text.StyledText
-
+            Text {
+                color: "white"
+                text: name
+                font.pointSize: root.height > 0 ? root.height/28 : 1
+                anchors.verticalCenter: parent.verticalCenter
+                font.bold: false
+                wrapMode: Text.WordWrap
+                elide: Text.ElideLeft
+                onLinkActivated: Qt.openUrlExternally(link)
+                linkColor: "white"
+                textFormat: Text.StyledText
+                width: parent.width
+            }
+            opacity: (root.idState >= index ) ? 1.0: 0.0
+            Behavior on opacity {
+                NumberAnimation {
+                    duration: 1000
                 }
-                opacity: (root.idState >= index ) ? 1.0: 0.0
-                Behavior on opacity {
-                    NumberAnimation {
-                        duration: 1000
-                    }
-                }
+            }
         }
 
 

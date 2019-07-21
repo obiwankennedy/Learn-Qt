@@ -27,6 +27,10 @@ SlidePage {
             name: "QtQuick 2 (Qt5)"
             index:3
         }
+        ListElement {
+            name: "Evolution de la philosophie"
+            index:4
+        }
     }
 
     Component.onCompleted:

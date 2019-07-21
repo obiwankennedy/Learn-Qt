@@ -33,7 +33,7 @@ SlidePage {
         }
         ListElement {
             name: "Exercice: Réaliser un feu de traffic: Rouge puis Rouge et Orange puis vers, <br/>puis Orange puis Rouge"
-            index:5
+            index:7
         }
     }
 
@@ -58,7 +58,7 @@ SlidePage {
     ]"
             view.opacity = 0
         }
-        else if(idState == 9)
+        else if(idState == 6)
         {
             slideCode.visible = true;
             slideCode.code ="transitions: [

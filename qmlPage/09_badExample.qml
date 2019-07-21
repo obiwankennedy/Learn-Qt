@@ -105,6 +105,7 @@ SlidePage {
         else if(idState == 11)
         {
             text.textFormat = TextEdit.RichText
+            text.wrapMode = TextEdit.WordWrap
             text.visible = true;
             panel.visible = false
             slideCode.visible = false;
@@ -241,6 +242,7 @@ SlidePage {
         color: "white"
         font.pixelSize: parent.height*0.05
         textFormat: TextEdit.RichText
+        width: view.width*0.8
 
     }
 

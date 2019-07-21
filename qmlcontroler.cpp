@@ -124,7 +124,7 @@ void QmlControler::initConnection()
 
 void QmlControler::refreshView()
 {
-    if(m_window != nullptr)
+   /* if(m_window != nullptr)
     {
         QImage img = m_window->grabWindow();
 
@@ -134,13 +134,13 @@ void QmlControler::refreshView()
 
             m_label->setPixmap(QPixmap::fromImage(img));
             resizeLabel();
-    }
+    }*/
 }
 
 void QmlControler::currentPageHasChanged(int i)
 {
     qDebug() << "current page change"<< i;
-    m_currentScreen = i;
+    /*m_currentScreen = i;
     QImage img = m_window->grabWindow();
 
     if(img.isNull())
@@ -149,8 +149,8 @@ void QmlControler::currentPageHasChanged(int i)
     static int count = 0;
 
 
-    //img.save(tr("screens/%1_screen.png").arg(++count,2,10,QChar('0')),"png");
-    //qDebug() << "screen shot save" << +s+count;
+    img.save(tr("screens/%1_screen.png").arg(++count,2,10,QChar('0')),"png");*/
+    //qDebug() << "screen shot save" << count;
 
     /*m_ratioImage = (double)img.size().width()/img.size().height();
     m_ratioImageBis = (double)img.size().height()/img.size().width();

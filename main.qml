@@ -12,7 +12,7 @@ ApplicationWindow {
     width: app.width
     height: app.height
     visible: true
-    title: qsTr("PIV and Qt5: The love story!")
+    title: qsTr("Apprendre le QML !")
     property alias current: view.currentIndex
     property bool qml: true
 
@@ -144,20 +144,21 @@ ApplicationWindow {
                 name: "Exemples"
                 path: "04_exemple.qml"
                 time: 1
-                next: "Premier Prog QML"
-            }
-            ListElement {
-                name: "Premier Prog QML"
-                path: "05_premierProg.qml"
-                time: 1
                 next: "QtCreator"
             }
             ListElement {
                 name: "QtCreator"
                 path: "06_qtcreator.qml"
                 time: 1
+                next: "Premier Prog QML"
+            }
+            ListElement {
+                name: "Premier Prog QML"
+                path: "05_premierProg.qml"
+                time: 1
                 next: "Les éléments de base"
             }
+
             ListElement {
                 name: "Les éléments de base"
                 path: "07_elementBase.qml"
@@ -253,6 +254,12 @@ ApplicationWindow {
                 name: "Le cpp et QML"
                 path: "21_cpp_et_qml.qml"
                 time: 1
+                next: "QML et Python"
+            }
+            ListElement {
+                name: "QML et Python"
+                path: "21_cpp_et_qml.qml"
+                time: 1
                 next: "Image Provider"
             }
             ListElement {
@@ -271,19 +278,19 @@ ApplicationWindow {
                 name: "La 3D"
                 path: "24_3d_qml.qml"
                 time: 1
-                next: "RCSE"
+                next: "Contact"
             }
-            ListElement {
+            /*ListElement {
                 name: "RCSE"
                 path: "25_RCSE.qml"
                 time: 1
                 next: "Contact"
-            }
+            }*/
             ListElement {
                 name: "Contact"
                 path: "20_FAQ.qml"
                 time: 1
-                next: "FIN"
+                next: ""
             }
         }
 
@@ -313,6 +320,7 @@ ApplicationWindow {
         model: qml ? qmllearning : panelModel
         highlightRangeMode:PathView.StrictlyEnforceRange
         snapMode: PathView.SnapOneItem
+        currentIndex: 11
         delegate:  Loader {
             //property variant model: model qrc:/qmlPage/01_intro.qml
              source: qml ? "qmlPage/"+path : "pages/"+path
@@ -333,7 +341,7 @@ ApplicationWindow {
             id: trigger
             interval: 10
             repeat: false
-            onTriggered: app.currentItemChanged(view.currentIndex)
+           // onTriggered: app.currentItemChanged(view.currentIndex)
         }
 
         onOffsetChanged: {
@@ -358,6 +366,9 @@ ApplicationWindow {
             {
                 app.visibility = Window.FullScreen;
             }
+        }
+        Keys.onSpacePressed: {
+            app.currentItemChanged(0);
         }
 
         path: Path {

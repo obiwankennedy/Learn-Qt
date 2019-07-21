@@ -29,6 +29,7 @@ TRANSLATIONS =  translations/qtpiv_fr.ts
 
 DISTFILES += \
     qmlPage/CameraController.qml \
-    qmlPage/09_badExample.qml
+    qmlPage/09_badExample.qml \
+    rsrc/heritage_animation.jpg
 
 
